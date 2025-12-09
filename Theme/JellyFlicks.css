@@ -1,11 +1,177 @@
-/* =================================================
-   JellyFlicks Master Theme Import
-   Imports all other CSS files
-   ================================================= */
+/* ============================================================
+   JELLYFLICKS FULL MERGED THEME (Option 1)
+   - All partials combined
+   - Netflix-style accents
+   - Safe for posters, overlays, and buttons
+   ============================================================ */
 
-@import url("https://raw.githubusercontent.com/MLBgamefan/JellyFlicks/main/Theme/JellyFlicks-base.css");
-@import url("https://raw.githubusercontent.com/MLBgamefan/JellyFlicks/main/Theme/JellyFlicks-cards.css");
-@import url("https://raw.githubusercontent.com/MLBgamefan/JellyFlicks/main/Theme/JellyFlicks-details.css");
-@import url("https://raw.githubusercontent.com/MLBgamefan/JellyFlicks/main/Theme/JellyFlicks-ui.css");
-@import url("https://raw.githubusercontent.com/MLBgamefan/JellyFlicks/main/Theme/JellyFlicks-buttons.css");
-@import url("https://raw.githubusercontent.com/MLBgamefan/JellyFlicks/main/Theme/JellyFlicks-hover.css");
+/* ================= VARIABLES ================= */
+:root {
+  --loginPageBgUrl: url("http://mlbgamefanmedia.duckdns.org/Branding/Splashscreen?format=webp&foregroundLayer=1&quality=33&width=3840&height=2160&blur=4");
+  --extraCardButtonsVisibility: block;
+  --overlayPlayButtonPosition: 50%;
+
+  --netflix-red: #e50914;
+  --netflix-red-hover: #f6121d;
+  --netflix-bg: #000;
+}
+
+/* ================= GLOBAL BACKGROUND ================= */
+html, body, .skinBody { 
+    background: var(--netflix-bg) !important; 
+}
+
+/* ================= SAFE CARDS ================= */
+.card, .itemPosterCard, .posterCard {
+    background: transparent !important;
+    border-radius: 4px !important;
+    overflow: visible !important;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.card .cardContent,
+.itemPosterCard .cardContent,
+.posterCard .cardContent {
+    border: 2px solid transparent !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+}
+
+.card:hover .cardContent,
+.itemPosterCard:hover .cardContent,
+.posterCard:hover .cardContent {
+    border-color: var(--netflix-red) !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.75) !important;
+}
+
+.card:hover, .itemPosterCard:hover, .posterCard:hover {
+    transform: scale(1.06) !important;
+}
+
+.cardImageContainer img,
+.posterCard img,
+.itemPosterCard img {
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    background: none !important;
+}
+
+/* ================= OVERLAY PLAY BUTTONS (HOMEPAGE) ================= */
+.cardOverlayContainer .playButton,
+.cardOverlayContainer .trailerButton,
+.cardOverlayContainer .moreOptionsButton {
+    background: var(--netflix-red) !important;
+    border-radius: 50% !important;
+    width: 48px !important;
+    height: 48px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.cardOverlayContainer .playButton i,
+.cardOverlayContainer .trailerButton i,
+.cardOverlayContainer .moreOptionsButton i {
+    color: #fff !important;
+    fill: #fff !important;
+    font-size: 20px !important;
+}
+
+/* ================= DETAIL PAGE MAIN PLAY BUTTON ================= */
+.mainDetailButtons .btnPlay,
+.detailButton-icon {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+}
+
+.mainDetailButtons .btnPlay i,
+.detailButton-icon i {
+    color: #fff !important;
+    fill: #fff !important;
+}
+
+/* ================= PLAYED INDICATORS ================= */
+.cardIndicatorPlayed,
+.playedIndicator {
+    background-color: var(--netflix-red) !important;
+    border-radius: 50% !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardIndicatorPlayed svg path,
+.playedIndicator svg path {
+    fill: #fff !important;
+}
+
+/* ================= NAVBAR / MENU ================= */
+.skinHeader, .header, .mainHeader { 
+    background: #141414 !important; 
+}
+
+.headerButton, .navMenuLink, .navMenuOption {
+    color: #fff !important;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.headerButton:hover, .navMenuLink:hover { 
+    color: var(--netflix-red) !important; 
+}
+
+/* ================= PROGRESS BAR ================= */
+.itemProgressBarForeground, .progressBarForeground { 
+    background: var(--netflix-red) !important; 
+}
+.progressBar { 
+    background: rgba(255,255,255,0.2) !important; 
+}
+
+/* ================= SECTION HEADERS ================= */
+.sectionTitle {
+    border-left: 4px solid var(--netflix-red) !important;
+    padding-left: 10px !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+/* ================= DESCRIPTION & CAST/CREW ================= */
+.details .cast, .details .crew {
+    margin-top: 6px !important;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    color: #b3b3b3;
+}
+
+.details .description { 
+    color: #e5e5e5; 
+}
+
+/* ================= HERO / BANNER ================= */
+.hero-banner { 
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), #000); 
+}
+
+/* ================= CARD TITLES & SUBTITLES ================= */
+.card .title, .poster .title {
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.card .subtitle, .poster .subtitle { 
+    color: #b3b3b3; 
+}
+
+/* ================= SMOOTH TRANSITIONS ================= */
+.card, .poster, .thumb, .navbar a, .menu a { 
+    transition: all 0.3s ease; 
+}
