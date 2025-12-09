@@ -1,3 +1,8 @@
+/* ============================================================
+   JELLYFLICKS + NETFLIXY CSS (FULL ENHANCED)
+   Pure CSS, safe for posters, responsive, hover effects
+   ============================================================ */
+
 :root {
     --netflix-red: #e50914;
     --netflix-red-hover: #f6121d;
@@ -28,6 +33,7 @@ html, body, .skinBody {
     overflow: hidden !important;
 }
 
+/* Hover: red border and shadow */
 .card:hover .cardContent,
 .itemPosterCard:hover .cardContent,
 .posterCard:hover .cardContent {
@@ -39,7 +45,6 @@ html, body, .skinBody {
     transform: scale(1.06) !important;
 }
 
-/* ================= CARD IMAGES ================= */
 .cardImageContainer img,
 .posterCard img,
 .itemPosterCard img {
@@ -48,7 +53,54 @@ html, body, .skinBody {
     visibility: visible !important;
 }
 
-/* Target container for red circle */
+/* ================= OVERLAY PLAY BUTTONS ================= */
+/* Homepage play, trailer, more option buttons: red circle, white icon */
+.cardOverlayContainer .playButton,
+.cardOverlayContainer .trailerButton,
+.cardOverlayContainer .moreOptionsButton {
+    background: var(--netflix-red) !important;
+    border-radius: 50% !important;
+    width: 48px !important;
+    height: 48px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    border: none !important;
+    box-shadow: none !important;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.cardOverlayContainer .playButton i,
+.cardOverlayContainer .trailerButton i,
+.cardOverlayContainer .moreOptionsButton i {
+    color: #fff !important;
+    fill: #fff !important;
+    font-size: 20px !important;
+}
+
+.cardOverlayContainer .playButton:hover,
+.cardOverlayContainer .trailerButton:hover,
+.cardOverlayContainer .moreOptionsButton:hover {
+    transform: scale(1.15) !important;
+    background: var(--netflix-red-hover) !important;
+}
+
+/* ================= DETAIL PAGE MAIN PLAY BUTTON ================= */
+.mainDetailButtons .btnPlay,
+.detailButton-icon {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+}
+
+.mainDetailButtons .btnPlay i,
+.detailButton-icon i {
+    color: #fff !important;
+    fill: #fff !important;
+}
+
+/* ================= PLAYED INDICATORS ================= */
 .cardIndicatorPlayed,
 .playedIndicator {
     background-color: var(--netflix-red) !important;
@@ -60,12 +112,9 @@ html, body, .skinBody {
     justify-content: center;
 }
 
-/* Target the inner SVG icon only for white checkmark */
-.cardIndicatorPlayed svg,
-.playedIndicator svg {
+.cardIndicatorPlayed svg path,
+.playedIndicator svg path {
     fill: #fff !important;
-    width: 14px !important;
-    height: 14px !important;
 }
 
 /* ================= NAVBAR / MENU ================= */
