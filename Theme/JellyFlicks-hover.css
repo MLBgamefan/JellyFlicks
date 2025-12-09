@@ -1,0 +1,81 @@
+/* ============================================================
+   JELLYFLICKS HOVER & SECTIONS
+   ============================================================ */
+
+/* ================= SAFE POSTER/CARD HOVER ================= */
+.card, .itemPosterCard, .posterCard {
+    background: transparent !important;
+    border-radius: 4px !important;
+    overflow: visible !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card .cardContent,
+.itemPosterCard .cardContent,
+.posterCard .cardContent {
+    border: 2px solid transparent !important;  /* default no border */
+    border-radius: 4px !important;
+    overflow: hidden !important;
+}
+
+.card:hover .cardContent,
+.itemPosterCard:hover .cardContent,
+.posterCard:hover .cardContent {
+    border-color: #e50914 !important;  /* Netflix red */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.75) !important;
+}
+
+.card:hover, .itemPosterCard:hover, .posterCard:hover {
+    transform: scale(1.06) !important;
+}
+
+/* Ensure images always visible */
+.cardImageContainer img,
+.posterCard img,
+.itemPosterCard img {
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
+    background: none !important;
+}
+
+/* ================= SECTION HEADERS ================= */
+.sectionTitle {
+    border-left: 4px solid #e50914 !important;
+    padding-left: 10px !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    margin-bottom: 10px !important;
+}
+
+/* ================= CAST & CREW ================= */
+.details .cast, .details .crew {
+    margin-top: 6px !important;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    color: #b3b3b3;
+}
+
+/* ================= DESCRIPTION ================= */
+.details .description { color: #e5e5e5 !important; }
+
+/* ================= HERO / BANNER ================= */
+.hero-banner {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), #000);
+}
+
+/* ================= CARD TITLES & SUBTITLES ================= */
+.card .title, .poster .title {
+    color: #fff !important;
+    font-weight: 600 !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.card .subtitle, .poster .subtitle {
+    color: #b3b3b3 !important;
+}
+
+/* ================= SMOOTH TRANSITIONS ================= */
+.card, .poster, .thumb {
+    transition: all 0.3s ease !important;
+}
