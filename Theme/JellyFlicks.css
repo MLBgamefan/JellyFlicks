@@ -1,4 +1,4 @@
-/* ElegantFin Theme for Jellyfin by lscambo13 */
+/* JellyFlicks Theme for Jellyfin by MLBgamefan */
 
 /* Add-ons: Uncomment to enable */
 /* @import url(./assets/add-ons/media-bar-plugin-support-nightly.css); */
@@ -8,7 +8,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
-    --elegantFinFooterText: "ElegantFin v25.11.25";
+    --JellyFlicksFooterText: "JellyFlicks v1.0";
 
     /* Base theme colors */
     color-scheme: dark;
@@ -232,7 +232,7 @@ body {
 
 #myPreferencesMenuPage > div:after,
 .dashboardFooter::after {
-    content: var(--elegantFinFooterText);
+    content: var(--JellyFlicksFooterText);
     font-size: 0.8em;
     color: var(--borderColor);
     display: inline-grid;
