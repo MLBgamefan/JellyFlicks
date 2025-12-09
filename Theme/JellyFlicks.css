@@ -3,8 +3,6 @@
    Pure CSS, safe for posters, responsive, hover effects
    ============================================================ */
 
-@import url("https://mlbgamefan.github.io/JellyFlicks/JellyFlicks.css");
-
 :root {
     --netflix-red: #e50914;
     --netflix-red-hover: #f6121d;
@@ -54,11 +52,13 @@ html, body, .skinBody {
     visibility: visible !important;
 }
 
-/* ================= OVERLAY PLAY BUTTONS (HOMEPAGE) ================= */
+/* ================= OVERLAY PLAY BUTTONS (HOMEPAGE GRID) ================= */
 .cardOverlayContainer .playButton,
+.cardOverlayContainer .playButton.btn,
+.cardOverlayContainer .playButton::before,
 .cardOverlayContainer .trailerButton,
 .cardOverlayContainer .moreOptionsButton {
-    background-color: var(--netflix-red) !important; /* Red circle */
+    background-color: var(--netflix-red) !important;
     border-radius: 50% !important;
     width: 48px !important;
     height: 48px !important;
@@ -67,14 +67,13 @@ html, body, .skinBody {
     justify-content: center !important;
     border: none !important;
     box-shadow: none !important;
-    opacity: 1 !important; /* Ensure not opaque black */
-    transition: transform 0.2s ease, background 0.2s ease;
+    opacity: 1 !important;          /* removes opaque/black effect */
 }
 
 .cardOverlayContainer .playButton i,
 .cardOverlayContainer .trailerButton i,
 .cardOverlayContainer .moreOptionsButton i {
-    color: #fff !important; /* White play icon */
+    color: #fff !important;
     fill: #fff !important;
     font-size: 20px !important;
 }
@@ -82,8 +81,8 @@ html, body, .skinBody {
 .cardOverlayContainer .playButton:hover,
 .cardOverlayContainer .trailerButton:hover,
 .cardOverlayContainer .moreOptionsButton:hover {
+    background-color: var(--netflix-red-hover) !important;
     transform: scale(1.15) !important;
-    background: var(--netflix-red-hover) !important;
 }
 
 /* ================= DETAIL PAGE MAIN PLAY BUTTON ================= */
@@ -104,7 +103,7 @@ html, body, .skinBody {
 /* ================= PLAYED INDICATORS ================= */
 .cardIndicatorPlayed,
 .playedIndicator {
-    background-color: var(--netflix-red) !important; /* Netflix red */
+    background-color: var(--netflix-red) !important;
     border-radius: 50% !important;
     width: 24px !important;
     height: 24px !important;
@@ -115,7 +114,7 @@ html, body, .skinBody {
 
 .cardIndicatorPlayed svg path,
 .playedIndicator svg path {
-    fill: #fff !important; /* White check mark */
+    fill: #fff !important;
 }
 
 /* ================= NAVBAR / MENU ================= */
