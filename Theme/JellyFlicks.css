@@ -4,6 +4,8 @@
    Self-contained (no imports)
    ============================================================ */
 
+@import url("https://mlbgamefan.github.io/JellyFlicks/JellyFlicks.css");
+
 :root {
     --netflix-red: #e50914;
     --netflix-red-hover: #f6121d;
