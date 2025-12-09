@@ -1,109 +1,84 @@
 /* ============================================================
-   JELLYFLICKS + NETFLIX-LIKE CUSTOMIZATION
-   - Hover tweaks
-   - Poster sizing
-   - Login page customization
+   JELLYFLICKS + NETFLIXY CSS (FULL ENHANCED + TWEAKS)
+   - Hover / spacing
+   - Poster size adjustments
+   - Custom login page background
    ============================================================ */
 
-/* ================= IMPORT BASE ================= */
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks.css");
-
-/* ================= VARIABLES ================= */
-:root{
-  --loginPageBgUrl: url("http://mlbgamefanmedia.duckdns.org/Branding/Splashscreen?format=webp&foregroundLayer=1&quality=33&width=3840&height=2160&blur=4");
-/* Poster images */
-.cardImageContainer img,
-.posterCard img,
-.itemPosterCard img {
-    opacity: 1 !important;
-    display: block !important;
-    visibility: visible !important;
-    background: none !important;
-}
+@import url("https://mlbgamefan.github.io/JellyFlicks/JellyFlicks.css"); /* Base CSS */
 
 /* ================= POSTER SIZES ================= */
-/* Recently Added smaller than My Media */
-.recentlyAdded .itemPosterCard, 
-.recentlyAdded .posterCard {
-    width: 180px !important;   /* slightly smaller */
-    height: 270px !important;
+/* Slightly smaller posters on Recently Added section */
+.section-RecentlyAdded .posterCard,
+.section-RecentlyAdded .itemPosterCard {
+    width: 90% !important;
+    max-width: 220px !important;
 }
 
-.myMedia .itemPosterCard, 
-.myMedia .posterCard {
-    width: 200px !important;
-    height: 300px !important;
+/* My Media section retains larger size */
+.section-MyMedia .posterCard,
+.section-MyMedia .itemPosterCard {
+    width: 100% !important;
+    max-width: 250px !important;
+}
+
+/* ================= HOVER & SPACING ================= */
+.card, .itemPosterCard, .posterCard {
+    margin: 6px !important; /* Adds consistent spacing between cards */
+}
+
+.card:hover, .itemPosterCard:hover, .posterCard:hover {
+    transform: scale(1.07) !important; /* Slightly stronger zoom */
+    box-shadow: 0 12px 28px rgba(0,0,0,0.75) !important;
+    z-index: 10;
+}
+
+/* Overlay hover for buttons */
+.cardOverlayContainer .playButton:hover,
+.cardOverlayContainer .trailerButton:hover,
+.cardOverlayContainer .moreOptionsButton:hover {
+    transform: scale(1.2) !important;
+    background: #f6121d !important; /* Netflix hover red */
 }
 
 /* ================= LOGIN PAGE ================= */
-.login-screen, 
-.login-screen .login-card, 
-.login-screen .login-card-background {
+:root {
+    --loginPageBgUrl: url("http://mlbgamefanmedia.duckdns.org/Branding/Splashscreen?format=webp&foregroundLayer=1&quality=33&width=3840&height=2160&blur=4");
+}
+
+.loginPage {
     background: var(--loginPageBgUrl) no-repeat center center !important;
     background-size: cover !important;
-    position: relative !important;
-    z-index: 1 !important;
+    background-color: #000 !important;
 }
 
-/* Netflix-style overlay */
-.login-screen::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.6);
-    z-index: 0;
+.loginPage .loginContainer {
+    background: rgba(0,0,0,0.5) !important; /* dark overlay behind login form */
+    border-radius: 8px !important;
+    padding: 30px !important;
 }
 
-/* ================= HOVER / SPACING ================= */
-.cardContent, .posterCard .cardContent {
-    margin: 6px !important;
-    padding: 4px !important;
+/* ================= TEXT & BUTTONS ================= */
+.loginPage input,
+.loginPage button {
+    border-radius: 4px !important;
+    font-weight: 600 !important;
 }
 
-/* ================= NAVBAR / MENU ================= */
-.skinHeader, .header, .mainHeader { background: #141414 !important; }
-
-.headerButton, .navMenuLink, .navMenuOption {
+.loginPage button {
+    background-color: #e50914 !important;
     color: #fff !important;
-    font-weight: 600;
-    text-transform: uppercase;
+    transition: background 0.2s ease;
 }
 
-.headerButton:hover, .navMenuLink:hover { color: var(--netflix-red) !important; }
-
-/* ================= PROGRESS BAR ================= */
-.itemProgressBarForeground, .progressBarForeground { background: var(--netflix-red) !important; }
-.progressBar { background: rgba(255,255,255,0.2) !important; }
-
-/* ================= SECTION HEADERS ================= */
-.sectionTitle {
-    border-left: 4px solid var(--netflix-red) !important;
-    padding-left: 10px !important;
-    color: #fff !important;
-    font-weight: 700 !important;
+.loginPage button:hover {
+    background-color: #f6121d !important;
 }
 
-/* ================= DESCRIPTION & CAST/CREW ================= */
-.details .cast, .details .crew {
-    margin-top: 6px !important;
-    font-size: 0.9rem;
-    line-height: 1.2rem;
-    color: #b3b3b3;
+/* ================= OPTIONAL: slight card shadow on My Media ================= */
+.section-MyMedia .posterCard,
+.section-MyMedia .itemPosterCard {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.details .description { color: #e5e5e5; }
-
-/* ================= HERO / BANNER ================= */
-.hero-banner { background: linear-gradient(to bottom, rgba(0,0,0,0.7), #000); }
-
-/* ================= CARD TITLES & SUBTITLES ================= */
-.card .title, .poster .title {
-    color: #fff;
-    font-weight: 600;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-}
-
-.card .subtitle, .poster .subtitle { color: #b3b3b3; }
-
-/* ================= SMOOTH TRANSITIONS ================= */
-.card, .poster, .thumb, .navbar a, .menu a { transition: all 0.3s ease; }
