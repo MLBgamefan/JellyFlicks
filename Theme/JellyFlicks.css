@@ -3,23 +3,7 @@
    Pure CSS, safe for posters, responsive, hover effects
    ============================================================ */
 
-@import url("https://mlbgamefan.github.io/JellyFlicks/JellyFlicks.css");
-/* ================= OVERLAY PLAY BUTTONS (FIXED) ================= */
-/* Homepage play, trailer, more option buttons */
-.cardOverlayContainer .playButton,
-.cardOverlayContainer .trailerButton,
-.cardOverlayContainer .moreOptionsButton {
-    background: var(--netflix-red) !important;
-    border-radius: 50% !important;
-    width: 48px !important;
-    height: 48px !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    border: none !important;
-    box-shadow: none !important;
-    transition: transform 0.2s ease, background 0.2s ease;
-    opacity: 1 !important;        /* force full visibility */
+    z-index: 2 !important;   /* ensure button sits above any overlays */
 }
 
 /* Inner icon color */
@@ -29,6 +13,15 @@
     color: #fff !important;
     fill: #fff !important;
     font-size: 20px !important;
+    z-index: 3 !important;
+}
+
+/* Remove dark opaque circle behind the play button */
+.cardOverlayContainer .overlay,
+.cardOverlayContainer .overlayLayer {
+    background: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
 }
 
 /* Hover effect: scale + slightly brighter red */
@@ -37,13 +30,6 @@
 .cardOverlayContainer .moreOptionsButton:hover {
     transform: scale(1.15) !important;
     background: var(--netflix-red-hover) !important;
-}
-
-/* Force remove any dark overlay behind the icons */
-.cardOverlayContainer .overlay,
-.cardOverlayContainer .overlayLayer {
-    background: none !important;
-    opacity: 1 !important;
 }
 
 /* ================= DETAIL PAGE MAIN PLAY BUTTON ================= */
@@ -114,14 +100,14 @@
 /* ================= DESCRIPTION & CAST/CREW ================= */
 .details .cast, .details .crew {
     margin-top: 6px !important;
-    font-size: 0.9rem;
-    line-height: 1.2rem;
+    font-size: 0.9rem !important;
+    line-height: 1.2rem !important;
     color: #b3b3b3;
 }
 
 .details .description {
-    color: #e5e5e5;
-    margin-bottom: 10px;
+    color: #e5e5e5 !important;
+    margin-bottom: 10px !important;
 }
 
 /* ================= HERO / BANNER ================= */
@@ -131,13 +117,13 @@
 
 /* ================= CARD TITLES & SUBTITLES ================= */
 .card .title, .poster .title {
-    color: #fff;
-    font-weight: 600;
+    color: #fff !important;
+    font-weight: 600 !important;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
 .card .subtitle, .poster .subtitle {
-    color: #b3b3b3;
+    color: #b3b3b3 !important;
 }
 
 /* ================= SMOOTH TRANSITIONS ================= */
