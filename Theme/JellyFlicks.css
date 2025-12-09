@@ -1,5 +1,5 @@
 /* =================== JellyFlicks Theme =================== */
-/* Dark Netflix-style look for Jellyfin */
+/* CSS-only, Netflix-style look for Jellyfin v10.11.4 */
 
 /* ================= ROOT VARIABLES ================= */
 :root {
@@ -30,52 +30,130 @@
     /* Footer */
     --footer-bg: #141414;
     --footer-text-color: #888;
+
+    /* Fonts */
+    --main-font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --title-font-size: 1.2rem;
 }
 
 /* ================= GENERAL STYLES ================= */
 body {
     background-color: var(--secondary-color);
     color: var(--text-color);
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: var(--main-font);
+    scroll-behavior: smooth; /* Smooth scrolling */
 }
 
-/* Navbar */
-.navbar {
-    background-color: var(--nav-bg);
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
 }
-.navbar a {
-    color: var(--text-color);
-}
-.navbar a:hover {
+a:hover {
     color: var(--link-hover-color);
 }
 
-/* Buttons */
+/* ================= NAVBAR ================= */
+.navbar {
+    background-color: var(--nav-bg);
+    border-bottom: 1px solid #222;
+}
+.navbar a {
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+.navbar a:hover {
+    color: var(--link-hover-color);
+    background-color: var(--nav-hover-bg);
+    border-radius: 4px;
+}
+
+/* ================= BUTTONS ================= */
 button, .btn {
     background-color: var(--button-bg);
     color: var(--button-text-color);
+    border: none;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
-    transition: background 0.3s ease;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 button:hover, .btn:hover {
     background-color: var(--button-hover-bg);
+    transform: scale(1.05);
 }
 
-/* Cards */
+/* ================= CARDS ================= */
 .card {
+    position: relative;
     background-color: var(--card-bg);
     color: var(--card-text-color);
-    transition: transform 0.2s, background 0.3s;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 .card:hover {
     background-color: var(--card-hover-bg);
     transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
 }
 
-/* Footer */
+/* Titles inside cards */
+.card-title {
+    font-size: var(--title-font-size);
+    font-weight: bold;
+    margin: 0.5rem;
+}
+
+/* Hover overlay on cards */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.card:hover .card-overlay {
+    opacity: 1;
+}
+
+/* ================= CARD ROWS (Netflix-style) ================= */
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+.row::-webkit-scrollbar {
+    height: 6px;
+}
+.row::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 3px;
+}
+.row::-webkit-scrollbar-track {
+    background: #141414;
+}
+
+/* ================= FOOTER ================= */
 .footer {
     background-color: var(--footer-bg);
     color: var(--footer-text-color);
     text-align: center;
-    padding: 10px;
+    padding: 10px 0;
+    position: relative;
+    font-size: 0.9rem;
+}
+
+/* Dynamic footer text without JS */
+.footer::after {
+    content: var(--jellyFlicksFooterText) " - Enjoy your movies!";
+    display: block;
+    color: var(--footer-text-color);
+    margin-top: 5px;
 }
