@@ -4,57 +4,7 @@
    ============================================================ */
 
 @import url("https://mlbgamefan.github.io/JellyFlicks/JellyFlicks.css");
-
-:root {
-    --netflix-red: #e50914;
-    --netflix-red-hover: #f6121d;
-    --netflix-bg: #000;
-    --card-radius: 6px;
-    --card-shadow: rgba(0,0,0,0.6);
-}
-
-/* ================= GLOBAL BACKGROUND ================= */
-html, body, .skinBody {
-    background-color: var(--netflix-bg) !important;
-    color: #fff !important;
-}
-
-/* ================= SAFE CARDS ================= */
-.card, .itemPosterCard, .posterCard {
-    background: transparent !important;
-    border-radius: var(--card-radius) !important;
-    overflow: visible !important;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.card .cardContent,
-.itemPosterCard .cardContent,
-.posterCard .cardContent {
-    border: 2px solid transparent !important;
-    border-radius: var(--card-radius) !important;
-    overflow: hidden !important;
-}
-
-.card:hover .cardContent,
-.itemPosterCard:hover .cardContent,
-.posterCard:hover .cardContent {
-    border-color: var(--netflix-red) !important;
-    box-shadow: 0 8px 20px var(--card-shadow) !important;
-}
-
-.card:hover, .itemPosterCard:hover, .posterCard:hover {
-    transform: scale(1.06) !important;
-}
-
-.cardImageContainer img,
-.posterCard img,
-.itemPosterCard img {
-    opacity: 1 !important;
-    display: block !important;
-    visibility: visible !important;
-}
-
-/* ================= OVERLAY PLAY BUTTONS ================= */
+/* ================= OVERLAY PLAY BUTTONS (FIXED) ================= */
 /* Homepage play, trailer, more option buttons */
 .cardOverlayContainer .playButton,
 .cardOverlayContainer .trailerButton,
@@ -69,8 +19,10 @@ html, body, .skinBody {
     border: none !important;
     box-shadow: none !important;
     transition: transform 0.2s ease, background 0.2s ease;
+    opacity: 1 !important;        /* force full visibility */
 }
 
+/* Inner icon color */
 .cardOverlayContainer .playButton i,
 .cardOverlayContainer .trailerButton i,
 .cardOverlayContainer .moreOptionsButton i {
@@ -79,11 +31,19 @@ html, body, .skinBody {
     font-size: 20px !important;
 }
 
+/* Hover effect: scale + slightly brighter red */
 .cardOverlayContainer .playButton:hover,
 .cardOverlayContainer .trailerButton:hover,
 .cardOverlayContainer .moreOptionsButton:hover {
     transform: scale(1.15) !important;
     background: var(--netflix-red-hover) !important;
+}
+
+/* Force remove any dark overlay behind the icons */
+.cardOverlayContainer .overlay,
+.cardOverlayContainer .overlayLayer {
+    background: none !important;
+    opacity: 1 !important;
 }
 
 /* ================= DETAIL PAGE MAIN PLAY BUTTON ================= */
