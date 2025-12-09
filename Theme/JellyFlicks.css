@@ -3,6 +3,8 @@
    Pure CSS, safe for posters, responsive, hover effects
    ============================================================ */
 
+@import url("https://mlbgamefan.github.io/JellyFlicks/JellyFlicks-base.css");
+
 :root {
     --netflix-red: #e50914;
     --netflix-red-hover: #f6121d;
@@ -33,7 +35,6 @@ html, body, .skinBody {
     overflow: hidden !important;
 }
 
-/* Hover: red border and shadow */
 .card:hover .cardContent,
 .itemPosterCard:hover .cardContent,
 .posterCard:hover .cardContent {
@@ -54,7 +55,7 @@ html, body, .skinBody {
 }
 
 /* ================= OVERLAY PLAY BUTTONS ================= */
-/* Homepage play, trailer, more option buttons: red circle, white icon */
+/* Homepage play, trailer, more option buttons */
 .cardOverlayContainer .playButton,
 .cardOverlayContainer .trailerButton,
 .cardOverlayContainer .moreOptionsButton {
