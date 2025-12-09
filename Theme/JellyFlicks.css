@@ -1,168 +1,206 @@
-/* Netflix Theme Adaptation for Jellyfin */
+/* ============================================================
+   JELLYFLICKS + NETFLIXY CSS (FULL ENHANCED)
+   Pure CSS, safe for posters, responsive, hover effects
+   ============================================================ */
+
+/* @import url("https://mlbgamefan.github.io/JellyFlicks/JellyFlicks-base.css"); */
+
 :root {
     --netflix-red: #e50914;
-    --netflix-black: #141414;
-    --netflix-dark-gray: #2a2a2a;
-    --netflix-gray: #404040;
-    --netflix-white: #e5e5e5;
+    --netflix-red-hover: #f6121d;
+    --netflix-bg: #000;
+    --card-radius: 6px;
+    --card-shadow: rgba(0,0,0,0.6);
 }
 
-/* Base styling */
-body {
-    background-color: var(--netflix-black) !important;
-    color: var(--netflix-white) !important;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+/* ================= GLOBAL BACKGROUND ================= */
+html, body, .skinBody {
+    background-color: var(--netflix-bg) !important;
+    color: #fff !important;
 }
 
-/* Header/Navbar */
-.skinHeader {
-    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%) !important;
-    height: 68px !important;
-    padding: 0 45px !important;
+/* ================= SAFE CARDS ================= */
+.card, .itemPosterCard, .posterCard {
+    background: transparent !important;
+    border-radius: var(--card-radius) !important;
+    overflow: visible !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.headerTabs {
-    margin-top: 15px !important;
+.card .cardContent,
+.itemPosterCard .cardContent,
+.posterCard .cardContent {
+    border: 2px solid transparent !important;
+    border-radius: var(--card-radius) !important;
+    overflow: hidden !important;
 }
 
-.headerTabs a {
-    color: var(--netflix-white) !important;
-    font-size: 14px !important;
-    margin-right: 20px !important;
+.card:hover .cardContent,
+.itemPosterCard:hover .cardContent,
+.posterCard:hover .cardContent {
+    border-color: var(--netflix-red) !important;
+    box-shadow: 0 8px 20px var(--card-shadow) !important;
 }
 
-.headerTabs a:hover {
-    color: var(--netflix-white) !important;
-    opacity: 0.7;
+.card:hover, .itemPosterCard:hover, .posterCard:hover {
+    transform: scale(1.06) !important;
 }
 
-.headerRight {
-    margin-top: 10px !important;
+.cardImageContainer img,
+.posterCard img,
+.itemPosterCard img {
+    opacity: 1 !important;
+    display: block !important;
+    visibility: visible !important;
 }
 
-/* Logo */
-.headerLogo {
-    height: 45px !important;
-    width: 167px !important;
+/* ================= OVERLAY PLAY BUTTONS ================= */
+/* Homepage play, trailer, more option buttons */
+.cardOverlayContainer .playButton,
+.cardOverlayContainer .trailerButton,
+.cardOverlayContainer .moreOptionsButton {
     background: var(--netflix-red) !important;
-    margin-top: 15px !important;
-}
-
-/* Hero Banner */
-heroCard {
-    height: 56.25vw !important;
-    max-height: 80vh !important;
-    min-height: 400px !important;
-    position: relative !important;
-}
-
-heroCardImage {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-}
-
-/* Content rows */
-.itemsContainer {
-    margin: 0 45px !important;
-}
-
-.sectionTitle {
-    font-size: 1.4vw !important;
-    color: var(--netflix-white) !important;
-    margin: 0.5em 0 !important;
-    font-weight: 500 !important;
-}
-
-/* Cards */
-.card {
-    background-color: transparent !important;
-    border-radius: 4px !important;
-    margin-right: 5px !important;
-    transition: transform 0.2s !important;
-}
-
-.card:hover {
-    transform: scale(1.05) !important;
-    z-index: 1 !important;
-}
-
-.cardImage {
-    border-radius: 4px !important;
-    box-shadow: 0 6px 10px rgba(0,0,0,0.3) !important;
-}
-
-/* Footer */
-.mainAnimatedPages.skinBody {
-    background-color: var(--netflix-black) !important;
-}
-
-.mainDrawer {
-    background-color: var(--netflix-dark-gray) !important;
-}
-
-/* Player controls */
-.videoPlayerContainer {
-    background-color: #000 !important;
-}
-
-.playerControls {
-    background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%) !important;
-}
-
-.playPauseButton, 
-.skipNextButton, 
-.skipPreviousButton {
-    color: var(--netflix-white) !important;
-}
-
-.progressSlider {
-    --highlight: var(--netflix-red) !important;
-}
-
-/* Buttons */
-.emby-button {
-    background-color: var(--netflix-red) !important;
-    color: white !important;
-    border-radius: 4px !important;
-    font-weight: bold !important;
-    padding: 8px 20px !important;
-    text-transform: uppercase !important;
-}
-
-.emby-button:hover {
-    background-color: #f40612 !important;
-}
-
-/* Search */
-.searchBox {
-    background-color: var(--netflix-dark-gray) !important;
+    border-radius: 50% !important;
+    width: 48px !important;
+    height: 48px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
     border: none !important;
-    color: var(--netflix-white) !important;
-    padding: 10px !important;
-    border-radius: 4px !important;
+    box-shadow: none !important;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
-/* Responsive adjustments */
-@media (max-width: 960px) {
-    .skinHeader, .itemsContainer {
-        padding: 0 15px !important;
+.cardOverlayContainer .playButton i,
+.cardOverlayContainer .trailerButton i,
+.cardOverlayContainer .moreOptionsButton i {
+    color: #fff !important;
+    fill: #fff !important;
+    font-size: 20px !important;
+}
+
+.cardOverlayContainer .playButton:hover,
+.cardOverlayContainer .trailerButton:hover,
+.cardOverlayContainer .moreOptionsButton:hover {
+    transform: scale(1.15) !important;
+    background: var(--netflix-red-hover) !important;
+}
+
+/* ================= DETAIL PAGE MAIN PLAY BUTTON ================= */
+.mainDetailButtons .btnPlay,
+.detailButton-icon {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+}
+
+.mainDetailButtons .btnPlay i,
+.detailButton-icon i {
+    color: #fff !important;
+    fill: #fff !important;
+}
+
+/* ================= PLAYED INDICATORS ================= */
+.cardIndicatorPlayed,
+.playedIndicator {
+    background-color: var(--netflix-red) !important;
+    border-radius: 50% !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardIndicatorPlayed svg path,
+.playedIndicator svg path {
+    fill: #fff !important;
+}
+
+/* ================= NAVBAR / MENU ================= */
+.skinHeader, .header, .mainHeader {
+    background-color: #141414 !important;
+}
+
+.headerButton, .navMenuLink, .navMenuOption {
+    color: #fff !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.headerButton:hover, .navMenuLink:hover {
+    color: var(--netflix-red) !important;
+}
+
+/* ================= PROGRESS BAR ================= */
+.itemProgressBarForeground, .progressBarForeground {
+    background-color: var(--netflix-red) !important;
+}
+
+.progressBar {
+    background-color: rgba(255,255,255,0.2) !important;
+}
+
+/* ================= SECTION HEADERS ================= */
+.sectionTitle {
+    border-left: 4px solid var(--netflix-red) !important;
+    padding-left: 10px !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+}
+
+/* ================= DESCRIPTION & CAST/CREW ================= */
+.details .cast, .details .crew {
+    margin-top: 6px !important;
+    font-size: 0.9rem;
+    line-height: 1.2rem;
+    color: #b3b3b3;
+}
+
+.details .description {
+    color: #e5e5e5;
+    margin-bottom: 10px;
+}
+
+/* ================= HERO / BANNER ================= */
+.hero-banner {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7), #000);
+}
+
+/* ================= CARD TITLES & SUBTITLES ================= */
+.card .title, .poster .title {
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+.card .subtitle, .poster .subtitle {
+    color: #b3b3b3;
+}
+
+/* ================= SMOOTH TRANSITIONS ================= */
+.card, .poster, .thumb, .navbar a, .menu a {
+    transition: all 0.3s ease;
+}
+
+/* ================= RESPONSIVE TOUCH (phones/tablets) ================= */
+@media (max-width: 768px) {
+    .cardOverlayContainer .playButton,
+    .cardOverlayContainer .trailerButton,
+    .cardOverlayContainer .moreOptionsButton {
+        width: 40px !important;
+        height: 40px !important;
+        font-size: 18px !important;
     }
-    
-    .headerLogo {
-        width: 100px !important;
+
+    .card:hover, .itemPosterCard:hover, .posterCard:hover {
+        transform: scale(1.02) !important;
     }
 }
 
-@media (max-width: 600px) {
-    .headerTabs {
-        display: none !important;
-    }
-    
-    .sectionTitle {
-        font-size: 3vw !important;
-    }
+/* ================= OPTIONAL: subtle hover shadow for main cards ================= */
+.card:hover, .itemPosterCard:hover, .posterCard:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.7) !important;
 }
