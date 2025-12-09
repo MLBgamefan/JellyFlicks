@@ -1,71 +1,168 @@
 /* Netflix Theme Adaptation for Jellyfin */
-@import url("https://fonts.googleapis.com/css2?family=NetflixSans:ital,wght@0,400;1,400&display=swap");
 :root {
---netflixFooterText: "Netflix Style Theme v1.0";
-/* Base theme colors /
-color-scheme: dark;
---darkerGradientPoint: #000000; / Deep black /
---lighterGradientPoint: #141414; / Dark gray /
---gradientPointAlpha: rgba(0, 0, 0, 0.6);
---headerColor: rgba(0, 0, 0, 0.85); / Slightly transparent black /
---drawerColor: rgba(0, 0, 0, 0.9);
---borderColor: #333333; / Darker border */
---lighterBorderColor: rgba(255, 255, 255, 0.2);
-/* Highlight colors /
---activeColor: #e50914; / Netflix red /
---textColor: #e5e5e5; / Light grey /
---dimTextColor: #999999; / Dimmer text color */
-/* Background gradients */
---backgroundGradient: linear-gradient(0deg, var(--darkerGradientPoint) 35%, var(--lighterGradientPoint));
---headerColorGradient: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 30%, transparent 90%);
-/* Standard component sizes */
---largerRadius: 1.25em;
---borderWidth: 2px;
-/* Shadows */
---shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-/* Responsive adjustments /
---sidePadding: 4%; / Increased padding for mobile */
+    --netflix-red: #e50914;
+    --netflix-black: #141414;
+    --netflix-dark-gray: #2a2a2a;
+    --netflix-gray: #404040;
+    --netflix-white: #e5e5e5;
 }
-/* General body styling */
+
+/* Base styling */
 body {
-background: var(--backgroundGradient);
-margin: 0;
-font-family: 'NetflixSans', sans-serif;
-color: var(--textColor);
+    background-color: var(--netflix-black) !important;
+    color: var(--netflix-white) !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
-/* Header styling */
-.header {
-background: var(--headerColorGradient);
-padding: 1em;
-box-shadow: var(--shadow);
+
+/* Header/Navbar */
+.skinHeader {
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%) !important;
+    height: 68px !important;
+    padding: 0 45px !important;
 }
-/* Navigation Drawer */
-.drawer {
-background: var(--drawerColor);
-border-right: var(--borderWidth) solid var(--borderColor);
+
+.headerTabs {
+    margin-top: 15px !important;
 }
-/* Buttons */
-.button {
-background: var(--activeColor);
-border: none;
-color: white;
-padding: 0.5em 1em;
-border-radius: var(--largerRadius);
-cursor: pointer;
+
+.headerTabs a {
+    color: var(--netflix-white) !important;
+    font-size: 14px !important;
+    margin-right: 20px !important;
 }
+
+.headerTabs a:hover {
+    color: var(--netflix-white) !important;
+    opacity: 0.7;
+}
+
+.headerRight {
+    margin-top: 10px !important;
+}
+
+/* Logo */
+.headerLogo {
+    height: 45px !important;
+    width: 167px !important;
+    background: var(--netflix-red) !important;
+    margin-top: 15px !important;
+}
+
+/* Hero Banner */
+heroCard {
+    height: 56.25vw !important;
+    max-height: 80vh !important;
+    min-height: 400px !important;
+    position: relative !important;
+}
+
+heroCardImage {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+/* Content rows */
+.itemsContainer {
+    margin: 0 45px !important;
+}
+
+.sectionTitle {
+    font-size: 1.4vw !important;
+    color: var(--netflix-white) !important;
+    margin: 0.5em 0 !important;
+    font-weight: 500 !important;
+}
+
 /* Cards */
 .card {
-background: var(--lighterGradientPoint);
-border-radius: var(--largerRadius);
-margin: 1em;
-box-shadow: var(--shadow);
+    background-color: transparent !important;
+    border-radius: 4px !important;
+    margin-right: 5px !important;
+    transition: transform 0.2s !important;
 }
-/* Responsive */
-@media (max-width: 768px) {
-.card {
-margin: 0.5em;
+
+.card:hover {
+    transform: scale(1.05) !important;
+    z-index: 1 !important;
 }
-.header {
-padding: 0.5em;
+
+.cardImage {
+    border-radius: 4px !important;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3) !important;
 }
+
+/* Footer */
+.mainAnimatedPages.skinBody {
+    background-color: var(--netflix-black) !important;
+}
+
+.mainDrawer {
+    background-color: var(--netflix-dark-gray) !important;
+}
+
+/* Player controls */
+.videoPlayerContainer {
+    background-color: #000 !important;
+}
+
+.playerControls {
+    background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, transparent 100%) !important;
+}
+
+.playPauseButton, 
+.skipNextButton, 
+.skipPreviousButton {
+    color: var(--netflix-white) !important;
+}
+
+.progressSlider {
+    --highlight: var(--netflix-red) !important;
+}
+
+/* Buttons */
+.emby-button {
+    background-color: var(--netflix-red) !important;
+    color: white !important;
+    border-radius: 4px !important;
+    font-weight: bold !important;
+    padding: 8px 20px !important;
+    text-transform: uppercase !important;
+}
+
+.emby-button:hover {
+    background-color: #f40612 !important;
+}
+
+/* Search */
+.searchBox {
+    background-color: var(--netflix-dark-gray) !important;
+    border: none !important;
+    color: var(--netflix-white) !important;
+    padding: 10px !important;
+    border-radius: 4px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+    .skinHeader, .itemsContainer {
+        padding: 0 15px !important;
+    }
+    
+    .headerLogo {
+        width: 100px !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .headerTabs {
+        display: none !important;
+    }
+    
+    .sectionTitle {
+        font-size: 3vw !important;
+    }
 }
