@@ -1,201 +1,81 @@
-/* =================== JellyFlicks Theme for Jellyfin =================== */
-/* Based on ElegantFin by MLBgamefan, modified to resemble Netflix style */
+/* =================== JellyFlicks Theme =================== */
+/* Dark Netflix-style look for Jellyfin */
 
 /* ================= ROOT VARIABLES ================= */
 :root {
-    /* Theme Name & Version */
-    --themeName: "JellyFlicks v1.0";
+    --jellyFlicksFooterText: "JellyFlicks v1.0";
 
-    /* Color Palette */
-    --primaryColor: #e50914;          /* Netflix red */
-    --secondaryColor: #141414;        /* Dark background */
-    --accentColor: #b81d24;           /* Slightly lighter red */
-    --textColor: #ffffff;             /* White text */
-    --subTextColor: #b3b3b3;          /* Gray subtitles */
-    --hoverOverlay: rgba(20, 20, 20, 0.8);
-    --cardShadow: rgba(0, 0, 0, 0.7);
+    /* Colors */
+    --primary-color: #e50914;       /* Netflix red accent */
+    --secondary-color: #141414;     /* Dark background */
+    --text-color: #f5f5f5;
+    --link-color: #e50914;
+    --link-hover-color: #b81d24;
 
-    /* Fonts */
-    --headingFont: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    --bodyFont: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    /* Headers & Navigation */
+    --header-bg: #141414;
+    --nav-bg: #181818;
+    --nav-hover-bg: #2c2c2c;
 
-    /* Sizes */
-    --cardBorderRadius: 6px;
-    --carouselGap: 12px;
-    --carouselCardHeight: 270px;
-    --carouselCardWidth: 180px;
+    /* Cards / Items */
+    --card-bg: #1c1c1c;
+    --card-hover-bg: #2c2c2c;
+    --card-text-color: #fff;
+
+    /* Buttons */
+    --button-bg: var(--primary-color);
+    --button-hover-bg: #b81d24;
+    --button-text-color: #fff;
+
+    /* Footer */
+    --footer-bg: #141414;
+    --footer-text-color: #888;
 }
 
-/* ================= BASE STYLING ================= */
+/* ================= GENERAL STYLES ================= */
 body {
-    background-color: var(--secondaryColor) !important;
-    color: var(--textColor) !important;
-    font-family: var(--bodyFont);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-a, a:hover, a:focus {
-    color: var(--primaryColor);
-    text-decoration: none;
+/* Navbar */
+.navbar {
+    background-color: var(--nav-bg);
+}
+.navbar a {
+    color: var(--text-color);
+}
+.navbar a:hover {
+    color: var(--link-hover-color);
 }
 
-/* ================= HEADER / NAVIGATION ================= */
-.navbar, .header {
-    background-color: var(--secondaryColor) !important;
-    border-bottom: 1px solid #222;
-}
-
-.navbar a, .header a {
-    color: var(--textColor);
-}
-
-.navbar a:hover, .header a:hover {
-    color: var(--primaryColor);
-}
-
-/* ================= CAROUSEL / COVERS ================= */
-.card {
-    border-radius: var(--cardBorderRadius);
-    overflow: hidden;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 8px var(--cardShadow);
-}
-
-.card img {
-    border-radius: var(--cardBorderRadius);
-    width: 100%;
-    height: auto;
-}
-
-.card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px var(--cardShadow);
-}
-
-/* ================= HOVER OVERLAY ================= */
-.card:hover .card-overlay {
-    opacity: 1;
-}
-
-.card-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--hoverOverlay);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--textColor);
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* ================= TITLES / DESCRIPTIONS ================= */
-.card-title {
-    font-family: var(--headingFont);
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--textColor);
-    margin-top: 8px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.card-subtitle {
-    font-size: 0.85rem;
-    color: var(--subTextColor);
-    margin-top: 2px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* ================= CAROUSEL LAYOUT ================= */
-.carousel {
-    display: flex;
-    gap: var(--carouselGap);
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding-bottom: 10px;
-}
-
-.carousel::-webkit-scrollbar {
-    height: 8px;
-}
-
-.carousel::-webkit-scrollbar-thumb {
-    background-color: var(--primaryColor);
-    border-radius: 4px;
-}
-
-/* ================= BUTTONS ================= */
+/* Buttons */
 button, .btn {
-    background-color: var(--primaryColor);
-    color: #fff;
-    border: none;
+    background-color: var(--button-bg);
+    color: var(--button-text-color);
     border-radius: 4px;
-    padding: 6px 12px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background 0.3s ease;
 }
-
 button:hover, .btn:hover {
-    background-color: var(--accentColor);
+    background-color: var(--button-hover-bg);
 }
 
-/* ================= FOOTER ================= */
-footer {
-    background-color: var(--secondaryColor);
-    color: var(--subTextColor);
-    border-top: 1px solid #222;
-    font-size: 0.85rem;
-    padding: 16px;
-    text-align: center;
-}
-
-/* ================= MODALS / POPUPS ================= */
-.modal-content {
-    background-color: var(--secondaryColor);
-    color: var(--textColor);
-    border-radius: 8px;
-    padding: 20px;
-}
-
-/* ================= SEARCH / INPUTS ================= */
-input, textarea {
-    background-color: #222;
-    color: var(--textColor);
-    border: 1px solid #333;
-    border-radius: 4px;
-    padding: 6px 10px;
-}
-
-input:focus, textarea:focus {
-    border-color: var(--primaryColor);
-    outline: none;
-}
-
-/* ================= SCROLL SNAP (Optional Netflix-style) ================= */
-.carousel {
-    scroll-snap-type: x mandatory;
-}
-
+/* Cards */
 .card {
-    scroll-snap-align: start;
+    background-color: var(--card-bg);
+    color: var(--card-text-color);
+    transition: transform 0.2s, background 0.3s;
+}
+.card:hover {
+    background-color: var(--card-hover-bg);
+    transform: scale(1.05);
 }
 
-/* ================= ADDITIONAL NETFLIX-STYLE TOUCHES ================= */
-.navbar .logo {
-    filter: brightness(0) invert(1); /* White logo by default */
-}
-
-.card:hover .play-icon {
-    display: block; /* Add your play button overlay element if exists */
+/* Footer */
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text-color);
+    text-align: center;
+    padding: 10px;
 }
