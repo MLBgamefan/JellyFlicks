@@ -1,40 +1,32 @@
-// Wait until the DOM is fully loaded
-document.addEventListener("DOMContentLoaded", () => {
+// =================== JellyFlicks Theme JS ===================
+// Dynamic enhancements for Jellyfin UI
 
-  // Target all main page cards
-  const cards = document.querySelectorAll(".card, .itemPosterCard, .posterCard");
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('JellyFlicks theme loaded');
 
-  cards.forEach(card => {
-
-    // Find the play button container
-    const playBtn = card.querySelector(".cardOverlayContainer .playButton");
-
-    if (playBtn) {
-      // Style it like Netflix
-      playBtn.style.backgroundColor = "#e50914"; // red circle
-      playBtn.style.borderRadius = "50%";
-      playBtn.style.width = "48px";
-      playBtn.style.height = "48px";
-      playBtn.style.display = "flex";
-      playBtn.style.alignItems = "center";
-      playBtn.style.justifyContent = "center";
-
-      // Icon inside
-      const icon = playBtn.querySelector("i");
-      if (icon) {
-        icon.style.color = "#fff";
-        icon.style.fontSize = "20px";
-      }
-
-      // Optional: scale on hover
-      playBtn.addEventListener("mouseenter", () => {
-        playBtn.style.transform = "scale(1.1)";
-      });
-      playBtn.addEventListener("mouseleave", () => {
-        playBtn.style.transform = "scale(1)";
-      });
+    // Dynamic footer text
+    const footer = document.querySelector('.footer');
+    if (footer) {
+        footer.textContent = "JellyFlicks v1.0 - Enjoy your movies!";
     }
 
-  });
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 
+    // Optional: subtle hover effect for cards
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'scale(1.05)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'scale(1)';
+        });
+    });
 });
