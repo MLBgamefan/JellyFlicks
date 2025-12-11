@@ -54,22 +54,49 @@ button:hover, .btn:hover {
     background-color: var(--jellyFlicks-button-hover-bg) !important;
 }
 
-/* ================= CARD OVERLAY BUTTONS SPACING ================= */
-/* Ensure buttons never touch or merge */
+/* ================= CARD OVERLAY BUTTONS - ABSOLUTE POSITIONING ================= */
 .cardOverlayContainer {
-    display: flex !important;
-    flex-wrap: wrap !important; /* allow wrapping if card is small */
-    justify-content: flex-start !important;
-    gap: 6px !important; /* fallback spacing for modern browsers */
+    position: relative !important; /* container relative for absolute positioning */
 }
 
+/* Position each button explicitly to prevent overlap */
+.cardOverlayContainer .playButton {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+}
+
+.cardOverlayContainer .trailerButton {
+    position: absolute !important;
+    top: 10px !important;
+    left: 60px !important;
+}
+
+.cardOverlayContainer .moreOptionsButton {
+    position: absolute !important;
+    top: 10px !important;
+    left: 110px !important;
+}
+
+/* Force buttons size */
 .cardOverlayContainer .playButton,
 .cardOverlayContainer .trailerButton,
 .cardOverlayContainer .moreOptionsButton {
-    margin: 0 4px !important;   /* horizontal spacing between buttons */
-    flex-shrink: 0 !important;  /* prevent shrinking on small cards */
-    width: 42px !important;     /* optional smaller size to fit tight cards */
+    width: 42px !important;
     height: 42px !important;
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.2s ease, background 0.2s ease !important;
+}
+
+/* Button hover scaling */
+.cardOverlayContainer .playButton:hover,
+.cardOverlayContainer .trailerButton:hover,
+.cardOverlayContainer .moreOptionsButton:hover {
+    transform: scale(1.15) !important;
+    background-color: var(--jellyFlicks-red-hover) !important;
 }
 
 /* ================= FOOTER ================= */
