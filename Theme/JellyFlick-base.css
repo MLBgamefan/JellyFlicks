@@ -55,9 +55,21 @@ button:hover, .btn:hover {
 }
 
 /* ================= CARD OVERLAY BUTTONS SPACING ================= */
+/* Ensure buttons never touch or merge */
 .cardOverlayContainer {
     display: flex !important;
-    gap: 6px !important; /* space between play, trailer, more buttons */
+    flex-wrap: wrap !important; /* allow wrapping if card is small */
+    justify-content: flex-start !important;
+    gap: 6px !important; /* fallback spacing for modern browsers */
+}
+
+.cardOverlayContainer .playButton,
+.cardOverlayContainer .trailerButton,
+.cardOverlayContainer .moreOptionsButton {
+    margin: 0 4px !important;   /* horizontal spacing between buttons */
+    flex-shrink: 0 !important;  /* prevent shrinking on small cards */
+    width: 42px !important;     /* optional smaller size to fit tight cards */
+    height: 42px !important;
 }
 
 /* ================= FOOTER ================= */
