@@ -33,22 +33,23 @@ html, body, .skinBody {
     overflow: hidden !important;
 }
 
-/* ================= HOVER EFFECT (HOMEPAGE / LIBRARY ONLY) ================= */
-.library .card:hover .cardContent,
-.library .itemPosterCard:hover .cardContent,
-.library .posterCard:hover .cardContent {
+/* ================= HOVER EFFECT (ALL CARDS) ================= */
+.card:hover .cardContent,
+.itemPosterCard:hover .cardContent,
+.posterCard:hover .cardContent {
     border-color: var(--netflix-red) !important;
     box-shadow: 0 8px 20px var(--card-shadow) !important;
 }
 
-.library .card:hover,
-.library .itemPosterCard:hover,
-.library .posterCard:hover {
+.card:hover,
+.itemPosterCard:hover,
+.posterCard:hover {
     transform: scale(1.06) !important;
 }
 
-/* ================= DETAIL PAGE POSTERS ================= */
-/* Prevent pop-out and red border on single-item detail page */
+/* ================= DETAIL PAGE POSTER OVERRIDE ================= */
+/* Prevent hover pop-out and red border only on the main poster on detail page */
+
 .mediaDetailPoster .posterCard:hover,
 .mediaDetailPoster .card:hover,
 .mainPoster .posterCard:hover,
@@ -68,7 +69,6 @@ html, body, .skinBody {
 }
 
 /* ================= OVERLAY PLAY BUTTONS (FIXED) ================= */
-/* Homepage play, trailer, more option buttons */
 .cardOverlayContainer .playButton,
 .cardOverlayContainer .trailerButton,
 .cardOverlayContainer .moreOptionsButton {
@@ -218,14 +218,14 @@ html, body, .skinBody {
         font-size: 18px !important;
     }
 
-    .library .card:hover, .library .itemPosterCard:hover, .library .posterCard:hover {
+    .card:hover, .itemPosterCard:hover, .posterCard:hover {
         transform: scale(1.02) !important;
     }
 }
 
 /* ================= OPTIONAL: subtle hover shadow for main cards ================= */
-.library .card:hover,
-.library .itemPosterCard:hover,
-.library .posterCard:hover {
+.card:hover,
+.itemPosterCard:hover,
+.posterCard:hover {
     box-shadow: 0 10px 25px rgba(0,0,0,0.7) !important;
 }
