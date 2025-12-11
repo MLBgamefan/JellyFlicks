@@ -54,6 +54,12 @@ button:hover, .btn:hover {
     background-color: var(--jellyFlicks-button-hover-bg) !important;
 }
 
+/* ================= CARD OVERLAY BUTTONS SPACING ================= */
+.cardOverlayContainer {
+    display: flex !important;
+    gap: 6px !important; /* space between play, trailer, more buttons */
+}
+
 /* ================= FOOTER ================= */
 .footer {
     background-color: var(--jellyFlicks-bg) !important;
