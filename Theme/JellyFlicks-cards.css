@@ -1,0 +1,130 @@
+/* ============================================================
+   JELLYFLICKS CARDS ENHANCEMENTS
+   Hover overlays, badges, shadows, truncation, focus states
+   ============================================================ */
+
+/* ================= CARD OVERLAY ================= */
+.cardOverlayContainer .cardOverlayInfo,
+.itemPosterCard .cardOverlayInfo,
+.posterCard .cardOverlayInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    color: #fff;
+    padding: 8px 10px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    border-radius: var(--card-radius);
+    font-size: 0.85rem;
+    line-height: 1.2rem;
+}
+
+/* Show overlay on hover or focus */
+.card:hover .cardOverlayInfo,
+.itemPosterCard:hover .cardOverlayInfo,
+.posterCard:hover .cardOverlayInfo,
+.card:focus .cardOverlayInfo,
+.itemPosterCard:focus .cardOverlayInfo,
+.posterCard:focus .cardOverlayInfo {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* ================= CARD BADGES ================= */
+.cardBadge,
+.itemPosterCard .cardBadge,
+.posterCard .cardBadge {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    background-color: var(--netflix-red);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 3px;
+    z-index: 10;
+    text-transform: uppercase;
+}
+
+/* Examples: "NEW", "HD", "4K" */
+.cardBadge.new { background-color: #00b894; }
+.cardBadge.hd { background-color: #0984e3; }
+.cardBadge["4k"] { background-color: #fdcb6e; }
+
+/* ================= SHADOW & DEPTH ================= */
+.card, .itemPosterCard, .posterCard {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.card:hover, .itemPosterCard:hover, .posterCard:hover,
+.card:focus, .itemPosterCard:focus, .posterCard:focus {
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+
+/* ================= CARD TITLE TRUNCATION ================= */
+.card .title,
+.poster .title,
+.itemPosterCard .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/* Multi-line ellipsis (2 lines max) */
+.card .subtitle,
+.poster .subtitle {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ================= FOCUS STATES (TV clients) ================= */
+.card:focus, .itemPosterCard:focus, .posterCard:focus {
+    outline: 2px solid var(--netflix-red);
+    transform: scale(1.06) !important;
+}
+
+/* ================= OVERLAY ICONS / INFO ================= */
+.cardOverlayContainer .cardOverlayInfo i,
+.itemPosterCard .cardOverlayInfo i,
+.posterCard .cardOverlayInfo i {
+    margin-right: 6px;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+/* ================= TRANSITIONS ================= */
+.card, .poster, .thumb {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cardOverlayContainer .cardOverlayInfo,
+.itemPosterCard .cardOverlayInfo,
+.posterCard .cardOverlayInfo {
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* ================= RESPONSIVE TOUCH DEVICES ================= */
+@media (max-width: 768px) {
+    .cardOverlayContainer .cardOverlayInfo,
+    .itemPosterCard .cardOverlayInfo,
+    .posterCard .cardOverlayInfo {
+        font-size: 0.75rem;
+        padding: 6px 8px;
+    }
+
+    .cardBadge,
+    .itemPosterCard .cardBadge,
+    .posterCard .cardBadge {
+        font-size: 0.55rem;
+        padding: 1px 4px;
+
+    }
+}
