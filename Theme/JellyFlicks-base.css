@@ -1,8 +1,7 @@
 /* ============================================================
-   JELLYFLICKS BASE CSS
-   Global variables, colors, fonts, and background
-   (Full replacement — restores posters & titles, removes only
-    explicit overlay icon buttons, preserves detail page buttons)
+   JELLYFLICKS BASE CSS (FIXED)
+   Restores posters & clickability, removes poster overlay icons
+
    ============================================================ */
 
 :root {
@@ -38,8 +37,7 @@ html, body, .skinBody {
     font-family: var(--jellyFlicks-font) !important;
 }
 
-/* ================= LINKS & CLICKABILITY ================= */
-/* Ensure links and clickable poster areas are visible and clickable */
+/* ================= LINKS & NAV ================= */
 a, .navMenuLink, .navMenuOption {
     color: var(--jellyFlicks-text) !important;
     text-decoration: none !important;
@@ -48,32 +46,36 @@ a:hover, .navMenuLink:hover, .navMenuOption:hover {
     color: var(--jellyFlicks-red) !important;
 }
 
-/* Poster image & link visibility: force images to show and be clickable */
+/* ================= RESTORE POSTERS / CLICKABILITY ================= */
+/* Ensure poster images and poster links are visible and clickable */
 .cardImageContainer img,
 .posterCard img,
 .itemPosterCard img,
 .poster a,
 .itemPosterCard a,
-.card a {
+.card a,
+.posterCard a {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
-    pointer-events: auto !important; /* restore clicks */
+    pointer-events: auto !important;
 }
 
-/* Ensure poster containers don't hide titles or links */
+/* Make poster containers accept pointer events (so clicking works) */
 .itemPosterCard,
 .posterCard,
 .card {
     pointer-events: auto !important;
 }
 
-/* Restore card titles if hidden */
+/* Ensure titles are visible */
 .card .title,
 .poster .title,
-.itemPosterCard .title {
+.itemPosterCard .title,
+.posterCard .title {
     color: var(--jellyFlicks-text) !important;
     display: block !important;
+    visibility: visible !important;
 }
 
 /* ================= GLOBAL BUTTONS ================= */
@@ -90,67 +92,95 @@ button:hover, .btn:hover {
 }
 
 /* ============================================================
-   SAFELY HIDE ONLY THE SMALL OVERLAY ICON BUTTONS
-   We target explicit overlay icon selectors and safe attribute fallbacks.
-   DO NOT target generic classes like .itemAction or .itemActionButton.
+   SAFELY HIDE ONLY POSTER OVERLAY ICONS (play/trailer/more)
+   We target elements inside poster/card containers whose class/attrs
+   indicate overlay buttons. This avoids hiding generic classes
+   used by the poster markup (like .itemAction).
    ============================================================ */
 
-/* Primary targets — common in ElegantFin / Jellyfin themes */
-.cardOverlayContainer > .playButton,
-.cardOverlayContainer > .trailerButton,
-.cardOverlayContainer > .moreOptionsButton,
-.cardOverlayContainer .playButton,
-.cardOverlayContainer .trailerButton,
-.cardOverlayContainer .moreOptionsButton,
-.cardOverlayButtonRow > .playButton,
-.cardOverlayButtonRow > .trailerButton,
-.cardOverlayButtonRow > .moreOptionsButton,
-.cardOverlayButtons > .playButton,
-.cardOverlayButtons > .trailerButton,
-.cardOverlayButtons > .moreOptionsButton {
+/* 1) Specific common selectors inside poster/card containers */
+.itemPosterCard .cardOverlayContainer > .playButton,
+.itemPosterCard .cardOverlayContainer > .trailerButton,
+.itemPosterCard .cardOverlayContainer > .moreOptionsButton,
+.posterCard .cardOverlayContainer > .playButton,
+.posterCard .cardOverlayContainer > .trailerButton,
+.posterCard .cardOverlayContainer > .moreOptionsButton,
+.card .cardOverlayContainer > .playButton,
+.card .cardOverlayContainer > .trailerButton,
+.card .cardOverlayContainer > .moreOptionsButton {
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
 }
 
-/* Attribute-based fallbacks (safe) — match buttons that include "play", "trailer", "more" in data attributes */
-.cardOverlayContainer [data-action="play"],
-.cardOverlayContainer [data-action="trailer"],
-.cardOverlayContainer [data-action="more"],
-.cardOverlayContainer [data-purpose="play"],
-.cardOverlayContainer [data-purpose="trailer"] {
+/* 2) Buttons/anchors/links inside overlay container — hide only when inside poster card */
+.itemPosterCard .cardOverlayContainer button,
+.itemPosterCard .cardOverlayContainer a,
+.posterCard .cardOverlayContainer button,
+.posterCard .cardOverlayContainer a,
+.card .cardOverlayContainer button,
+.card .cardOverlayContainer a {
+    /* Hide interactive overlay buttons inside poster overlays */
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
 }
 
-/* Some builds use classes like emby-play-button / emby-more-button — target them specifically */
-.emby-play-button,
-.emby-more-button,
-.play-button-icon,
-.more-button-icon {
+/* 3) Class name patterns commonly used by other themes (safe when restricted to poster containers) */
+.itemPosterCard [class*="play"],
+.itemPosterCard [class*="trailer"],
+.itemPosterCard [class*="more"],
+.posterCard [class*="play"],
+.posterCard [class*="trailer"],
+.posterCard [class*="more"],
+.card [class*="play"],
+.card [class*="trailer"],
+.card [class*="more"] {
+    /* Only hide these pattern-matched elements if they are inside poster/card containers.
+       We intentionally do not match top-level generic classes so we don't break non-poster UI. */
     display: none !important;
     visibility: hidden !important;
     opacity: 0 !important;
     pointer-events: none !important;
 }
 
-/* IMPORTANT: do NOT hide .itemAction, .itemActionButton here — they affect poster clickability */
-
-/* If there are extra wrapper nodes adding empty space, prevent them from blocking clicks,
-   but do not remove them outright to avoid layout breakage */
-.cardOverlayContainer,
-.cardOverlayButtonRow,
-.cardOverlayButtons {
-    /* leave position as-is, but ensure they don't block pointer events if empty */
+/* 4) Attribute fallbacks inside poster/card contexts */
+.itemPosterCard [data-action="play"],
+.itemPosterCard [data-action="trailer"],
+.itemPosterCard [data-action="more"],
+.posterCard [data-action="play"],
+.posterCard [data-action="trailer"],
+.posterCard [data-action="more"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
     pointer-events: none !important;
+}
+
+/* 5) Some builds include Emby/Jellyfin specific classes — restricted to poster contexts */
+.itemPosterCard .emby-play-button,
+.posterCard .emby-play-button,
+.itemPosterCard .emby-more-button,
+.posterCard .emby-more-button {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* 6) If overlay wrappers exist but are empty, prevent them from blocking pointer events */
+.itemPosterCard .cardOverlayContainer,
+.posterCard .cardOverlayContainer,
+.card .cardOverlayContainer {
+    pointer-events: none !important;
+    background: transparent !important;
 }
 
 /* ============================================================
-   DETAIL PAGE BUTTONS — NETFLIX-STYLE (Option A preserved)
-   These remain visible and functional (Play, Trailer, Add, Like, More)
+   KEEP DETAIL PAGE BUTTONS VISIBLE (Play/Trailer/Add/Like/More)
+   These are top-of-page controls and should remain functional
    ============================================================ */
 
 .mainDetailButtons,
@@ -165,7 +195,8 @@ button:hover, .btn:hover {
     z-index: 40 !important;
 }
 
-/* Primary Play button */
+/* Primary Play button (detail page) */
+
 .mainDetailButtons .btnPlay,
 .detailButtonsRow .btnPlay,
 .detailButton-play {
@@ -214,17 +245,8 @@ button:hover, .btn:hover {
     background-color: var(--detail-btn-hover-bg) !important;
 }
 
-/* Icon sizing inside detail page buttons */
-.mainDetailButtons i,
-.detailButtonsRow i,
-.detailButton-icon i {
-    font-size: 18px !important;
-    color: #fff !important;
-}
-
 /* ============================================================
-   CARDS: ensure hover pop-out remains functional (red border + shadow)
-   This keeps the homepage/library behavior intact
+   CARDS: maintain hover pop-out (red border + shadow) for homepage/library
    ============================================================ */
 
 .card, .itemPosterCard, .posterCard {
@@ -240,8 +262,6 @@ button:hover, .btn:hover {
     border-radius: var(--jellyFlicks-card-radius) !important;
     overflow: hidden !important;
 }
-
-/* Homepage/library card hover (keep this) */
 .card:hover .cardContent,
 .itemPosterCard:hover .cardContent,
 .posterCard:hover .cardContent {
@@ -252,7 +272,7 @@ button:hover, .btn:hover {
     transform: scale(1.06) !important;
 }
 
-/* Prevent pop-out on single item detail page poster */
+/* Prevent pop-out on single-item detail page poster */
 .mediaDetailPoster .posterCard:hover,
 .mediaDetailPoster .card:hover,
 .mainPoster .posterCard:hover,
