@@ -21,6 +21,12 @@
     --jellyFlicks-button-bg: var(--jellyFlicks-red);
     --jellyFlicks-button-hover-bg: var(--jellyFlicks-red-hover);
     --jellyFlicks-button-text: #fff;
+
+    /* ================= DETAIL BUTTONS ================= */
+    --detail-btn-bg: #2c2c2c;
+    --detail-btn-hover-bg: #3a3a3a;
+    --detail-btn-radius: 6px;
+    --detail-play-padding: 10px 20px;
 }
 
 /* ================= GLOBAL BACKGROUND ================= */
@@ -54,55 +60,203 @@ button:hover, .btn:hover {
     background-color: var(--jellyFlicks-button-hover-bg) !important;
 }
 
-/* ================= CARD OVERLAY BUTTONS - ABSOLUTE POSITIONING ================= */
-.cardOverlayContainer {
-    position: relative !important; /* container relative for absolute positioning */
-}
+/* ============================================================
+   OVERLAY BUTTONS (POSTER PLAY / TRAILER / MORE) — FIX MERGING
+   Use a single, robust flex layout for overlay icons with a 12px gap
+   This prevents any touching/merging across card sizes and clients
+   ============================================================ */
 
-/* Position each button explicitly to prevent overlap */
-.cardOverlayContainer .playButton {
+/* Ensure overlay container is correctly positioned and uses flex layout */
+.cardOverlayContainer,
+.cardOverlayButtonRow,
+.cardOverlayContainer .buttons,
+.itemPosterCard .cardOverlayContainer,
+.posterCard .cardOverlayContainer,
+.card .cardOverlayContainer {
+    /* Keep the container positioned so it floats over the poster as intended.
+       Many Jellyfin builds already use absolute positioning for the overlay container,
+       so only set position if it exists naturally. We preserve compatibility by
+       allowing absolute or static, then enforce flex layout inside. */
     position: absolute !important;
     top: 10px !important;
     left: 10px !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    gap: 12px !important;       /* THE FIX: 12px Netflix-style spacing */
+    column-gap: 12px !important;
+    row-gap: 12px !important;
+    z-index: 50 !important;     /* make sure controls appear above posters */
 }
 
-.cardOverlayContainer .trailerButton {
-    position: absolute !important;
-    top: 10px !important;
-    left: 60px !important;
+/* Fallback for layouts that use alternate selectors */
+.layout-mobile .cardOverlayContainer,
+.layout-mobile .cardOverlayButtonRow {
+    gap: 12px !important;
+    column-gap: 12px !important;
+    row-gap: 12px !important;
 }
 
-.cardOverlayContainer .moreOptionsButton {
-    position: absolute !important;
-    top: 10px !important;
-    left: 110px !important;
-}
-
-/* Force buttons size */
+/* Button appearance — circular icons used on posters */
 .cardOverlayContainer .playButton,
 .cardOverlayContainer .trailerButton,
 .cardOverlayContainer .moreOptionsButton {
     width: 42px !important;
     height: 42px !important;
     border-radius: 50% !important;
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    transition: transform 0.2s ease, background 0.2s ease !important;
+    background: var(--jellyFlicks-red) !important;   /* red base for play/trailer icons */
+    color: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+    transition: transform 0.18s ease, background 0.18s ease !important;
+    flex-shrink: 0 !important; /* prevents shrinking on very small cards */
 }
 
-/* Button hover scaling */
+/* Icon color */
+.cardOverlayContainer .playButton i,
+.cardOverlayContainer .trailerButton i,
+.cardOverlayContainer .moreOptionsButton i {
+    color: #fff !important;
+    fill: #fff !important;
+    font-size: 18px !important;
+}
+
+/* Hover/Focus scaling and brighter color — kept but won't merge due to gap */
 .cardOverlayContainer .playButton:hover,
 .cardOverlayContainer .trailerButton:hover,
-.cardOverlayContainer .moreOptionsButton:hover {
+.cardOverlayContainer .moreOptionsButton:hover,
+.cardOverlayContainer .playButton:focus,
+.cardOverlayContainer .trailerButton:focus,
+.cardOverlayContainer .moreOptionsButton:focus {
     transform: scale(1.15) !important;
+    background: var(--jellyFlicks-red-hover) !important;
+    outline: none !important;
+}
+
+/* If any older layout uses an inner overlay or overlayLayer, ensure it doesn't hide buttons */
+.cardOverlayContainer .overlay,
+.cardOverlayContainer .overlayLayer {
+    background: none !important;
+    opacity: 1 !important;
+}
+
+/* ============================================================
+   DETAIL PAGE BUTTONS — NETFLIX-STYLE (Option A)
+   Play (primary red) + Trailer/Add/Like/More (secondary dark)
+   Uniform spacing (12px), consistent sizing, responsive
+   ============================================================ */
+
+/* Container for main detail buttons (top area on item pages) */
+.mainDetailButtons,
+.itemDetailButtons,
+.detailButtonsRow,
+.detailPage .mainDetailButtons {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;           /* netflix-style spacing */
+    margin: 12px 0 !important;
+    z-index: 40 !important;
+}
+
+/* Primary Play button — red, larger, pill-shaped */
+.mainDetailButtons .btnPlay,
+.detailButtonsRow .btnPlay,
+.detailButton-play {
+    background-color: var(--jellyFlicks-red) !important;
+    color: #fff !important;
+    padding: var(--detail-play-padding) !important; /* e.g. 10px 20px */
+    border-radius: var(--detail-btn-radius) !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important; /* space between icon and text */
+    border: none !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    transition: background 0.18s ease, transform 0.12s ease !important;
+}
+
+/* Play button hover */
+.mainDetailButtons .btnPlay:hover,
+.detailButtonsRow .btnPlay:hover,
+.detailButton-play:hover {
     background-color: var(--jellyFlicks-red-hover) !important;
 }
 
-/* ================= FOOTER ================= */
+/* Secondary detail buttons (Trailer / Add / Like / More) */
+.mainDetailButtons .detailButton,
+.mainDetailButtons .detailButton-icon,
+.detailButtonsRow .detailButton,
+.detailButtonsRow .detailButton-icon,
+.detailButton-secondary {
+    background-color: var(--detail-btn-bg) !important;
+    color: #fff !important;
+    padding: 8px 12px !important;
+    border-radius: var(--detail-btn-radius) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background 0.15s ease !important;
+    text-transform: none !important;
+}
+
+/* Secondary hover state */
+.mainDetailButtons .detailButton:hover,
+.mainDetailButtons .detailButton-icon:hover,
+.detailButtonsRow .detailButton:hover,
+.detailButtonsRow .detailButton-icon:hover {
+    background-color: var(--detail-btn-hover-bg) !important;
+}
+
+/* Icon sizing inside detail page buttons */
+.mainDetailButtons i,
+.detailButtonsRow i,
+.detailButton-icon i {
+    font-size: 18px !important;
+    color: #fff !important;
+}
+
+/* Make sure the play button icon + label are visible on small screens */
+@media (max-width: 768px) {
+    .mainDetailButtons .btnPlay,
+    .detailButtonsRow .btnPlay {
+        padding: 8px 14px !important;
+        font-size: 0.95rem !important;
+    }
+    .mainDetailButtons .detailButton,
+    .detailButtonsRow .detailButton {
+        padding: 6px 10px !important;
+        font-size: 0.9rem !important;
+    }
+
+    /* Overlay container spacing in mobile layouts */
+    .cardOverlayContainer,
+    .cardOverlayButtonRow {
+        gap: 8px !important;
+    }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
 .footer {
     background-color: var(--jellyFlicks-bg) !important;
     color: var(--jellyFlicks-footer-text) !important;
     text-align: center !important;
     padding: 10px !important;
 }
+
+/* ============================================================
+   End of JellyFlicks-base.css
+   ============================================================ */
