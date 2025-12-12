@@ -62,21 +62,16 @@ button:hover, .btn:hover {
 
 /* ============================================================
    OVERLAY BUTTONS (POSTER PLAY / TRAILER / MORE) — FIX MERGING
-   Use a single, robust flex layout for overlay icons with a 12px gap
-   This prevents any touching/merging across card sizes and clients
+   Horizontal row, 12px spacing via margins
    ============================================================ */
 
-/* Ensure overlay container is correctly positioned and uses flex layout */
+/* Ensure overlay container is positioned properly */
 .cardOverlayContainer,
 .cardOverlayButtonRow,
 .cardOverlayContainer .buttons,
 .itemPosterCard .cardOverlayContainer,
 .posterCard .cardOverlayContainer,
 .card .cardOverlayContainer {
-    /* Keep the container positioned so it floats over the poster as intended.
-       Many Jellyfin builds already use absolute positioning for the overlay container,
-       so only set position if it exists naturally. We preserve compatibility by
-       allowing absolute or static, then enforce flex layout inside. */
     position: absolute !important;
     top: 10px !important;
     left: 10px !important;
@@ -87,18 +82,25 @@ button:hover, .btn:hover {
     align-items: center !important;
     justify-content: flex-start !important;
 
-    gap: 12px !important;       /* THE FIX: 12px Netflix-style spacing */
-    column-gap: 12px !important;
-    row-gap: 12px !important;
     z-index: 50 !important;     /* make sure controls appear above posters */
 }
 
-/* Fallback for layouts that use alternate selectors */
-.layout-mobile .cardOverlayContainer,
-.layout-mobile .cardOverlayButtonRow {
-    gap: 12px !important;
-    column-gap: 12px !important;
-    row-gap: 12px !important;
+/* Margin-based spacing for all overlay buttons — prevents merging */
+.cardOverlayContainer .playButton,
+.cardOverlayContainer .trailerButton,
+.cardOverlayContainer .moreOptionsButton,
+.cardOverlayButtonRow .playButton,
+.cardOverlayButtonRow .trailerButton,
+.cardOverlayButtonRow .moreOptionsButton,
+.itemActionButton,
+.itemAction {
+    margin-right: 12px !important;
+}
+
+/* Remove margin from last button */
+.cardOverlayContainer > :last-child,
+.cardOverlayButtonRow > :last-child {
+    margin-right: 0 !important;
 }
 
 /* Button appearance — circular icons used on posters */
@@ -111,7 +113,7 @@ button:hover, .btn:hover {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: var(--jellyFlicks-red) !important;   /* red base for play/trailer icons */
+    background: var(--jellyFlicks-red) !important;
     color: #fff !important;
     border: none !important;
     box-shadow: none !important;
@@ -128,7 +130,7 @@ button:hover, .btn:hover {
     font-size: 18px !important;
 }
 
-/* Hover/Focus scaling and brighter color — kept but won't merge due to gap */
+/* Hover/Focus scaling and brighter color */
 .cardOverlayContainer .playButton:hover,
 .cardOverlayContainer .trailerButton:hover,
 .cardOverlayContainer .moreOptionsButton:hover,
@@ -140,7 +142,7 @@ button:hover, .btn:hover {
     outline: none !important;
 }
 
-/* If any older layout uses an inner overlay or overlayLayer, ensure it doesn't hide buttons */
+/* Remove overlay backgrounds if present */
 .cardOverlayContainer .overlay,
 .cardOverlayContainer .overlayLayer {
     background: none !important;
@@ -153,7 +155,7 @@ button:hover, .btn:hover {
    Uniform spacing (12px), consistent sizing, responsive
    ============================================================ */
 
-/* Container for main detail buttons (top area on item pages) */
+/* Container for main detail buttons */
 .mainDetailButtons,
 .itemDetailButtons,
 .detailButtonsRow,
@@ -161,23 +163,23 @@ button:hover, .btn:hover {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;           /* netflix-style spacing */
+    gap: 12px !important;
     margin: 12px 0 !important;
     z-index: 40 !important;
 }
 
-/* Primary Play button — red, larger, pill-shaped */
+/* Primary Play button */
 .mainDetailButtons .btnPlay,
 .detailButtonsRow .btnPlay,
 .detailButton-play {
     background-color: var(--jellyFlicks-red) !important;
     color: #fff !important;
-    padding: var(--detail-play-padding) !important; /* e.g. 10px 20px */
+    padding: var(--detail-play-padding) !important;
     border-radius: var(--detail-btn-radius) !important;
     font-weight: 700 !important;
     display: inline-flex !important;
     align-items: center !important;
-    gap: 10px !important; /* space between icon and text */
+    gap: 10px !important;
     border: none !important;
     cursor: pointer !important;
     text-transform: uppercase !important;
@@ -192,7 +194,7 @@ button:hover, .btn:hover {
     background-color: var(--jellyFlicks-red-hover) !important;
 }
 
-/* Secondary detail buttons (Trailer / Add / Like / More) */
+/* Secondary detail buttons */
 .mainDetailButtons .detailButton,
 .mainDetailButtons .detailButton-icon,
 .detailButtonsRow .detailButton,
@@ -227,7 +229,7 @@ button:hover, .btn:hover {
     color: #fff !important;
 }
 
-/* Make sure the play button icon + label are visible on small screens */
+/* Make sure the buttons work well on small screens */
 @media (max-width: 768px) {
     .mainDetailButtons .btnPlay,
     .detailButtonsRow .btnPlay {
@@ -240,7 +242,6 @@ button:hover, .btn:hover {
         font-size: 0.9rem !important;
     }
 
-    /* Overlay container spacing in mobile layouts */
     .cardOverlayContainer,
     .cardOverlayButtonRow {
         gap: 8px !important;
