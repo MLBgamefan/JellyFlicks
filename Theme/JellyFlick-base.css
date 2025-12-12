@@ -1,3 +1,5 @@
+JellyFlicks-base.css:
+
 /* ============================================================
    JELLYFLICKS BASE CSS
    Global variables, colors, fonts, and background
@@ -21,12 +23,6 @@
     --jellyFlicks-button-bg: var(--jellyFlicks-red);
     --jellyFlicks-button-hover-bg: var(--jellyFlicks-red-hover);
     --jellyFlicks-button-text: #fff;
-
-    /* ================= DETAIL BUTTONS ================= */
-    --detail-btn-bg: #2c2c2c;
-    --detail-btn-hover-bg: #3a3a3a;
-    --detail-btn-radius: 6px;
-    --detail-play-padding: 10px 20px;
 }
 
 /* ================= GLOBAL BACKGROUND ================= */
@@ -60,121 +56,55 @@ button:hover, .btn:hover {
     background-color: var(--jellyFlicks-button-hover-bg) !important;
 }
 
-/* ============================================================
-   HIDE ALL RED OVERLAY BUTTONS
-   ============================================================ */
+/* ================= CARD OVERLAY BUTTONS - ABSOLUTE POSITIONING ================= */
+.cardOverlayContainer {
+    position: relative !important; /* container relative for absolute positioning */
+}
+
+/* Position each button explicitly to prevent overlap */
+.cardOverlayContainer .playButton {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+}
+
+.cardOverlayContainer .trailerButton {
+    position: absolute !important;
+    top: 10px !important;
+    left: 60px !important;
+}
+
+.cardOverlayContainer .moreOptionsButton {
+    position: absolute !important;
+    top: 10px !important;
+    left: 110px !important;
+}
+
+/* Force buttons size */
 .cardOverlayContainer .playButton,
 .cardOverlayContainer .trailerButton,
-.cardOverlayContainer .moreOptionsButton,
-.cardOverlayButtonRow .playButton,
-.cardOverlayButtonRow .trailerButton,
-.cardOverlayButtonRow .moreOptionsButton,
-.itemActionButton,
-.itemAction {
-    display: none !important;
-}
-
-/* ============================================================
-   DETAIL PAGE BUTTONS — NETFLIX-STYLE (Option A)
-   Play (primary red) + Trailer/Add/Like/More (secondary dark)
-   Uniform spacing (12px), consistent sizing, responsive
-   ============================================================ */
-
-.mainDetailButtons,
-.itemDetailButtons,
-.detailButtonsRow,
-.detailPage .mainDetailButtons {
+.cardOverlayContainer .moreOptionsButton {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
     display: flex !important;
-    flex-direction: row !important;
     align-items: center !important;
-    gap: 12px !important;
-    margin: 12px 0 !important;
-    z-index: 40 !important;
+    justify-content: center !important;
+    transition: transform 0.2s ease, background 0.2s ease !important;
 }
 
-/* Primary Play button */
-.mainDetailButtons .btnPlay,
-.detailButtonsRow .btnPlay,
-.detailButton-play {
-    background-color: var(--jellyFlicks-red) !important;
-    color: #fff !important;
-    padding: var(--detail-play-padding) !important;
-    border-radius: var(--detail-btn-radius) !important;
-    font-weight: 700 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    border: none !important;
-    cursor: pointer !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.02em !important;
-    transition: background 0.18s ease, transform 0.12s ease !important;
-}
-
-.mainDetailButtons .btnPlay:hover,
-.detailButtonsRow .btnPlay:hover,
-.detailButton-play:hover {
+/* Button hover scaling */
+.cardOverlayContainer .playButton:hover,
+.cardOverlayContainer .trailerButton:hover,
+.cardOverlayContainer .moreOptionsButton:hover {
+    transform: scale(1.15) !important;
     background-color: var(--jellyFlicks-red-hover) !important;
 }
 
-/* Secondary detail buttons */
-.mainDetailButtons .detailButton,
-.mainDetailButtons .detailButton-icon,
-.detailButtonsRow .detailButton,
-.detailButtonsRow .detailButton-icon,
-.detailButton-secondary {
-    background-color: var(--detail-btn-bg) !important;
-    color: #fff !important;
-    padding: 8px 12px !important;
-    border-radius: var(--detail-btn-radius) !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    border: none !important;
-    cursor: pointer !important;
-    transition: background 0.15s ease !important;
-    text-transform: none !important;
-}
-
-.mainDetailButtons .detailButton:hover,
-.mainDetailButtons .detailButton-icon:hover,
-.detailButtonsRow .detailButton:hover,
-.detailButtonsRow .detailButton-icon:hover {
-    background-color: var(--detail-btn-hover-bg) !important;
-}
-
-/* Icon sizing inside detail page buttons */
-.mainDetailButtons i,
-.detailButtonsRow i,
-.detailButton-icon i {
-    font-size: 18px !important;
-    color: #fff !important;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .mainDetailButtons .btnPlay,
-    .detailButtonsRow .btnPlay {
-        padding: 8px 14px !important;
-        font-size: 0.95rem !important;
-    }
-    .mainDetailButtons .detailButton,
-    .detailButtonsRow .detailButton {
-        padding: 6px 10px !important;
-        font-size: 0.9rem !important;
-    }
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* ================= FOOTER ================= */
 .footer {
     background-color: var(--jellyFlicks-bg) !important;
     color: var(--jellyFlicks-footer-text) !important;
     text-align: center !important;
     padding: 10px !important;
 }
-
-/* ============================================================
-   End of JellyFlicks-base.css
-   ============================================================ */
