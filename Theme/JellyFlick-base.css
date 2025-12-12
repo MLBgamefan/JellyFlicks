@@ -61,8 +61,31 @@ button:hover, .btn:hover {
 }
 
 /* ============================================================
-   HIDE ALL RED OVERLAY BUTTONS
+   OVERLAY BUTTONS (POSTER PLAY / TRAILER / MORE) — FIX MERGING
+   Horizontal row, 12px spacing via margins
    ============================================================ */
+
+/* Ensure overlay container is positioned properly */
+.cardOverlayContainer,
+.cardOverlayButtonRow,
+.cardOverlayContainer .buttons,
+.itemPosterCard .cardOverlayContainer,
+.posterCard .cardOverlayContainer,
+.card .cardOverlayContainer {
+    position: absolute !important;
+    top: 10px !important;
+    left: 10px !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    z-index: 50 !important;     /* make sure controls appear above posters */
+}
+
+/* Margin-based spacing for all overlay buttons — prevents merging */
 .cardOverlayContainer .playButton,
 .cardOverlayContainer .trailerButton,
 .cardOverlayContainer .moreOptionsButton,
@@ -71,7 +94,59 @@ button:hover, .btn:hover {
 .cardOverlayButtonRow .moreOptionsButton,
 .itemActionButton,
 .itemAction {
-    display: none !important;
+    margin-right: 12px !important;
+}
+
+/* Remove margin from last button */
+.cardOverlayContainer > :last-child,
+.cardOverlayButtonRow > :last-child {
+    margin-right: 0 !important;
+}
+
+/* Button appearance — circular icons used on posters */
+.cardOverlayContainer .playButton,
+.cardOverlayContainer .trailerButton,
+.cardOverlayContainer .moreOptionsButton {
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: var(--jellyFlicks-red) !important;
+    color: #fff !important;
+    border: none !important;
+    box-shadow: none !important;
+    transition: transform 0.18s ease, background 0.18s ease !important;
+    flex-shrink: 0 !important; /* prevents shrinking on very small cards */
+}
+
+/* Icon color */
+.cardOverlayContainer .playButton i,
+.cardOverlayContainer .trailerButton i,
+.cardOverlayContainer .moreOptionsButton i {
+    color: #fff !important;
+    fill: #fff !important;
+    font-size: 18px !important;
+}
+
+/* Hover/Focus scaling and brighter color */
+.cardOverlayContainer .playButton:hover,
+.cardOverlayContainer .trailerButton:hover,
+.cardOverlayContainer .moreOptionsButton:hover,
+.cardOverlayContainer .playButton:focus,
+.cardOverlayContainer .trailerButton:focus,
+.cardOverlayContainer .moreOptionsButton:focus {
+    transform: scale(1.15) !important;
+    background: var(--jellyFlicks-red-hover) !important;
+    outline: none !important;
+}
+
+/* Remove overlay backgrounds if present */
+.cardOverlayContainer .overlay,
+.cardOverlayContainer .overlayLayer {
+    background: none !important;
+    opacity: 1 !important;
 }
 
 /* ============================================================
@@ -80,6 +155,7 @@ button:hover, .btn:hover {
    Uniform spacing (12px), consistent sizing, responsive
    ============================================================ */
 
+/* Container for main detail buttons */
 .mainDetailButtons,
 .itemDetailButtons,
 .detailButtonsRow,
@@ -111,6 +187,7 @@ button:hover, .btn:hover {
     transition: background 0.18s ease, transform 0.12s ease !important;
 }
 
+/* Play button hover */
 .mainDetailButtons .btnPlay:hover,
 .detailButtonsRow .btnPlay:hover,
 .detailButton-play:hover {
@@ -136,6 +213,7 @@ button:hover, .btn:hover {
     text-transform: none !important;
 }
 
+/* Secondary hover state */
 .mainDetailButtons .detailButton:hover,
 .mainDetailButtons .detailButton-icon:hover,
 .detailButtonsRow .detailButton:hover,
@@ -151,7 +229,7 @@ button:hover, .btn:hover {
     color: #fff !important;
 }
 
-/* Responsive adjustments */
+/* Make sure the buttons work well on small screens */
 @media (max-width: 768px) {
     .mainDetailButtons .btnPlay,
     .detailButtonsRow .btnPlay {
@@ -162,6 +240,11 @@ button:hover, .btn:hover {
     .detailButtonsRow .detailButton {
         padding: 6px 10px !important;
         font-size: 0.9rem !important;
+    }
+
+    .cardOverlayContainer,
+    .cardOverlayButtonRow {
+        gap: 8px !important;
     }
 }
 
