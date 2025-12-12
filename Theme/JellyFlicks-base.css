@@ -1,7 +1,6 @@
 /* ============================================================
-   JELLYFLICKS BASE CSS (FIXED)
-   Restores posters & clickability, removes poster overlay icons
-
+   JELLYFLICKS BASE CSS
+   Global variables, colors, fonts, and background
    ============================================================ */
 
 :root {
@@ -22,12 +21,6 @@
     --jellyFlicks-button-bg: var(--jellyFlicks-red);
     --jellyFlicks-button-hover-bg: var(--jellyFlicks-red-hover);
     --jellyFlicks-button-text: #fff;
-
-    /* ================= DETAIL BUTTONS ================= */
-    --detail-btn-bg: #2c2c2c;
-    --detail-btn-hover-bg: #3a3a3a;
-    --detail-btn-radius: 6px;
-    --detail-play-padding: 10px 20px;
 }
 
 /* ================= GLOBAL BACKGROUND ================= */
@@ -37,45 +30,14 @@ html, body, .skinBody {
     font-family: var(--jellyFlicks-font) !important;
 }
 
-/* ================= LINKS & NAV ================= */
+/* ================= LINKS ================= */
 a, .navMenuLink, .navMenuOption {
     color: var(--jellyFlicks-text) !important;
     text-decoration: none !important;
 }
+
 a:hover, .navMenuLink:hover, .navMenuOption:hover {
     color: var(--jellyFlicks-red) !important;
-}
-
-/* ================= RESTORE POSTERS / CLICKABILITY ================= */
-/* Ensure poster images and poster links are visible and clickable */
-.cardImageContainer img,
-.posterCard img,
-.itemPosterCard img,
-.poster a,
-.itemPosterCard a,
-.card a,
-.posterCard a {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    pointer-events: auto !important;
-}
-
-/* Make poster containers accept pointer events (so clicking works) */
-.itemPosterCard,
-.posterCard,
-.card {
-    pointer-events: auto !important;
-}
-
-/* Ensure titles are visible */
-.card .title,
-.poster .title,
-.itemPosterCard .title,
-.posterCard .title {
-    color: var(--jellyFlicks-text) !important;
-    display: block !important;
-    visibility: visible !important;
 }
 
 /* ================= GLOBAL BUTTONS ================= */
@@ -87,211 +49,15 @@ button, .btn {
     cursor: pointer !important;
     transition: background 0.3s ease !important;
 }
+
 button:hover, .btn:hover {
     background-color: var(--jellyFlicks-button-hover-bg) !important;
 }
 
-/* ============================================================
-   SAFELY HIDE ONLY POSTER OVERLAY ICONS (play/trailer/more)
-   We target elements inside poster/card containers whose class/attrs
-   indicate overlay buttons. This avoids hiding generic classes
-   used by the poster markup (like .itemAction).
-   ============================================================ */
-
-/* 1) Specific common selectors inside poster/card containers */
-.itemPosterCard .cardOverlayContainer > .playButton,
-.itemPosterCard .cardOverlayContainer > .trailerButton,
-.itemPosterCard .cardOverlayContainer > .moreOptionsButton,
-.posterCard .cardOverlayContainer > .playButton,
-.posterCard .cardOverlayContainer > .trailerButton,
-.posterCard .cardOverlayContainer > .moreOptionsButton,
-.card .cardOverlayContainer > .playButton,
-.card .cardOverlayContainer > .trailerButton,
-.card .cardOverlayContainer > .moreOptionsButton {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* 2) Buttons/anchors/links inside overlay container — hide only when inside poster card */
-.itemPosterCard .cardOverlayContainer button,
-.itemPosterCard .cardOverlayContainer a,
-.posterCard .cardOverlayContainer button,
-.posterCard .cardOverlayContainer a,
-.card .cardOverlayContainer button,
-.card .cardOverlayContainer a {
-    /* Hide interactive overlay buttons inside poster overlays */
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* 3) Class name patterns commonly used by other themes (safe when restricted to poster containers) */
-.itemPosterCard [class*="play"],
-.itemPosterCard [class*="trailer"],
-.itemPosterCard [class*="more"],
-.posterCard [class*="play"],
-.posterCard [class*="trailer"],
-.posterCard [class*="more"],
-.card [class*="play"],
-.card [class*="trailer"],
-.card [class*="more"] {
-    /* Only hide these pattern-matched elements if they are inside poster/card containers.
-       We intentionally do not match top-level generic classes so we don't break non-poster UI. */
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* 4) Attribute fallbacks inside poster/card contexts */
-.itemPosterCard [data-action="play"],
-.itemPosterCard [data-action="trailer"],
-.itemPosterCard [data-action="more"],
-.posterCard [data-action="play"],
-.posterCard [data-action="trailer"],
-.posterCard [data-action="more"] {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* 5) Some builds include Emby/Jellyfin specific classes — restricted to poster contexts */
-.itemPosterCard .emby-play-button,
-.posterCard .emby-play-button,
-.itemPosterCard .emby-more-button,
-.posterCard .emby-more-button {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    pointer-events: none !important;
-}
-
-/* 6) If overlay wrappers exist but are empty, prevent them from blocking pointer events */
-.itemPosterCard .cardOverlayContainer,
-.posterCard .cardOverlayContainer,
-.card .cardOverlayContainer {
-    pointer-events: none !important;
-    background: transparent !important;
-}
-
-/* ============================================================
-   KEEP DETAIL PAGE BUTTONS VISIBLE (Play/Trailer/Add/Like/More)
-   These are top-of-page controls and should remain functional
-   ============================================================ */
-
-.mainDetailButtons,
-.itemDetailButtons,
-.detailButtonsRow,
-.detailPage .mainDetailButtons {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 12px !important;
-    margin: 12px 0 !important;
-    z-index: 40 !important;
-}
-
-/* Primary Play button (detail page) */
-
-.mainDetailButtons .btnPlay,
-.detailButtonsRow .btnPlay,
-.detailButton-play {
-    background-color: var(--jellyFlicks-red) !important;
-    color: #fff !important;
-    padding: var(--detail-play-padding) !important;
-    border-radius: var(--detail-btn-radius) !important;
-    font-weight: 700 !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    border: none !important;
-    cursor: pointer !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.02em !important;
-    transition: background 0.18s ease, transform 0.12s ease !important;
-}
-.mainDetailButtons .btnPlay:hover,
-.detailButtonsRow .btnPlay:hover,
-.detailButton-play:hover {
-    background-color: var(--jellyFlicks-red-hover) !important;
-}
-
-/* Secondary detail buttons */
-.mainDetailButtons .detailButton,
-.mainDetailButtons .detailButton-icon,
-.detailButtonsRow .detailButton,
-.detailButtonsRow .detailButton-icon,
-.detailButton-secondary {
-    background-color: var(--detail-btn-bg) !important;
-    color: #fff !important;
-    padding: 8px 12px !important;
-    border-radius: var(--detail-btn-radius) !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    border: none !important;
-    cursor: pointer !important;
-    transition: background 0.15s ease !important;
-    text-transform: none !important;
-}
-.mainDetailButtons .detailButton:hover,
-.mainDetailButtons .detailButton-icon:hover,
-.detailButtonsRow .detailButton:hover,
-.detailButtonsRow .detailButton-icon:hover {
-    background-color: var(--detail-btn-hover-bg) !important;
-}
-
-/* ============================================================
-   CARDS: maintain hover pop-out (red border + shadow) for homepage/library
-   ============================================================ */
-
-.card, .itemPosterCard, .posterCard {
-    background: transparent !important;
-    border-radius: var(--jellyFlicks-card-radius) !important;
-    overflow: visible !important;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-.card .cardContent,
-.itemPosterCard .cardContent,
-.posterCard .cardContent {
-    border: 2px solid transparent !important;
-    border-radius: var(--jellyFlicks-card-radius) !important;
-    overflow: hidden !important;
-}
-.card:hover .cardContent,
-.itemPosterCard:hover .cardContent,
-.posterCard:hover .cardContent {
-    border-color: var(--jellyFlicks-red) !important;
-    box-shadow: 0 8px 20px var(--jellyFlicks-card-shadow) !important;
-}
-.card:hover, .itemPosterCard:hover, .posterCard:hover {
-    transform: scale(1.06) !important;
-}
-
-/* Prevent pop-out on single-item detail page poster */
-.mediaDetailPoster .posterCard:hover,
-.mediaDetailPoster .card:hover,
-.mainPoster .posterCard:hover,
-.mainPoster .card:hover {
-    transform: none !important;
-    box-shadow: none !important;
-    border-color: transparent !important;
-}
-
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* ================= FOOTER ================= */
 .footer {
     background-color: var(--jellyFlicks-bg) !important;
     color: var(--jellyFlicks-footer-text) !important;
     text-align: center !important;
     padding: 10px !important;
 }
-
-/* ============================================================
-   End of JellyFlicks-base.css
-   ============================================================ */
