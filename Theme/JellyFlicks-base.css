@@ -1,6 +1,8 @@
 /* ============================================================
    JELLYFLICKS BASE CSS
    Global variables, colors, fonts, and background
+   (Full replacement — restores posters & titles, removes only
+    explicit overlay icon buttons, preserves detail page buttons)
    ============================================================ */
 
 :root {
@@ -21,6 +23,12 @@
     --jellyFlicks-button-bg: var(--jellyFlicks-red);
     --jellyFlicks-button-hover-bg: var(--jellyFlicks-red-hover);
     --jellyFlicks-button-text: #fff;
+
+    /* ================= DETAIL BUTTONS ================= */
+    --detail-btn-bg: #2c2c2c;
+    --detail-btn-hover-bg: #3a3a3a;
+    --detail-btn-radius: 6px;
+    --detail-play-padding: 10px 20px;
 }
 
 /* ================= GLOBAL BACKGROUND ================= */
@@ -30,14 +38,42 @@ html, body, .skinBody {
     font-family: var(--jellyFlicks-font) !important;
 }
 
-/* ================= LINKS ================= */
+/* ================= LINKS & CLICKABILITY ================= */
+/* Ensure links and clickable poster areas are visible and clickable */
 a, .navMenuLink, .navMenuOption {
     color: var(--jellyFlicks-text) !important;
     text-decoration: none !important;
 }
-
 a:hover, .navMenuLink:hover, .navMenuOption:hover {
     color: var(--jellyFlicks-red) !important;
+}
+
+/* Poster image & link visibility: force images to show and be clickable */
+.cardImageContainer img,
+.posterCard img,
+.itemPosterCard img,
+.poster a,
+.itemPosterCard a,
+.card a {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important; /* restore clicks */
+}
+
+/* Ensure poster containers don't hide titles or links */
+.itemPosterCard,
+.posterCard,
+.card {
+    pointer-events: auto !important;
+}
+
+/* Restore card titles if hidden */
+.card .title,
+.poster .title,
+.itemPosterCard .title {
+    color: var(--jellyFlicks-text) !important;
+    display: block !important;
 }
 
 /* ================= GLOBAL BUTTONS ================= */
@@ -49,40 +85,181 @@ button, .btn {
     cursor: pointer !important;
     transition: background 0.3s ease !important;
 }
-
 button:hover, .btn:hover {
     background-color: var(--jellyFlicks-button-hover-bg) !important;
 }
 
 /* ============================================================
-   REMOVE ALL CARD OVERLAY BUTTONS (play, trailer, more, etc.)
+   SAFELY HIDE ONLY THE SMALL OVERLAY ICON BUTTONS
+   We target explicit overlay icon selectors and safe attribute fallbacks.
+   DO NOT target generic classes like .itemAction or .itemActionButton.
    ============================================================ */
 
-/* Main overlay classes Jellyfin uses */
-.cardOverlayButton,
-.cardOverlayButtons,
-.cardOverlayContainer .cardOverlayButton,
+/* Primary targets — common in ElegantFin / Jellyfin themes */
+.cardOverlayContainer > .playButton,
+.cardOverlayContainer > .trailerButton,
+.cardOverlayContainer > .moreOptionsButton,
 .cardOverlayContainer .playButton,
 .cardOverlayContainer .trailerButton,
 .cardOverlayContainer .moreOptionsButton,
-.cardOverlayContainer .itemActionButton,
-.cardOverlayContainer .itemAction,
-.cardOverlayButtonRow .playButton,
-.cardOverlayButtonRow .trailerButton,
-.cardOverlayButtonRow .moreOptionsButton,
-.itemActionButton,
-.itemAction {
-
+.cardOverlayButtonRow > .playButton,
+.cardOverlayButtonRow > .trailerButton,
+.cardOverlayButtonRow > .moreOptionsButton,
+.cardOverlayButtons > .playButton,
+.cardOverlayButtons > .trailerButton,
+.cardOverlayButtons > .moreOptionsButton {
     display: none !important;
-    opacity: 0 !important;
     visibility: hidden !important;
+    opacity: 0 !important;
     pointer-events: none !important;
 }
 
-/* Prevent Jellyfin from adding overlay button space */
-.cardOverlayContainer {
-    position: static !important;
+/* Attribute-based fallbacks (safe) — match buttons that include "play", "trailer", "more" in data attributes */
+.cardOverlayContainer [data-action="play"],
+.cardOverlayContainer [data-action="trailer"],
+.cardOverlayContainer [data-action="more"],
+.cardOverlayContainer [data-purpose="play"],
+.cardOverlayContainer [data-purpose="trailer"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
     pointer-events: none !important;
+}
+
+/* Some builds use classes like emby-play-button / emby-more-button — target them specifically */
+.emby-play-button,
+.emby-more-button,
+.play-button-icon,
+.more-button-icon {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* IMPORTANT: do NOT hide .itemAction, .itemActionButton here — they affect poster clickability */
+
+/* If there are extra wrapper nodes adding empty space, prevent them from blocking clicks,
+   but do not remove them outright to avoid layout breakage */
+.cardOverlayContainer,
+.cardOverlayButtonRow,
+.cardOverlayButtons {
+    /* leave position as-is, but ensure they don't block pointer events if empty */
+    pointer-events: none !important;
+}
+
+/* ============================================================
+   DETAIL PAGE BUTTONS — NETFLIX-STYLE (Option A preserved)
+   These remain visible and functional (Play, Trailer, Add, Like, More)
+   ============================================================ */
+
+.mainDetailButtons,
+.itemDetailButtons,
+.detailButtonsRow,
+.detailPage .mainDetailButtons {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    margin: 12px 0 !important;
+    z-index: 40 !important;
+}
+
+/* Primary Play button */
+.mainDetailButtons .btnPlay,
+.detailButtonsRow .btnPlay,
+.detailButton-play {
+    background-color: var(--jellyFlicks-red) !important;
+    color: #fff !important;
+    padding: var(--detail-play-padding) !important;
+    border-radius: var(--detail-btn-radius) !important;
+    font-weight: 700 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    border: none !important;
+    cursor: pointer !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    transition: background 0.18s ease, transform 0.12s ease !important;
+}
+.mainDetailButtons .btnPlay:hover,
+.detailButtonsRow .btnPlay:hover,
+.detailButton-play:hover {
+    background-color: var(--jellyFlicks-red-hover) !important;
+}
+
+/* Secondary detail buttons */
+.mainDetailButtons .detailButton,
+.mainDetailButtons .detailButton-icon,
+.detailButtonsRow .detailButton,
+.detailButtonsRow .detailButton-icon,
+.detailButton-secondary {
+    background-color: var(--detail-btn-bg) !important;
+    color: #fff !important;
+    padding: 8px 12px !important;
+    border-radius: var(--detail-btn-radius) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: background 0.15s ease !important;
+    text-transform: none !important;
+}
+.mainDetailButtons .detailButton:hover,
+.mainDetailButtons .detailButton-icon:hover,
+.detailButtonsRow .detailButton:hover,
+.detailButtonsRow .detailButton-icon:hover {
+    background-color: var(--detail-btn-hover-bg) !important;
+}
+
+/* Icon sizing inside detail page buttons */
+.mainDetailButtons i,
+.detailButtonsRow i,
+.detailButton-icon i {
+    font-size: 18px !important;
+    color: #fff !important;
+}
+
+/* ============================================================
+   CARDS: ensure hover pop-out remains functional (red border + shadow)
+   This keeps the homepage/library behavior intact
+   ============================================================ */
+
+.card, .itemPosterCard, .posterCard {
+    background: transparent !important;
+    border-radius: var(--jellyFlicks-card-radius) !important;
+    overflow: visible !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card .cardContent,
+.itemPosterCard .cardContent,
+.posterCard .cardContent {
+    border: 2px solid transparent !important;
+    border-radius: var(--jellyFlicks-card-radius) !important;
+    overflow: hidden !important;
+}
+
+/* Homepage/library card hover (keep this) */
+.card:hover .cardContent,
+.itemPosterCard:hover .cardContent,
+.posterCard:hover .cardContent {
+    border-color: var(--jellyFlicks-red) !important;
+    box-shadow: 0 8px 20px var(--jellyFlicks-card-shadow) !important;
+}
+.card:hover, .itemPosterCard:hover, .posterCard:hover {
+    transform: scale(1.06) !important;
+}
+
+/* Prevent pop-out on single item detail page poster */
+.mediaDetailPoster .posterCard:hover,
+.mediaDetailPoster .card:hover,
+.mainPoster .posterCard:hover,
+.mainPoster .card:hover {
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
 }
 
 /* ============================================================
@@ -94,3 +271,7 @@ button:hover, .btn:hover {
     text-align: center !important;
     padding: 10px !important;
 }
+
+/* ============================================================
+   End of JellyFlicks-base.css
+   ============================================================ */
