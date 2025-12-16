@@ -12,13 +12,11 @@
 @import url("https://cdn.jsdelivr.net/gh/Druidblack/jellyfin-icon-metadata/public-icon.css"); /* Metadata icons by Druidblack */
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Font.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_LoginPage.css");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_10.11_Fixes.css");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Logo.css");
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Indicators.css");
 
 /* ~~~~~~~~~~~~~~~~~~~~ GLOBAL CSS VARIABLES ~~~~~~~~~~~~~~~~~~~~ */
 /* Defines core variables used throughout the theme for consistency. */
 :root {
-    --theme-updated-on: "09 December 2025 - 06:20 P.M."; /* Date of last theme update */
     --theme-name: 'JellyFlicks';
     --rounded-cards: 15px; /* Standard border-radius */
     --blur: 15px;           /* Default blur intensity */
