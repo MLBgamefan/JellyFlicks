@@ -1025,7 +1025,8 @@ a.emby-button.homeLibraryButton.raised:hover::before {
 /* == Indicators (Watched, Count, Media Source) == */
 /* General styling for various indicators on cards/list items. */
 .playedIndicator { /* "Watched" checkmark indicator */
-    background: #48b648 !important; /* Green background */
+    background: linear-gradient(to bottom, #00aaff, #005f99) !important;
+	/*background: #48b648 !important; /* Green background */ */
     color: white
 }
 
