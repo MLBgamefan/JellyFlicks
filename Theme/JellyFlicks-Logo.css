@@ -1,0 +1,37 @@
+/* Replace Logo with JellyFlicks logo, this should be the last line in CSS */
+:root {
+/* == Default Logo Styling == */
+/* Styles for the Jellyfin logo when a custom one isn't set by the user. */
+.pageTitleWithDefaultLogo {
+    background-image: var(--logo) !important; /* Uses the --logo variable, ensure it's defined in your color scheme files */
+    background-size: 100% !important; /* Make logo responsive within its container */
+    height: 60px !important;
+    width: 150px !important;
+}
+/* Desktop logo dimensions and positioning. */
+.layout-tv .pageTitleWithLogo, .layout-desktop .pageTitleWithLogo {
+    margin-left: 25px !important;
+    height: 60px !important;
+    width: 150px !important;
+}
+/* Mobile logo dimensions and positioning. */
+.layout-mobile .pageTitleWithLogo {
+    height: 60px !important;
+    width: 150px !important;
+    margin: 0 1em 0 .5em !important;
+    padding: 10px !important;
+}
+/* General page title margin (when logo is not present or text only). */
+[dir="ltr"] .pageTitle {
+    margin: 0 1em 0 .5em !important;
+}
+  --logo: url("https://mlbgamefan.github.io/JellyFlicks/Theme/Logos/JellyFlicks-logo.png");
+}
+
+.pageTitleWithDefaultLogo {
+    background-size: 100% !important;
+}
+
+.layout-mobile .pageTitleWithDefaultLogo {
+    width: 130px !important;
+}
