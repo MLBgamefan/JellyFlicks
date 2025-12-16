@@ -1,7 +1,8 @@
 /* JellyFlicks Theme for Jellyfin by MLBgamefan */
 
-/* Inter Font Family */
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+/* ~~~~~~~~~~~~~~~~~~~~ EXTERNAL IMPORTS ~~~~~~~~~~~~~~~~~~~~ */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"); /* Inter Font Family */
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks-LoginPage.css");
 
 :root {
     --JellyFlicksFooterText: "JellyFlicks v1.0.0";
