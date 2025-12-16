@@ -15,6 +15,7 @@
 
 .playedIndicator {
     background: linear-gradient(to bottom, #00aaff, #005f99) !important;
+    background-color: unset !important;
 }
 
 .mediaSourceIndicator {
