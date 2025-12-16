@@ -282,11 +282,9 @@ html
 {
     background: linear-gradient(
 		to bottom,
-		#80ffff 0%,
-		#4fffe0 20%,
-		#00d4ff 40%,
-		#00aaff 60%,
-		#005f99 80%,
+		#00d4ff 0%,
+		#00aaff 33%,
+		#005f99 66%,
 		#002233 100%
 	) !important;
 	background-color: #00aaff !important;
