@@ -62,6 +62,9 @@
     }
 }
 
+/*Hide "Forgot Password" button*/
+#loginPage .raised.cancel.block.btnForgotPassword.emby-button {display: none}
+
 @media (max-width: 768px) {
     #loginPage .padded-left.padded-right.padded-bottom-page {
         width: 35em !important;
@@ -159,7 +162,7 @@ body:has(#loginPage) .backdropContainer {
     outline-offset: 2px;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~ QUICK CONNECT & MANUAL LOGIN DIALOG STYLING ~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~ MANUAL LOGIN DIALOG STYLING ~~~~~~~~~~~~~~~~~~~~ */
 /* Styles the dialog box that appears for Manual Password entry. */
 
 /* Applies to the main dialog when the login page is visible. */
