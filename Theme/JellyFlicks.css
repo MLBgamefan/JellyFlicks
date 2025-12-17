@@ -281,11 +281,10 @@ html
 .noBackdropTransparency .detailPageSecondaryContainer /* Secondary container on detail pages when backdrop transparency is off */
 {
     background: linear-gradient(
-		to bottom,
-		#00d4ff 0%,
-		#00aaff 33%,
-		#005f99 66%,
-		#002233 100%
+		135deg,
+		#002233 0%,
+		#005f99 50%,
+		#00aaff 100%
 	) !important;
 	background-color: #00aaff !important;
 }
