@@ -3,7 +3,7 @@
 /* == Default Logo Styling == */
 /* Styles for the Jellyfin logo when a custom one isn't set by the user. */
 .pageTitleWithDefaultLogo {
-    background-image: var(--logo) !important; /* Uses the --logo variable, ensure it's defined in your color scheme files */
+    background-image: none !important; /*var(--logo) !important; /* Uses the --logo variable, ensure it's defined in your color scheme files */
     background-size: 100% !important; /* Make logo responsive within its container */
     height: 60px !important;
     width: 150px !important;
