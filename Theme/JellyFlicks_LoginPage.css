@@ -168,7 +168,7 @@ body:has(#loginPage:not(.hide)) .standalonePage {
   overflow: hidden;
   white-space: nowrap;
   display: block !important;
-  height: 80px;       /* Set height for logo container */
+  height: 140px;       /* Set height for logo container */
   line-height: normal;
   margin: 10px auto !important;
   text-align: center !important;
