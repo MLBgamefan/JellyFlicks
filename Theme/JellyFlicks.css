@@ -399,25 +399,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 .pageTitle img,
 .pageTitleWithDefaultLogo img {
     display: none !important;
-} 
-
-/* Ensure page content is fully below the header/logo */
-.pagecontent {
-    padding-top: 72px !important;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .pagecontent {
-        padding-top: 60px !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .pagecontent {
-        padding-top: 52px !important;
-    }
-} /*End here*/
+}  /*End here*/
 
 /* == Dialog Styling == */
 /* Basic styling for dialog boxes. */
