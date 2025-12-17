@@ -48,9 +48,9 @@ body:has(#loginPage) .backdropContainer {
     will-change: opacity; /* Performance hint for animation */
 }
 
-#loginPage .padded-bottom-page {
-    padding-bottom: 1em !important;
-}
+/*#loginPage .padded-bottom-page {*/
+  /*  padding-bottom: 1em !important;*/
+/*}*/
 
 /* Defines the fade-in animation. */
 @keyframes fadeIn {
