@@ -62,6 +62,24 @@
     }
 }
 
+/* Change Manual Login button text */
+#loginPage .btnManual {
+    position: relative !important;
+    color: transparent !important; /* hides original text */
+}
+
+#loginPage .btnManual::after {
+    content: "Sign In Manually" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    color: #ffffff !important; /* text color */
+    font-size: 1em !important; /* adjust size as needed */
+    font-weight: 600 !important; 
+    pointer-events: none !important; /* ensures the button is still clickable */
+}
+
 /*Hide "Forgot Password" button*/
 #loginPage .raised.cancel.block.btnForgotPassword.emby-button {display: none}
 
