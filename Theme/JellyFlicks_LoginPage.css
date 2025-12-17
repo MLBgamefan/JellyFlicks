@@ -23,6 +23,45 @@
     box-sizing: border-box;
 }
 
+/* Normalize disclaimer container */
+#loginPage .loginDisclaimer,
+#loginPage .loginDisclaimerText,
+#loginPage .disclaimerText {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    text-align: center !important;
+    gap: 2px; /* spacing between lines */
+}
+
+/* Line 1: Welcome back */
+#loginPage .loginDisclaimer > *:nth-child(1),
+#loginPage .loginDisclaimerText > *:nth-child(1),
+#loginPage .disclaimerText > *:nth-child(1) {
+    font-size: 1.2em !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+}
+
+/* Line 2: Admin contact / password reset */
+#loginPage .loginDisclaimer > *:nth-child(2),
+#loginPage .loginDisclaimerText > *:nth-child(2),
+#loginPage .disclaimerText > *:nth-child(2) {
+    font-size: 0.95em !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+}
+
+/* Optional: adjust font size for smaller screens */
+@media (max-width: 768px) {
+    #loginPage .loginDisclaimer > *:nth-child(2),
+    #loginPage .loginDisclaimerText > *:nth-child(2),
+    #loginPage .disclaimerText > *:nth-child(2) {
+        font-size: 0.8em !important;
+    }
+}
+
 @media (max-width: 768px) {
     #loginPage .padded-left.padded-right.padded-bottom-page {
         width: 35em !important;
