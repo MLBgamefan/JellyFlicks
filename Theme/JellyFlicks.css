@@ -480,7 +480,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 /* Basic transparency and padding for the main header. */
 .skinHeader, .skinHeader-withBackground.osdHeader {
     background-color: #000508 !important;
-    /*background: transparent !important;*/
+    padding-bottom: 36px !important;
 }
 .layout-desktop .skinHeader,
 .layout-tv .skinHeader {
@@ -488,6 +488,16 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 }
 .layout-tv .skinHeader {
     padding-bottom: 10px !important; /* Specific bottom padding for TV layout */
+}
+
+/* Removes Home option in top menu bar */
+.noHomeButtonHeader .emby-tab-button[data-index="0"] {
+  display: none !important;
+}
+
+/* Removes Favorites option in top menu bar */
+.noHomeButtonHeader .emby-tab-button[data-index="1"] {
+  display: none !important;
 }
 
 /* == ZestyTheme-Inspired Header Tabs & Right Section == */
