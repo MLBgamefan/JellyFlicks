@@ -11,11 +11,30 @@
 
 /* Styles the main container of the login page. */
 #loginPage .padded-left.padded-right.padded-bottom-page {
-  margin: 0 auto !important;
-  background: rgba(0, 0, 0, 0.35) !important;
-  width: 45em !important;
-  border-radius: 15px !important;
-  backdrop-filter: blur(10px); /* Additional glass effect */
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: rgba(0, 0, 0, 0.35) !important;
+    width: 45em !important;
+    border-radius: 15px !important;
+    backdrop-filter: blur(10px);
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+    #loginPage .padded-left.padded-right.padded-bottom-page {
+        width: 35em !important;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    #loginPage .padded-left.padded-right.padded-bottom-page {
+        width: 90% !important;
+        padding: 8px;
+    }
 }
 
 /* Styles the overall login page. */
