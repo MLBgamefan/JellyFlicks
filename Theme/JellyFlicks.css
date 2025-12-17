@@ -280,7 +280,7 @@ html
 .backgroundContainer:not(.withBackdrop):not(.backgroundContainer-transparent), /* Main page background, excluding when a backdrop is shown */
 .noBackdropTransparency .detailPageSecondaryContainer /* Secondary container on detail pages when backdrop transparency is off */
 {
-    background-color: #002233 !important;
+    background-color: #000508 !important;
 }
 
 .libraryDocument.withSectionTabs .backgroundContainer {
