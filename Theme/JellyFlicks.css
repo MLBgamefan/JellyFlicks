@@ -347,11 +347,11 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 /* Fixed logo container space – desktop default */ 
 .headerLeft::before {
     content: "";
-    background-image: url("https://raw.githubusercontent.com/mlbgamefan/JellyFlicks/main/Theme/Logos/JellyFlicks-logo.png");
+    background-image: url("https://mlbgamefan.github.io/JellyFlicks/Theme/Logos/JellyFlicks-logo.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left center;
-    width: 140px;
+    width: 150px;
     height: 60px;
     margin-left: 16px;
     margin-right: 16px;
@@ -399,6 +399,24 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 .pageTitle img,
 .pageTitleWithDefaultLogo img {
     display: none !important;
+} 
+
+/* Ensure page content is fully below the header/logo */
+.mainContentContainer {
+    padding-top: 60px !important;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .mainContentContainer {
+        padding-top: 50px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .mainContentContainer {
+        padding-top: 45px !important;
+    }
 } /*End here*/
 
 /* == Dialog Styling == */
