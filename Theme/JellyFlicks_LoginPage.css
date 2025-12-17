@@ -48,10 +48,6 @@ body:has(#loginPage) .backdropContainer {
     will-change: opacity; /* Performance hint for animation */
 }
 
-/*#loginPage .padded-bottom-page {*/
-  /*  padding-bottom: 1em !important;*/
-/*}*/
-
 /* Defines the fade-in animation. */
 @keyframes fadeIn {
   from {
@@ -125,7 +121,7 @@ body:has(#loginPage) .backdropContainer {
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~ QUICK CONNECT & MANUAL LOGIN DIALOG STYLING ~~~~~~~~~~~~~~~~~~~~ */
-/* Styles the dialog box that appears for Quick Connect or Manual Password entry. */
+/* Styles the dialog box that appears for Manual Password entry. */
 
 /* Applies to the main dialog when the login page is visible. */
 body:has(#loginPage:not(.hide)) .dialogContainer .formDialog {
@@ -187,7 +183,7 @@ body:has(#loginPage:not(.hide)) .standalonePage {
   overflow: hidden;
   white-space: nowrap;
   display: block !important;
-  height: 140px;       /* Set height for logo container */
+  height: 80px;       /* Set height for logo container */
   line-height: normal;
   margin: 10px auto !important;
   text-align: center !important;
