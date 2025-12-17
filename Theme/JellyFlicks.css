@@ -402,19 +402,19 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 } 
 
 /* Ensure page content is fully below the header/logo */
-.mainContentContainer {
+.pagecontent {
     padding-top: 72px !important;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-    .mainContentContainer {
+    .pagecontent {
         padding-top: 60px !important;
     }
 }
 
 @media (max-width: 480px) {
-    .mainContentContainer {
+    .pagecontent {
         padding-top: 52px !important;
     }
 } /*End here*/
