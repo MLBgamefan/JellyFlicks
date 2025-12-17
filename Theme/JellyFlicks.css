@@ -338,33 +338,68 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     overflow: hidden; /* Ensures inner parts respect the rounding */
 }
 
-/* == Default Logo Styling == */
-/* Styles for the Jellyfin logo when a custom one isn't set by the user. */
+/* Lock header layout */ /*Start here*/
+.headerLeft {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Fixed logo container space – desktop default */ 
+.headerLeft::before {
+    content: "";
+    background-image: url("https://raw.githubusercontent.com/mlbgamefan/JellyFlicks/main/Theme/Logos/JellyFlicks-logo.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    width: 140px;
+    height: 60px;
+    margin-left: 16px;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) {
+    .headerLeft::before {
+        width: 110px;
+        height: 32px;
+        margin-left: 12px;
+        margin-right: 12px;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .headerLeft::before {
+        width: 90px;
+        height: 26px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .headerLeft::before {
+        width: 72px;
+        height: 22px;
+        margin-right: 8px;
+        margin-right: 8px;
+    }
+}
+
+/* Push page titles and menu items right */
+.pageTitle,
 .pageTitleWithDefaultLogo {
-    background-image: var(--logo) !important; /* Uses the --logo variable, ensure it's defined in your color scheme files */
-    background-size: 100% !important; /* Make logo responsive within its container */
+    margin-left: 0 !important;
 }
-/* Desktop logo dimensions and positioning. */
-.layout-tv .pageTitleWithLogo, .layout-desktop .pageTitleWithLogo {
-    margin-left: 25px !important;
-    height: 60px !important;
-    width: 140px !important;
-}
-/* Mobile logo dimensions and positioning. */
-.layout-mobile .pageTitleWithLogo {
-    height: 30px !important;
-    width: 100px !important;
-    margin: 0 1em 0 .5em !important;
-    padding: 10px !important;
-}
-/* General page title margin (when logo is not present or text only). */
-[dir="ltr"] .pageTitle {
-    margin: 0 1em 0 .5em !important;
-}
-/* Fix for empty page titles that might otherwise take up space due to margin. */
-[dir="ltr"] .pageTitle:not(.pageTitleWithLogo):empty {
-    margin: 0 !important;
-}
+
+/* Hide default Jellyfin logo everywhere */
+.headerLogo,
+.pageTitle img,
+.pageTitleWithDefaultLogo img {
+    display: none !important;
+} /*End here*/
 
 /* == Dialog Styling == */
 /* Basic styling for dialog boxes. */
