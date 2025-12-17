@@ -62,22 +62,37 @@
     }
 }
 
-/* Change Manual Login button text */
-#loginPage .btnManual {
-    position: relative !important;
-    color: transparent !important; /* hides original text */
-}
-
+/* Custom text and styling for the "Manual Login" button */
 #loginPage .btnManual::after {
-    content: "Sign In Manually" !important;
+    content: "Sign In Manually" !important; /* change displayed text */
+    font-size: 16px !important;
+    font-family: inherit;
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
-    color: #ffffff !important; /* text color */
-    font-size: 1em !important; /* adjust size as needed */
-    font-weight: 600 !important; 
-    pointer-events: none !important; /* ensures the button is still clickable */
+    color: var(--text-color) !important;
+    pointer-events: none !important; /* keeps button clickable */
+}
+
+#loginPage .btnManual {
+    position: relative !important; /* needed for ::after positioning */
+    background-color: rgba(40, 167, 69, 0.66) !important; /* matches Sign In */
+    color: var(--text-color) !important; /* hides original text since ::after shows custom */
+    font-family: inherit;
+    border: none !important;
+    cursor: pointer !important;
+    padding: 10px 20px !important; /* adjust to match Sign In button */
+    border-radius: 5px !important; /* rounded corners */
+    transition: background 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Hover/focus effect like Sign In button */
+#loginPage .btnManual:hover,
+#loginPage .btnManual:focus {
+    background-color: #28a745 !important;
+    color: white !important;
+    transform: scale(1.05);
 }
 
 /*Hide "Forgot Password" button*/
