@@ -36,14 +36,11 @@
     border-radius: 50% !important;
     width: 52px !important;
     height: 52px !important;
-
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-
     box-shadow: -2px 1px 4px 0 rgb(0 0 0 / .8),
                 inset 0 1px 3px rgba(255,255,255,0.2) !important;
-
     transform: scale(1);
     transition: transform 0.15s ease, background 0.15s ease !important;
 }
@@ -57,4 +54,16 @@
 /* Hover emphasis */
 .card-hoverable:hover .cardOverlayFab-primary {
     transform: scale(1.12);
+}
+
+/* Ensure the play button container does not clip the circle */
+.cardOverlayContainer {
+    overflow: visible !important;
+}
+
+/* Force the FAB wrapper itself to be circular */
+.cardOverlayFab {
+    border-radius: 50% !important;
+    width: 52px !important;
+    height: 52px !important;
 }
