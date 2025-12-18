@@ -30,47 +30,35 @@
     font-size: 95%;
 }
 
-/* Poster Hover Play Button — match Played Indicator styling */
-.cardOverlayFab-primary {
-    background: linear-gradient(to bottom, #00aaff, #005f99) !important;
-    border-radius: 50% !important;
+/* === Poster Hover Play Button — match Played Indicator styling (force circular) === */
+.cardOverlayContainer .cardOverlayFab,
+.cardOverlayContainer .cardOverlayFab-primary {
     width: 52px !important;
     height: 52px !important;
-
+    border-radius: 50% !important;
+    overflow: hidden !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-
-    box-shadow: -2px 1px 4px 0 rgb(0 0 0 / .8),
+    background: linear-gradient(to bottom, #00aaff, #005f99) !important;
+    box-shadow: -2px 1px 4px 0 rgb(0 0 0 / 0.8),
                 inset 0 1px 3px rgba(255,255,255,0.2) !important;
-
-    transform: scale(1);
+    transform: scale(1) !important;
     transition: transform 0.15s ease, background 0.15s ease !important;
-
-    /* Clip internal square layers to maintain circular shape */
-    overflow: hidden !important;
 }
 
 /* Play icon inside the button */
-.cardOverlayFab-primary .md-icon {
+.cardOverlayContainer .cardOverlayFab-primary .md-icon {
     color: #ffffff !important;
     font-size: 26px !important;
 }
 
 /* Hover emphasis */
-.card-hoverable:hover .cardOverlayFab-primary {
-    transform: scale(1.12);
+.cardOverlayContainer .card-hoverable:hover .cardOverlayFab-primary {
+    transform: scale(1.12) !important;
 }
 
-/* Ensure the play button container does not clip the circle */
+/* Ensure outer container does not clip the circular FAB */
 .cardOverlayContainer {
     overflow: visible !important;
-}
-
-/* Force the FAB wrapper itself to be circular and match primary size */
-.cardOverlayFab {
-    border-radius: 50% !important;
-    width: 52px !important;
-    height: 52px !important;
-    overflow: hidden !important;
 }
