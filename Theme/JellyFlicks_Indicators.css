@@ -29,3 +29,32 @@
 .layout-mobile .playedIndicator, .layout-mobile .countIndicator {
     font-size: 95%;
 }
+
+/* Poster Hover Play Button — match Played Indicator styling */
+.cardOverlayFab-primary {
+    background: linear-gradient(to bottom, #00aaff, #005f99) !important;
+    border-radius: 50% !important;
+    width: 52px !important;
+    height: 52px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    box-shadow: -2px 1px 4px 0 rgb(0 0 0 / .8),
+                inset 0 1px 3px rgba(255,255,255,0.2) !important;
+
+    transform: scale(1);
+    transition: transform 0.15s ease, background 0.15s ease !important;
+}
+
+/* Play icon inside the button */
+.cardOverlayFab-primary .md-icon {
+    color: #ffffff !important;
+    font-size: 26px !important;
+}
+
+/* Hover emphasis */
+.card-hoverable:hover .cardOverlayFab-primary {
+    transform: scale(1.12);
+}
