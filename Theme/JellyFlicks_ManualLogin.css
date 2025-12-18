@@ -13,15 +13,16 @@
     transform: scale(1.05);
 }
 
-/* Replace text the SAME way Jellyfin does Sign In */
-#loginPage button.btnManual.emby-button span::after {
+/* Hide original inner text */
+#loginPage button.btnManual.emby-button span span {
+    color: transparent !important;
+}
+
+/* Inject replacement text in the correct span */
+#loginPage button.btnManual.emby-button span span::after {
     content: "Sign In Manually" !important;
     font-size: 16px !important;
     font-weight: 600 !important;
     font-family: inherit !important;
-}
-
-/* Hide original text safely */
-#loginPage button.btnManual.emby-button span {
-    color: transparent !important;
+    color: #ffffff !important;
 }
