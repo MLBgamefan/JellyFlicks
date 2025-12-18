@@ -491,6 +491,12 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     padding-bottom: 10px !important; /* Specific bottom padding for TV layout */
 }
 
+
+/* Hide header section tabs */
+#reactRoot .headerTabs.sectionTabs {
+    display: none !important;
+}
+
 /* Removes Home option in top menu bar */
 .noHomeButtonHeader .emby-tab-button[data-index="0"] {
   display: none !important;
@@ -503,11 +509,6 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 
 /* Hide "Cast to Device" button in the header */
 #reactRoot .headerCastButton {
-    display: none !important;
-}
-
-/* Hide header section tabs */
-#reactRoot .headerTabs.sectionTabs {
     display: none !important;
 }
 
