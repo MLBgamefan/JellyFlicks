@@ -1,29 +1,42 @@
-/* Manual Login button — match Sign In behavior */
-#loginPage button.btnManual.emby-button {
+/* Manual Login button — match Sign In */
+#loginPage .btnManual {
     background-color: rgba(40, 167, 69, 0.66) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
     transition: background 0.2s ease, transform 0.2s ease !important;
 }
 
-/* Hover / focus identical to Sign In */
-#loginPage button.btnManual.emby-button:hover,
-#loginPage button.btnManual.emby-button:focus {
+/* Hover / focus behavior identical to Sign In */
+#loginPage .btnManual:hover,
+#loginPage .btnManual:focus {
     background-color: #28a745 !important;
     transform: scale(1.05);
 }
 
-/* Hide the original Manual Login text completely */
-#loginPage button.btnManual.emby-button span span span {
-    font-size: 0 !important;      /* hides the original text */
-    line-height: 0 !important;
-}
-
-/* Inject replacement text exactly like Sign In */
-#loginPage button.btnManual.emby-button span span span::after {
-    content: "Sign In Manually" !important;
-    font-size: 16px !important;   /* exact match to Sign In */
+/* Replace text and center it */
+#loginPage .btnManual span {
+    position: relative !important;
+    color: transparent !important; /* hide original text */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
+    font-size: 16px !important;
     font-weight: 600 !important;
     font-family: inherit !important;
+}
+
+/* Inject new text */
+#loginPage .btnManual span::before {
+    content: "Sign In Manually" !important;
+    position: absolute !important;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+    pointer-events: none;
 }
