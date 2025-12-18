@@ -62,33 +62,58 @@
     }
 }
 
-/* Make Manual Login button match Sign In */
+/* Manual Login button — identical layout to Sign In */
 #loginPage .btnManual {
     background-color: rgba(40, 167, 69, 0.66) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    font-family: inherit !important;
-    color: #fff !important;             /* shows text */
     transition: background 0.2s ease, transform 0.2s ease !important;
 }
 
-/* Hover/focus behavior identical to Sign In */
+/* Hover / focus behavior identical to Sign In */
 #loginPage .btnManual:hover,
 #loginPage .btnManual:focus {
     background-color: #28a745 !important;
     transform: scale(1.05);
 }
 
-/* Replace text inside the span */
+/* Force span to remain the centering container */
 #loginPage .btnManual span {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
     font-size: 16px !important;
     font-weight: 600 !important;
     font-family: inherit !important;
+    color: #fff !important;
+    width: 100%;
 }
+
+/* Replace text without breaking centering */
 #loginPage .btnManual span::before {
-    content: "Sign In Manually" !important;
+    content: "Sign In Manually";
+}
+
+/* Replace text while preserving centering */
+#loginPage .btnManual span {
+    position: relative !important;
+    color: transparent !important; /* hide original text ONLY */
+}
+
+#loginPage .btnManual span::before {
+    content: "Sign In Manually";
+    position: absolute;
+    inset: 0;                      /* fills span */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+    pointer-events: none;
 }
 
 /*Hide "Forgot Password" button*/
@@ -420,7 +445,6 @@ body:has(#loginPage:not(.hide)) .standalonePage {
   background-color: var(--primary-accent-color) !important;
 }
 
-
 /* ~~~~~~~~~~~~~~~~~~~~ MANUAL LOGIN FORM - Show User Image and Hide Username ~~~~~~~~~~~~~~~~~~~~ */
 /* works only with custom javascript that sets the user image in the container and hides username*/
 
@@ -445,7 +469,6 @@ body:has(#loginPage:not(.hide)) .standalonePage {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 20px var(--primary-accent-color);
 }
-
 
 /* ~~~~~~~~~~~~~~~~~~~~ RESPONSIVE STYLING (MAX-WIDTH: 600px) ~~~~~~~~~~~~~~~~~~~~ */
 @media (max-width: 600px) {
