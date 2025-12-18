@@ -62,41 +62,33 @@
     }
 }
 
-/* --- Manual Login button: fully match Sign In --- */
+/* Make Manual Login match Sign In exactly */
 #loginPage .btnManual {
     background-color: rgba(40, 167, 69, 0.66) !important;
+    color: white !important;           /* Show text on green background */
     border-radius: 5px !important;
     padding: 10px 20px !important;
+    font-size: 16px !important;        /* Exact match */
+    font-weight: 600 !important;
+    font-family: inherit !important;
     transition: background 0.2s ease, transform 0.2s ease !important;
 }
 
-/* Hide original span text */
-#loginPage .btnManual span {
-    visibility: hidden !important;
-    position: relative !important;
-}
-
-/* Inject replacement text EXACTLY like Sign In */
-#loginPage .btnManual span::after {
-    content: "Sign In Manually" !important;
-    visibility: visible !important;
-    position: absolute !important;
-    inset: 0 !important;
-
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    font-size: 16px !important;   /* EXACT Sign In size */
-    font-weight: 600 !important;
-    color: #ffffff !important;
-}
-
-/* Hover / focus behavior identical to Sign In */
+/* Hover / focus identical to Sign In */
 #loginPage .btnManual:hover,
 #loginPage .btnManual:focus {
     background-color: #28a745 !important;
     transform: scale(1.05);
+}
+
+/* Change the text label */
+#loginPage .btnManual span {
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+}
+#loginPage .btnManual span::after {
+    content: "Sign In Manually" !important; /* replaces "Manual Login" */
 }
 
 /*Hide "Forgot Password" button*/
