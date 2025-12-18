@@ -481,7 +481,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 /* Basic transparency and padding for the main header. */
 .skinHeader, .skinHeader-withBackground.osdHeader {
     background-color: #000508 !important;
-    padding-bottom: 36px !important;
+    padding-bottom: 26px !important;
 }
 .layout-desktop .skinHeader,
 .layout-tv .skinHeader {
