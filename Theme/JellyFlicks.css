@@ -506,6 +506,11 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     display: none !important;
 }
 
+/* Hide header section tabs */
+#reactRoot .headerTabs.sectionTabs {
+    display: none !important;
+}
+
 /* == ZestyTheme-Inspired Header Tabs & Right Section == */
 /* Styles for header tabs and the right-aligned header items, creating a pill-shaped, blurred effect. */
 .headerTabs,       /* Container for navigation tabs within the header */
