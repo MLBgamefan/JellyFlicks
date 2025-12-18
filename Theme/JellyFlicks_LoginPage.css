@@ -62,12 +62,32 @@
     }
 }
 
-/* Make Manual Login button match Sign In button */
+/* --- Manual Login: text replacement --- */
 #loginPage .btnManual {
+    position: relative !important;
+    color: transparent !important; /* hide original text */
+
+    /* Button styling to match Sign In */
     background-color: rgba(40, 167, 69, 0.66) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
     transition: background 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Inject replacement text */
+#loginPage .btnManual::after {
+    content: "Sign In Manually" !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+
+    color: #ffffff !important;
+    font-size: 16px !important;   /* EXACT Sign In size */
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+
+    pointer-events: none !important;
 }
 
 /* Hover / focus behavior identical to Sign In */
@@ -75,13 +95,6 @@
 #loginPage .btnManual:focus {
     background-color: #28a745 !important;
     transform: scale(1.05);
-}
-
-/* Force Manual Login text to match Sign In font size */
-#loginPage .btnManual::after {
-    font-size: 16px !important;   /* EXACT match to Sign In */
-    font-weight: 600 !important;
-    line-height: 1.2 !important;
 }
 
 /*Hide "Forgot Password" button*/
