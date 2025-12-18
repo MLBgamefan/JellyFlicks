@@ -62,11 +62,15 @@
     }
 }
 
-/* Manual Login button — identical layout to Sign In */
+/* Make Manual Login button match Sign In */
 #loginPage .btnManual {
     background-color: rgba(40, 167, 69, 0.66) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+    color: #fff !important;             /* shows text */
     transition: background 0.2s ease, transform 0.2s ease !important;
 }
 
@@ -82,7 +86,6 @@
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-
     font-size: 16px !important;
     font-weight: 600 !important;
     font-family: inherit !important;
