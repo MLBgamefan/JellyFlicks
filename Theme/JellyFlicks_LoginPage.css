@@ -62,32 +62,34 @@
     }
 }
 
-/* --- Manual Login: text replacement --- */
+/* --- Manual Login button: fully match Sign In --- */
 #loginPage .btnManual {
-    position: relative !important;
-    color: transparent !important; /* hide original text */
-
-    /* Button styling to match Sign In */
     background-color: rgba(40, 167, 69, 0.66) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
     transition: background 0.2s ease, transform 0.2s ease !important;
 }
 
-/* Inject replacement text */
-#loginPage .btnManual::after {
-    content: "Sign In Manually" !important;
-    position: absolute !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
+/* Hide original span text */
+#loginPage .btnManual span {
+    visibility: hidden !important;
+    position: relative !important;
+}
 
-    color: #ffffff !important;
+/* Inject replacement text EXACTLY like Sign In */
+#loginPage .btnManual span::after {
+    content: "Sign In Manually" !important;
+    visibility: visible !important;
+    position: absolute !important;
+    inset: 0 !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
     font-size: 16px !important;   /* EXACT Sign In size */
     font-weight: 600 !important;
-    line-height: 1.2 !important;
-
-    pointer-events: none !important;
+    color: #ffffff !important;
 }
 
 /* Hover / focus behavior identical to Sign In */
