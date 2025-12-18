@@ -89,9 +89,9 @@
 #loginPage .btnManual span {
     display: inline !important;
 }
-#loginPage .btnManual span::before {
-    content: "Sign In Manually" !important; /* replaces the original text */
-}
+*/#loginPage .btnManual span::before {*/
+  /*  content: "Sign In Manually" !important; /* replaces the original text */*/
+/*}*/
 
 /*Hide "Forgot Password" button*/
 #loginPage .raised.cancel.block.btnForgotPassword.emby-button {display: none}
