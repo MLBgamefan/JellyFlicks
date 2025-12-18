@@ -1,0 +1,27 @@
+/* Manual Login button — match Sign In behavior */
+#loginPage button.btnManual.emby-button {
+    background-color: rgba(40, 167, 69, 0.66) !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Hover / focus identical to Sign In */
+#loginPage button.btnManual.emby-button:hover,
+#loginPage button.btnManual.emby-button:focus {
+    background-color: #28a745 !important;
+    transform: scale(1.05);
+}
+
+/* Replace text the SAME way Jellyfin does Sign In */
+#loginPage button.btnManual.emby-button span::after {
+    content: "Sign In Manually" !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+}
+
+/* Hide original text safely */
+#loginPage button.btnManual.emby-button span {
+    color: transparent !important;
+}
