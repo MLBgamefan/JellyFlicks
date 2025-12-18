@@ -62,33 +62,33 @@
     }
 }
 
-/* Make Manual Login match Sign In exactly */
+/* Make Manual Login button match Sign In */
 #loginPage .btnManual {
     background-color: rgba(40, 167, 69, 0.66) !important;
-    color: white !important;           /* Show text on green background */
     border-radius: 5px !important;
     padding: 10px 20px !important;
-    font-size: 16px !important;        /* Exact match */
+    font-size: 16px !important;
     font-weight: 600 !important;
     font-family: inherit !important;
+    color: #fff !important;             /* shows text */
     transition: background 0.2s ease, transform 0.2s ease !important;
 }
 
-/* Hover / focus identical to Sign In */
+/* Hover/focus behavior identical to Sign In */
 #loginPage .btnManual:hover,
 #loginPage .btnManual:focus {
     background-color: #28a745 !important;
     transform: scale(1.05);
 }
 
-/* Change the text label */
+/* Replace text inside the span */
 #loginPage .btnManual span {
     font-size: 16px !important;
     font-weight: 600 !important;
     font-family: inherit !important;
 }
-#loginPage .btnManual span::after {
-    content: "Sign In Manually" !important; /* replaces "Manual Login" */
+#loginPage .btnManual span::before {
+    content: "Sign In Manually" !important;
 }
 
 /*Hide "Forgot Password" button*/
