@@ -13,15 +13,15 @@
     transform: scale(1.05);
 }
 
-/* Hide original inner text */
+/* Hide original Manual Login text completely */
 #loginPage button.btnManual.emby-button span span {
-    color: transparent !important;
+    font-size: 0 !important;
 }
 
-/* Inject replacement text in the correct span */
+/* Inject replacement text */
 #loginPage button.btnManual.emby-button span span::after {
     content: "Sign In Manually" !important;
-    font-size: 16px !important;
+    font-size: 16px !important;     /* exact Sign In size */
     font-weight: 600 !important;
     font-family: inherit !important;
     color: #ffffff !important;
