@@ -22,7 +22,7 @@
     --theme-name: 'JellyFlicks';
     --rounded-cards: 15px; /* Standard border-radius */
     --blur: 15px;           /* Default blur intensity */
-	--JellyFlicksFooterText: "JellyFlicks v1.0.0";
+	--JellyFlicksFooterText: "JellyFlicks";
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~ GLOBAL FONT ~~~~~~~~~~~~~~~~~~~~ */
@@ -135,6 +135,7 @@ progress[aria-valuenow]:before,               /* Progress bar fill (pseudo-eleme
 .formDialogHeader.formDialogHeader-clear .formDialogHeaderTitle {
 	margin-left: 0em !important;
 }
+
 .iconOsdProgressOuter   /* Outer ring of OSD circular progress indicators */
 {
     background: #ffffffc0 !important;
@@ -225,6 +226,7 @@ progress::-webkit-progress-value,             /* Progress bar fill for WebKit br
 .dashboardSection span.material-icons.chevron_right {
     display: none;
 }
+
 /* == Hover Color for Movie Card Overlays == */
 /* Sets a semi-transparent background on movie card hover. */
 .card-hoverable:hover .cardOverlayContainer {
@@ -248,22 +250,27 @@ progress::-webkit-progress-value,             /* Progress bar fill for WebKit br
 #btnDeleteImage {
     background: #942626c2 !important;
 }
+
 /* Red background for shutdown server button. */
 #btnShutdown {
     background: #AE3739 !important;
 }
+
 /* Green background for restart server button and Save Metadata button */
 #btnRestartServer {
     background: forestgreen !important;
 }
+
 /* Violet background for refresh button and reset metadata button */
 button.raised.btnRefresh.emby-button, .button-reset {
     background: blueviolet !important;
 }
+
 /* Dark, semi-transparent background for the Intro Skipper button. */
 #skipIntro .emby-button {
     background: rgba(30, 30, 30, 0.7) !important;
 }
+
 /* Red background for cancel and reset password buttons. */
 #btnCancel, #btnResetPassword, .button-cancel {
     background: rgb(180 96 96) !important;
@@ -417,7 +424,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     .mainContentContainer {
         padding-top: 45px !important;
     }
-} /*End here*/
+}
 
 /* == Dialog Styling == */
 /* Basic styling for dialog boxes. */
@@ -452,6 +459,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
         font-size: 90% !important;
     }
 }
+
 /* iPads in portrait */
 @media (min-width: 50em) and (orientation: portrait) {
     .layout-mobile #castContent .card.overflowPortraitCard,
@@ -460,6 +468,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
         font-size: 90% !important;
     }
 }
+
 /* iPads/tablets in landscape */
 @media (min-width: 50em) and (orientation: landscape) {
     .layout-mobile #castContent .card.overflowPortraitCard,
@@ -481,7 +490,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 /* Basic transparency and padding for the main header. */
 .skinHeader, .skinHeader-withBackground.osdHeader {
     background-color: #000508 !important;
-    padding-bottom: 26px !important;
+    padding-bottom: 36px !important;
 }
 .layout-desktop .skinHeader,
 .layout-tv .skinHeader {
@@ -490,7 +499,6 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 .layout-tv .skinHeader {
     padding-bottom: 10px !important; /* Specific bottom padding for TV layout */
 }
-
 
 /* Hide header section tabs */
 #reactRoot .headerTabs.sectionTabs {
