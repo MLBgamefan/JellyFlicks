@@ -13,15 +13,16 @@
     transform: scale(1.05);
 }
 
-/* Hide original Manual Login text completely */
-#loginPage button.btnManual.emby-button span span {
-    font-size: 0 !important;
+/* Hide the original Manual Login text completely */
+#loginPage button.btnManual.emby-button span span span {
+    font-size: 0 !important;      /* hides the original text */
+    line-height: 0 !important;
 }
 
-/* Inject replacement text */
-#loginPage button.btnManual.emby-button span span::after {
+/* Inject replacement text exactly like Sign In */
+#loginPage button.btnManual.emby-button span span span::after {
     content: "Sign In Manually" !important;
-    font-size: 16px !important;     /* exact Sign In size */
+    font-size: 16px !important;   /* exact match to Sign In */
     font-weight: 600 !important;
     font-family: inherit !important;
     color: #ffffff !important;
