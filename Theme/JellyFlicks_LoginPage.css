@@ -62,61 +62,32 @@
     }
 }
 
-/* Make Manual Login button match Sign In */
-#loginPage .btnManual {
+/* Manual Login button — match Sign In behavior */
+#loginPage button.btnManual.emby-button {
     background-color: rgba(40, 167, 69, 0.66) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    font-family: inherit !important;
-    color: #fff !important;             /* shows text */
     transition: background 0.2s ease, transform 0.2s ease !important;
 }
 
-/* Hover / focus behavior identical to Sign In */
-#loginPage .btnManual:hover,
-#loginPage .btnManual:focus {
+/* Hover / focus identical to Sign In */
+#loginPage button.btnManual.emby-button:hover,
+#loginPage button.btnManual.emby-button:focus {
     background-color: #28a745 !important;
     transform: scale(1.05);
 }
 
-/* Force span to remain the centering container */
-#loginPage .btnManual span {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
+/* Replace text the SAME way Jellyfin does Sign In */
+#loginPage button.btnManual.emby-button span::after {
+    content: "Sign In Manually" !important;
     font-size: 16px !important;
     font-weight: 600 !important;
     font-family: inherit !important;
-    color: #fff !important;
-    width: 100%;
 }
 
-/* Replace text without breaking centering */
-#loginPage .btnManual span::before {
-    content: "Sign In Manually";
-}
-
-/* Replace text while preserving centering */
-#loginPage .btnManual span {
-    position: relative !important;
-    color: transparent !important; /* hide original text ONLY */
-}
-
-#loginPage .btnManual span::before {
-    content: "Sign In Manually";
-    position: absolute;
-    inset: 0;                      /* fills span */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #ffffff !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    font-family: inherit !important;
-    pointer-events: none;
+/* Hide original text safely */
+#loginPage button.btnManual.emby-button span {
+    color: transparent !important;
 }
 
 /*Hide "Forgot Password" button*/
