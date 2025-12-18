@@ -501,6 +501,11 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
   display: none !important;
 }
 
+/* Hide "Cast to Device" button in the header */
+#reactRoot .headerCastButton {
+    display: none !important;
+}
+
 /* == ZestyTheme-Inspired Header Tabs & Right Section == */
 /* Styles for header tabs and the right-aligned header items, creating a pill-shaped, blurred effect. */
 .headerTabs,       /* Container for navigation tabs within the header */
