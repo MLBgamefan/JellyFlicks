@@ -95,6 +95,56 @@
     overflow: visible !important;
 }
 
+/*= Sidebar Menu — glassy blurred background= */
+.mainDrawer.transition.touch-menu-la.drawer-open > .mainDrawer-scrollContainer.scrollContainer.focuscontainer-y.scrollY {
+    background: rgba(0, 5, 8, 0.65) !important; /* glassy layer */
+    backdrop-filter: blur(12px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+    color: #ffffff !important;
+}
+
+/* Sidebar Navigation Buttons */
+/* Styling for individual navigation options within the sidebar. */
+.navMenuOption,
+.navMenuOption:hover,
+.navMenuOption-selected {
+    width: 85% !important;          /* Relative width */
+    margin: auto !important;        /* Centering */
+    text-align: center !important;
+    height: 45px !important;        /* Fixed height */
+    margin-top: 3px !important;
+    margin-bottom: 3px !important;
+    border-radius: 10px !important; /* Rounded corners */
+    transition: .2s !important;     /* Smooth transitions for hover effects */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    font-weight: 600 !important;
+}
+
+/* Hover effect for non-selected sidebar buttons. */
+.navMenuOption:hover:not(.navMenuOption-selected) {
+    box-shadow: inset 0 0 1px rgba(255,255,255,0.18) !important;
+    background-color: #002233 !important;
+    color: #ffffff !important; /* Text color changes to accent on hover */
+    transform: scale(1.05) !important;       /* Slight scaling effect */
+}
+
+/* Sidebar headers — Media, Admin, User */
+.mainDrawer-scrollContainer.scrollContainer.focuscontainer-y.scrollY div.libraryMenuOptions h3.sidebarHeader,
+.mainDrawer-scrollContainer.scrollContainer.focuscontainer-y.scrollY div.adminMenuOptions h3.sidebarHeader,
+.mainDrawer-scrollContainer.scrollContainer.focuscontainer-y.scrollY div.userMenuOptions h3.sidebarHeader {
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Prevent sidebar menu from reverting back to default theme */
+.mainDrawer,
+.mainDrawer > .mainDrawer-scrollContainer.scrollContainer.focuscontainer-y.scrollY {
+    background: rgba(0, 5, 8, 0.65) !important; /* glassy layer */
+    backdrop-filter: blur(12px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+}
+
 /* All Detail Ribbon Buttons — unified base style */
 .detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlay,
 .detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlayTrailer,
