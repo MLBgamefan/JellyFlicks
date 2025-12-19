@@ -1,6 +1,6 @@
 /* Manual Login button — match Sign In */
 #loginPage .btnManual {
-    background-color: rgba(40, 167, 69, 0.66) !important;
+    background: linear-gradient(to bottom, #00baff, #005f99) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
     transition: background 0.2s ease, transform 0.2s ease !important;
@@ -9,7 +9,7 @@
 /* Hover / focus behavior identical to Sign In */
 #loginPage .btnManual:hover,
 #loginPage .btnManual:focus {
-    background-color: #28a745 !important;
+    background: linear-gradient(to bottom, #00baff, #005f99) !important;
     transform: scale(1.05);
 }
 
