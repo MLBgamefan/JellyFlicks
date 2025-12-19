@@ -362,13 +362,13 @@ body:has(#loginPage:not(.hide)) .standalonePage {
 }
 
 #loginPage button.emby-button[type="submit"] {
-  background-color: rgba(40, 167, 69, 0.66) !important;
+  background: linear-gradient(to bottom, #00baff, #005f99) !important;
   color: var(--text-color) !important;
 }
 
 #loginPage button.emby-button[type="submit"]:hover,
 #loginPage button.emby-button[type="submit"]:focus {
-  background-color: #28a745 !important;
+  background: linear-gradient(to bottom, #00aaff, #0077b3) !important;
   color: white !important;
   transform: scale(1.05);
 }
@@ -381,13 +381,13 @@ body:has(#loginPage:not(.hide)) .standalonePage {
 }
 
 #loginPage button.emby-button[type="button"].btnCancel {
-  background-color: rgba(220, 53, 69, 0.66) !important;
+  background: linear-gradient(to bottom, #5f7f99, #3f5f73) !important;
   color: var(--text-color) !important;
 }
 
 #loginPage button.emby-button[type="button"].btnCancel:hover,
 #loginPage button.emby-button[type="button"].btnCancel:focus {
-  background-color: #dc3545 !important;
+  background: linear-gradient(to bottom, #6f8fa8, #3f5f73) !important;
   color: white !important;
   transform: scale(1.05);
 }
