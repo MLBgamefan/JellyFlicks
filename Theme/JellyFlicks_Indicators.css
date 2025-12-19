@@ -30,7 +30,7 @@
     font-size: 95%;
 }
 
-/* === Poster Hover Play Button — match Played Indicator styling (force circular) === */
+/* Poster Hover Play Button — match Played Indicator styling (force circular) */
 .cardOverlayContainer .cardOverlayFab,
 .cardOverlayContainer .cardOverlayFab-primary {
     width: 52px !important;
@@ -63,8 +63,69 @@
     overflow: visible !important;
 }
 
-/* === TV Show Play Button — MATCH Poster Hover Play Button BEHAVIOR === */
+/* All Detail Ribbon Buttons — unified base style */
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlay,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlayTrailer,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlaystate,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnUserRating,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnMoreCommands {
+    background: linear-gradient(to bottom, #00baff, #0077b3) !important; /* base */
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    min-height: 40px !important;
+    padding: 8px 16px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.25px !important;
+    font-family: inherit !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-right: 8px !important;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2) !important;
+    transform: scale(1) !important;
+    transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease !important;
+    filter: none !important;        /* neutralize any default hover filters */
+    opacity: 1 !important;          /* ensure no opacity changes on hover */
+}
 
+/* Hover / Focus effect — identical for ALL buttons */
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlay:hover,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlayTrailer:hover,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlaystate:hover,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnUserRating:hover,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnMoreCommands:hover,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlay:focus,
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnPlay:focus-visible {
+    transform: scale(1.05) !important;
+    background: linear-gradient(to bottom, #00aaff, #0077b3) !important; /* identical to Play */
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2) !important;
+    filter: none !important;   /* remove any default hover effects */
+    opacity: 1 !important;      /* ensure hover doesn’t lighten/darken */
+    outline: none !important;
+}
+
+/* Icons inside buttons */
+.detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button .md-icon {
+    font-size: 18px !important;
+    margin-right: 6px !important;
+    color: #ffffff !important;
+}
+
+/* Poster FAB Play Buttons — same hover/scale/glow */
+.cardOverlayContainer .cardOverlayFab-primary {
+    transform: scale(1) !important;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2) !important;
+}
+
+.cardOverlayContainer .card-hoverable:hover .cardOverlayFab-primary {
+    transform: scale(1.05) !important;
+    box-shadow: inset 0 1px 3px rgba(255,255,255,0.2) !important;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* TV Show Play Button — MATCH Poster Hover Play Button BEHAVIOR */
 /* Ensure the image container can host an overlay */
 .listItemImage {
     position: relative !important;
