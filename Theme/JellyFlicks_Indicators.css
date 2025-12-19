@@ -107,9 +107,15 @@
     font-size: 26px !important;
 }
 
-/* Hover behavior — EXACTLY like posters */
-.listItem:hover .listItemImageButton {
+/* Hover behavior — EXACTLY like poster FAB (override Jellyfin defaults) */
+.listItem:hover .listItemImageButton,
+.listItemImageButton:hover {
     opacity: 1 !important;
     pointer-events: auto !important;
+
+    background: linear-gradient(to bottom, #00aaff, #005f99) !important;
+    background-color: unset !important;
+
     transform: translate(-50%, -50%) scale(1.12) !important;
 }
+
