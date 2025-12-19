@@ -71,6 +71,13 @@
     border-radius: 5px !important;
 }
 
+#loginPage input#txtManualName,
+#loginPage input#txtManualPassword {
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    letter-spacing: 0.25px;
+}
+
 /*Hide "Forgot Password" button*/
 #loginPage .raised.cancel.block.btnForgotPassword.emby-button {display: none}
 
