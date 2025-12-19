@@ -47,10 +47,10 @@
     transition: transform 0.15s ease, background 0.15s ease !important;
 }
 
-/* === Action Sheet — glassy blurred like main drawer === */
+/* Action Sheet — glassy blurred background, same colors */
 .dialogContainer 
 .dialog.actionsheet-not-fullscreen.actionSheet.centeredDialog.opened {
-    background: #000508 !important; /* main blur layer */
+    background: rgba(0, 5, 8, 0.65) !important; /* glassy layer with original dark color */
     backdrop-filter: blur(12px) saturate(140%) !important;
     -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
 
@@ -76,6 +76,7 @@
 .actionSheetContent .listItem:hover {
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18) !important;
     background-color: #002233 !important;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 /* Play icon inside the button */
