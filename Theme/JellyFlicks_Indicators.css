@@ -50,7 +50,7 @@
 /* === Action Sheet — glassy blurred like main drawer === */
 .dialogContainer 
 .dialog.actionsheet-not-fullscreen.actionSheet.centeredDialog.opened {
-    background: rgba(30, 30, 30, 0.65) !important; /* main blur layer */
+    background: #000508 !important; /* main blur layer */
     backdrop-filter: blur(12px) saturate(140%) !important;
     -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
 
@@ -75,6 +75,7 @@
 .dialog.actionsheet-not-fullscreen.actionSheet.centeredDialog.opened 
 .actionSheetContent .listItem:hover {
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18) !important;
+    background-color: #002233 !important;
 }
 
 /* Play icon inside the button */
