@@ -62,3 +62,54 @@
 .cardOverlayContainer {
     overflow: visible !important;
 }
+
+/* === TV Show Play Button — MATCH Poster Hover Play Button BEHAVIOR === */
+
+/* Ensure the image container can host an overlay */
+.listItemImage {
+    position: relative !important;
+}
+
+/* Base TV play button (hidden like poster FAB) */
+.listItemImageButton {
+    position: absolute !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.85) !important;
+
+    width: 52px !important;
+    height: 52px !important;
+
+    border-radius: 50% !important;
+    overflow: hidden !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: linear-gradient(to bottom, #00aaff, #005f99) !important;
+
+    box-shadow: -2px 1px 4px 0 rgb(0 0 0 / 0.8),
+                inset 0 1px 3px rgba(255,255,255,0.2) !important;
+
+    opacity: 0 !important;
+    pointer-events: none !important;
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        background 0.15s ease !important;
+}
+
+/* Play icon */
+.listItemImageButton .md-icon {
+    color: #ffffff !important;
+    font-size: 26px !important;
+}
+
+/* Hover behavior — EXACTLY like posters */
+.listItem:hover .listItemImageButton {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translate(-50%, -50%) scale(1.12) !important;
+}
