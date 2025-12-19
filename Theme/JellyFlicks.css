@@ -2323,6 +2323,35 @@ h3.tagline {
     padding-right: 0 !important; /* Remove right padding if any */
 }
 
+/* Bold Tagline */
+.detailPagePrimaryContent .detailSectionContent h3.tagline {
+    font-weight: 600 !important;
+}
+
+/* Bold Year, Duration, Rating */
+.detailRibbon .infoWrapper .itemMiscInfo.itemMiscInfo-primary {
+    font-weight: 600 !important;
+}
+
+/* Bold Description */
+.detailPagePrimaryContent .detailSectionContent p.overview.detail-clamp-text bdi p {
+    font-weight: 600 !important;
+}
+
+/* Bold Media Details (form fields) */
+.detailPagePrimaryContent .detailSection form.trackSelections.focuscontainer-x {
+    font-weight: 600 !important;
+}
+
+/* Bold Media Genre and misc details */
+.detailPagePrimaryContent .detailSection .itemDetailsGroup {
+    font-weight: 600 !important;
+}
+
+/* Bold Series Air Time */
+.detailPagePrimaryContent .detailSectionContent p#seriesAirTime {
+    font-weight: 600 !important;
+}
 
 /* ~~~~~~~~~~~~~~~~~~~~ Book SPECIFIC FIXES AND CHANGES ~~~~~~~~~~~~~~~~~~~~ */
 
