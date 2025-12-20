@@ -79,55 +79,6 @@
     transition: background-color 0.2s ease, box-shadow 0.2s ease !important;
 }
 
-/* Sidebar Menu — glassy blurred background */
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer.transition.touch-menu-la.drawer-open > .mainDrawer-scrollContainer.scrollContainer.focuscontainer-y.scrollY {
-    background: rgba(0, 5, 8, 0.65) !important; /* glassy layer */
-    backdrop-filter: blur(12px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
-    color: #ffffff !important;
-}
-
-/* Sidebar Navigation Buttons */
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer.transition.touch-menu-la.drawer-open .navMenuOption,
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer.transition.touch-menu-la.drawer-open .navMenuOption:hover,
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer.transition.touch-menu-la.drawer-open .navMenuOption-selected {
-    width: 85% !important;
-    margin: auto !important;
-    text-align: center !important;
-    height: 45px !important;
-    margin-top: 3px !important;
-    margin-bottom: 3px !important;
-    border-radius: 10px !important;
-    transition: .2s !important;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-    font-weight: 600 !important;
-}
-
-/* Hover effect for non-selected sidebar buttons */
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer.transition.touch-menu-la.drawer-open .navMenuOption:hover:not(.navMenuOption-selected) {
-    box-shadow: inset 0 0 1px rgba(255,255,255,0.18) !important;
-    background-color: #002233 !important;
-    color: #ffffff !important;
-    transform: scale(1.05) !important;
-}
-
-/* Sidebar headers — Media, Admin, User */
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer.transition.touch-menu-la.drawer-open div.libraryMenuOptions h3.sidebarHeader,
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer.transition.touch-menu-la.drawer-open div.adminMenuOptions h3.sidebarHeader,
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer.transition.touch-menu-la.drawer-open div.userMenuOptions h3.sidebarHeader {
-    font-weight: 600 !important;
-    color: #ffffff !important;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
-}
-
-/* Prevent sidebar menu from reverting back to default theme */
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer,
-body.withSectionTabs.libraryDocument div#reactRoot div.mainDrawer > .mainDrawer-scrollContainer.scrollContainer.focuscontainer-y.scrollY {
-    background: rgba(0, 5, 8, 0.65) !important; /* persistent glassy layer */
-    backdrop-filter: blur(12px) saturate(140%) !important;
-    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
-}
-
 /* Play icon inside the button */
 .cardOverlayContainer .cardOverlayFab-primary .md-icon {
     color: #ffffff !important;
