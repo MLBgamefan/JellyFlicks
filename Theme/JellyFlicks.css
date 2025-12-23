@@ -60,7 +60,7 @@ body, h1, h2, h3, h4, h5, h6, p {
 /* ~~~~~~~~~~~~~~~~~~~~ ACCENT COLOR APPLICATION ~~~~~~~~~~~~~~~~~~~~ */
 /* Styles that apply the theme's accent colors to various UI elements. */
 
-/* == Primary Accent Backgrounds == */
+/* Primary Accent Backgrounds */
 /* Applied to main interactive element backgrounds indicating a primary action or state. */
 .emby-checkbox:checked+span+.checkboxOutline, /* Checked checkboxes outline */
 .selectionCommandsPanel,                      /* Toolbar for selected items */
@@ -80,7 +80,15 @@ progress[aria-valuenow]:before,               /* Progress bar fill (pseudo-eleme
     background: var(--primary-accent-color) !important;
 }
 
-/* == Secondary Accent Backgrounds == */
+/* Respect Jellyfin's native hide logic */
+/* Hide Detail Ribbon buttons when Jellyfin marks them as hidden */
+.detailPagePrimaryContainer 
+.mainDetailButtons.focuscontainer-x 
+> button.hide {
+    display: none !important;
+}
+
+/* Secondary Accent Backgrounds */
 /* Applied to elements that need a less prominent accent background. */
 .MuiAlert-root.MuiAlert-standardInfo,          /* Info type Material UI alerts */
 .navMenuOption-selected,                        /* Selected items in the main navigation menu */
@@ -99,6 +107,7 @@ progress[aria-valuenow]:before,               /* Progress bar fill (pseudo-eleme
     background: var(--secondary-accent-color) !important;
     backdrop-filter: blur(25px) !important;
 }
+
 .formDialogHeader h3 {
     font-weight: 800;
 }
@@ -147,7 +156,7 @@ progress[aria-valuenow]:before,               /* Progress bar fill (pseudo-eleme
     background-color: var(--secondary-accent-color) !important;
 }
 
-/* == Accent Color for Progress Bars == */
+/* Accent Color for Progress Bars */
 /* Styles progress bar elements with the primary accent color. */
 progress::-webkit-progress-value,             /* Progress bar fill for WebKit browsers */
 .itemProgressBarForeground,                   /* Foreground of item progress bars (e.g., watched progress on cards) */
@@ -161,7 +170,7 @@ progress::-webkit-progress-value,             /* Progress bar fill for WebKit br
     background: rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.2) !important;
 }
 
-/* == Accent Color for Borders == */
+/* Accent Color for Borders */
 /* Applies primary accent color to borders of interactive or focused elements. */
 .emby-checkbox:checked+span+.checkboxOutline, /* Outline of checked checkboxes */
 .emby-checkbox:focus:not(:checked)+span+.checkboxOutline, /* Outline of focused (but not checked) checkboxes */
@@ -177,7 +186,7 @@ progress::-webkit-progress-value,             /* Progress bar fill for WebKit br
     border-color: var(--primary-accent-color) !important;
 }
 
-/* == Accent Color for Text & Icons == */
+/* Accent Color for Text & Icons */
 /* Applies primary accent color to text and icons for emphasis or active states. */
 .button-link:not(.itemDetailPage .button-link), /* Link-styled buttons (excluding those on item detail pages) */
 .selectLabelFocused,                          /* Labels for focused select dropdowns */
@@ -203,7 +212,7 @@ progress::-webkit-progress-value,             /* Progress bar fill for WebKit br
     color: #ffffff !important;
 }
 
-/* == Accent Color for Hover Effects (Fine Pointer Devices) == */
+/* Accent Color for Hover Effects (Fine Pointer Devices) */
 /* Applies accent color on hover for icon buttons, specifically for mouse users. */
 @media (hover: hover) and (pointer: fine) {
     .paper-icon-button-light:hover:not(:disabled) { /* Exclude disabled buttons */
@@ -217,7 +226,7 @@ progress::-webkit-progress-value,             /* Progress bar fill for WebKit br
     background-color: transparent !important;
 }
 
-/* == Accent Color for Dashboard Headings == */
+/* Accent Color for Dashboard Headings */
 .dashboardSection h3 {
  color: var(--primary-accent-color);
  font-weight: bold !important;
@@ -227,7 +236,7 @@ progress::-webkit-progress-value,             /* Progress bar fill for WebKit br
     display: none;
 }
 
-/* == Hover Color for Movie Card Overlays == */
+/* Hover Color for Movie Card Overlays */
 /* Sets a semi-transparent background on movie card hover. */
 .card-hoverable:hover .cardOverlayContainer {
     background: var(--secondary-background-transparent);
@@ -327,7 +336,7 @@ html
 
 /* ~~~~~~~~~~~~~~~~~~~~ LAYOUT - GENERAL ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Poster Card Size Reduction (Landscape) == */
+/* Poster Card Size Reduction (Landscape) */
 /* Reduces the width of portrait-oriented cards on wider screens in landscape. */
 @media (min-width: 50em) and (orientation: landscape) {
     .overflowPortraitCard { /* used for "More like this" sections */
@@ -335,7 +344,7 @@ html
     }
 }
 
-/* == Rounded Progress Bars == */
+/* Rounded Progress Bars */
 /* Applies rounding to all progress elements and their WebKit-specific parts. */
 progress,
 progress::-webkit-progress-bar, /* Track of the progress bar (WebKit) */
@@ -426,7 +435,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     }
 }
 
-/* == Dialog Styling == */
+/* Dialog Styling */
 /* Basic styling for dialog boxes. */
 .dialog {
     background-color: var(--secondary-background-color) !important; /* Re-affirm background, could be inherited */
@@ -449,7 +458,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     border-radius: var(--rounded-cards) !important;
 }
 
-/* == Mobile Cast & Crew Card Size == */
+/* Mobile Cast & Crew Card Size */
 /* Adjusts the size of cast and crew portrait cards on mobile devices. */
 /* Small mobile devices */
 @media (min-width: 25em) {
@@ -486,7 +495,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
 
 /* ~~~~~~~~~~~~~~~~~~~~ LAYOUT - HEADER ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Header Base Styling == */
+/* Header Base Styling */
 /* Basic transparency and padding for the main header. */
 .skinHeader, .skinHeader-withBackground.osdHeader {
     background-color: #000508 !important;
@@ -526,7 +535,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     display: none !important;
 }
 
-/* == ZestyTheme-Inspired Header Tabs & Right Section == */
+/* ZestyTheme-Inspired Header Tabs & Right Section */
 /* Styles for header tabs and the right-aligned header items, creating a pill-shaped, blurred effect. */
 .headerTabs,       /* Container for navigation tabs within the header */
 .headerRight       /* Container for icons/buttons on the right of the header */
@@ -538,7 +547,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.25) !important;
 }
 
-/* == Header Button Hover & Focus (Right Section) == */
+/* Header Button Hover & Focus (Right Section) */
 /* Accent color for icon buttons in the right header section on hover/focus. */
 .headerRight .paper-icon-button-light:hover,
 .headerRight .paper-icon-button-light:hover:not(:disabled),
@@ -598,7 +607,7 @@ div.card.overflowPortraitCard .cardScalable {
     justify-content: center !important;
 }
 
-/* == Header Tab Button Styling == */
+/* Header Tab Button Styling */
 /* Styling for individual tab buttons and the home/library button in the header. */
 #indexPage .homeLibraryButton, /* Home button specifically on the index page */
 .emby-tab-button               /* General tab buttons */
@@ -617,7 +626,7 @@ div.card.overflowPortraitCard .cardScalable {
 	margin: .5em !important;
 }
 
-/* == Header Tab Button Hover/Focus Effects == */
+/* Header Tab Button Hover/Focus Effects */
 /* Defines hover and focus appearance for header tabs, using primary accent. */
 .raised:hover .homeLibraryText,
 .emby-tab-button:hover .emby-button-foreground {
@@ -641,7 +650,7 @@ div.card.overflowPortraitCard .cardScalable {
     background: unset !important;
 }
 
-/* == Active Header Tab Styling == */
+/* Active Header Tab Styling */
 /* Styles for the currently active header tab. */
 .emby-tab-button-active {
   background-color: var(--primary-accent-color) !important;
@@ -652,7 +661,7 @@ div.card.overflowPortraitCard .cardScalable {
   color: var(--text-color) !important; /* Ensure foreground text also matches active state color */
 }
 
-/* == Header Tabs & Right Section Positioning (Desktop) == */
+/* Header Tabs & Right Section Positioning (Desktop) */
 /* Fine-tunes positioning and sizing for desktop header elements. */
 .layout-tv .headerTabs, .layout-desktop .headerTabs {
     margin-bottom: 2vh !important;
@@ -680,7 +689,7 @@ div.card.overflowPortraitCard .cardScalable {
 }
 /* --- End of Zesty Header Styles Integration --- */
 
-/* == Header Left Section Styling (Desktop) == */
+/* Header Left Section Styling (Desktop) */
 /* Styling for the left part of the header, typically containing back/menu buttons. */
 .layout-desktop .headerLeft:not(.libraryDocument:has(.videoPlayerContainer) .headerLeft) { /* Exclude when video player is active */
     padding: 2px !important;
@@ -699,7 +708,7 @@ div.card.overflowPortraitCard .cardScalable {
     }
 }
 
-/* == Header Button Icon Alignment == */
+/* Header Button Icon Alignment */
 /* Adjusts vertical alignment of icons within header buttons for Mobile. */
 
 .layout-mobile .emby-button-foreground {
@@ -708,7 +717,7 @@ div.card.overflowPortraitCard .cardScalable {
 
 /* ~~~~~~~~~~~~~~~~~~~~ LAYOUT - MAIN DRAWER (SIDEBAR) ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Sidebar Dynamic Styling (Desktop - Default Behavior) == */
+/* Sidebar Dynamic Styling (Desktop - Default Behavior) */
 /* Styles for the main navigation drawer (sidebar) to make it appear dynamically (slides in/out). */
 .layout-desktop .mainDrawer:not(.dashboardDocument) {
     left: -320px !important; /* Initially positioned off-screen to the left */
@@ -730,7 +739,7 @@ div.card.overflowPortraitCard .cardScalable {
     margin-left: 0px !important;
 }
 
-/* == Sidebar Styling (Mobile) == */
+/* Sidebar Styling (Mobile) */
 /* Basic styling for the mobile sidebar. */
 .layout-mobile .mainDrawer {
     width: 250px !important;
@@ -742,7 +751,7 @@ div.card.overflowPortraitCard .cardScalable {
     margin-top: 15px !important; /* Top margin for scrollable content */
 }
 
-/* == Sidebar Scroll Container & Button Positioning == */
+/* Sidebar Scroll Container & Button Positioning */
 /* Adjusts padding/margin for the scrollable area within the sidebar. */
 .layout-desktop .mainDrawer-scrollContainer { /* Applies to the dynamic desktop drawer now */
     margin-top: 15px !important;
@@ -755,14 +764,14 @@ div.card.overflowPortraitCard .cardScalable {
     background: var(--secondary-background-color) !important;
 }
 
-/* == Dashboard Top Bar Styling (MUI Override) == */
+/* Dashboard Top Bar Styling (MUI Override) */
 /* Removes background and shadow from a Material UI AppBar element likely used in the dashboard top. */
 .css-fknfom { /* This is a generated MUI class name, may be fragile if Jellyfin updates MUI versions/styling */
         background: none !important;
         box-shadow: none !important;
 }
 
-/* == Sidebar Navigation Buttons == */
+/* Sidebar Navigation Buttons */
 /* Styling for individual navigation options within the sidebar. */
 .navMenuOption,
 .navMenuOption:hover,
@@ -789,7 +798,7 @@ div.card.overflowPortraitCard .cardScalable {
     color: var(--primary-accent-color) !important;    /* Uses primary accent for text */
 }
 
-/* == Sidebar Button Icons & Text Alignment == */
+/* Sidebar Button Icons & Text Alignment */
 /* Adjusts the position of icons and text within sidebar navigation buttons. */
 .navMenuOptionIcon,
 .navMenuOptionText {
@@ -798,7 +807,7 @@ div.card.overflowPortraitCard .cardScalable {
     margin-top: 0 !important;
 }
 
-/* == Sidebar Fixes for Specific Pages/States == */
+/* Sidebar Fixes for Specific Pages/States */
 /* Ensures the dynamic sidebar is hidden on pages where it's not needed (e.g., video player, login page). */
 .layout-desktop .hide-scroll .mainDrawer,
 .layout-desktop .hideMainDrawer .mainDrawer {
@@ -888,7 +897,7 @@ div.card.overflowPortraitCard .cardScalable {
     height: 40px !important;
 }
 
-/* == Mobile Header - Small Screen Adjustments (< 380px width) == */
+/* Mobile Header - Small Screen Adjustments (< 380px width) */
 /* Adjusts header layout on very small mobile screens to prevent overlap. */
 @media (max-width: 380px) {
     /* Center page title below other header elements if no logo is present. */
@@ -923,25 +932,25 @@ div.card.overflowPortraitCard .cardScalable {
 
 /* ~~~~~~~~~~~~~~~~~~~~ LAYOUT - CONTENT AREA ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Horizontal Scroll Menu Fix == */
+/* Horizontal Scroll Menu Fix */
 /* Adjusts margin for horizontally scrolling sections (e.g., on home page) to prevent cutoff. */
 .emby-scroller {
     margin-right: 3.3% !important; /* Consolidated from separate desktop/mobile rules */
 }
 
-/* == Collection Items Alignment Fix (Desktop) == */
+/* Collection Items Alignment Fix (Desktop) */
 /* Corrects padding for items within a collection view. */
 .layout-desktop .collectionItems .collectionItemsContainer {
     padding-left: 0% !important;
 }
 
-/* == Hide "Next Up" Section == */
+/* Hide "Next Up" Section */
 /* Completely hides the "Next Up" section from the home page or series pages. */
 /* div.nextUpSection {
     display: none;
 } */
 
-/* == Hide "Upcoming on TV" Section == */
+/* Hide "Upcoming on TV" Section */
 /* Hides the "Upcoming" schedule list and section title for TV series. */
 #seriesScheduleList,
 #seriesScheduleSection {
@@ -955,7 +964,7 @@ div.card.overflowPortraitCard .cardScalable {
 
 /* ~~~~~~~~~~~~~~~~~~~~ CARDS & LIST ITEMS ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Universal Card Rounding == */
+/* Universal Card Rounding */
 /* Applies consistent rounding and overflow hiding to all card components and their inner parts. */
 .card,
 .cardBox,
@@ -1019,7 +1028,7 @@ div.card.overflowPortraitCard .cardScalable {
   background: none !important;
 }
 
-/* == General Card & List Item Styling == */
+/* General Card & List Item Styling */
 /* Additional rounding for specific card and list elements. */
 .cardBox { /* Redundant if .card already covers this, but ensures specificity */
     border-radius: var(--rounded-cards) !important;
@@ -1085,7 +1094,7 @@ div.card.overflowPortraitCard .cardScalable {
 }
 
 
-/* == Card Hover Effects (Outline & Dim) == */
+/* Card Hover Effects (Outline & Dim) */
 /* Adds an accent-colored border and a dimming overlay on hover for various card types. */
 
 .cardBox-bottompadded.cardBox > .cardScalable {
@@ -1117,7 +1126,7 @@ div.card-hoverable.squareCard.card {
     position: relative;
 }
 
-/* == Home Library Button Hover Effects == */
+/* Home Library Button Hover Effects */
 /* Adds a border and dimming overlay to home library buttons on hover. */
 a.emby-button.homeLibraryButton.raised {
     position: relative; /* For pseudo-element positioning */
@@ -1141,7 +1150,7 @@ a.emby-button.homeLibraryButton.raised:hover::before {
     border-radius: 18px;
 }
 
-/* == List Item Image Styling == */
+/* List Item Image Styling */
 /* Ensures list item images (e.g., in search results) are contained and rounded. */
 .listItemImage {
     background-size: cover !important; /* Image fits within bounds without cropping */
@@ -1150,7 +1159,7 @@ a.emby-button.homeLibraryButton.raised:hover::before {
     min-height: 10em !important;
 }
 
-/* == Indicators (Watched, Count, Media Source) == */
+/* Indicators (Watched, Count, Media Source) */
 /* General styling for various indicators on cards/list items. */
 .playedIndicator { /* "Watched" checkmark indicator */
     background: linear-gradient(to bottom, #00aaff, #005f99) !important;
@@ -1209,13 +1218,13 @@ a.emby-button.homeLibraryButton.raised:hover::before {
 /* ~~~~~~~~~~~~~~~~~~~~ DETAILS PAGE (Restored Original Layout Focus) ~~~~~~~~~~~~~~~~~~~~ */
 /* Styles aimed at restoring or customizing the layout of the item details page. */
 
-/* == Detail Image Sizing and Positioning (Desktop) == */
+/* Detail Image Sizing and Positioning (Desktop) */
 .layout-desktop .detailImageContainer .card { /* The main poster/image on the details page */
     top: 9em !important;      /* Vertical positioning from the top */
     width: 18.3vw !important; /* Width relative to viewport width */
 }
 
-/* == Detail Page Content Repositioning (Desktop) == */
+/* Detail Page Content Repositioning (Desktop) */
 .layout-desktop .detailSection { /* Sections like Cast, Seasons, etc. */
     margin-right: 0 !important; /* Remove any default right margin */
 }
@@ -1223,7 +1232,7 @@ a.emby-button.homeLibraryButton.raised:hover::before {
     padding-left: 3.3% !important; /* Original/desired left padding */
 }
 
-/* == Detail Page Logo Positioning and Styling == */
+/* Detail Page Logo Positioning and Styling */
 /* Styles for the series/movie logo image displayed on the details page. */
 .layout-desktop .detailLogo,
 .layout-tv .detailLogo {
@@ -1239,13 +1248,13 @@ a.emby-button.homeLibraryButton.raised:hover::before {
     animation: slideInLogo 0.8s ease-out; /* Apply slide-in animation */
 }
 
-/* == Transparent Detail Ribbon == */
+/* Transparent Detail Ribbon */
 /* Makes the ribbon bar (often containing item title/info) transparent. */
 .detailRibbon {
     background: transparent !important;
 }
 
-/* == Tagline Spacing == */
+/* Tagline Spacing */
 /* Adds top margin to the tagline for better separation. */
 h3.tagline {
     margin-top: 1.5em !important;
@@ -1257,14 +1266,14 @@ h3.tagline {
     display: none; /* Hide tags section*/
 }
 
-/* == Card Styling for Top-Right Buttons (Details Page) == */
+/* Card Styling for Top-Right Buttons (Details Page) */
 /* Wraps the main action buttons (Play, Watched, Favorite) in a blurred card-like container. */
 .mainDetailButtons {
     margin-top: 1.5em;          /* Spacing above the buttons */
     flex-wrap: wrap;
 }
 
-/* == Card Styling for "Groups" Section (Desktop) == */
+/* Card Styling for "Groups" Section (Desktop) */
 /* Styles the container for grouped information (e.g., ratings, genres, runtime). */
 .layout-tv .detailsGroupItem, .layout-desktop .detailsGroupItem {
     padding: 5px 15px !important;
@@ -1274,7 +1283,7 @@ h3.tagline {
     gap: 1em;                     /* Spacing between items in the group */
 }
 
-/* == Label Fix for Group Section & Track Selection == */
+/* Label Fix for Group Section & Track Selection */
 /* Standardizes label widths and flex behavior within detail groups and track selection. */
 .detailsGroupItem .label,
 .trackSelections .selectContainer .selectLabel {
@@ -1302,7 +1311,7 @@ h3.tagline {
 }
 
 
-/* == Card Styling for Description Area == */
+/* Card Styling for Description Area */
 /* Wraps the item description/overview in a styled container. */
 
 .layout-tv .detailSectionContent{
@@ -1323,7 +1332,7 @@ h3.tagline {
     padding: 10px 20px !important;
 }
 
-/* == Card Styling for Track Selection Area == */
+/* Card Styling for Track Selection Area */
 /* Wraps the audio/subtitle track selection controls. */
 .trackSelections {
     border-radius: var(--rounded-cards) !important;
@@ -1332,7 +1341,7 @@ h3.tagline {
     max-width: 100% !important;
 }
 
-/* == Fix for Track Select Dropdowns == */
+/* Fix for Track Select Dropdowns */
 /* Adjusts padding and margin for dropdowns within track selection. */
 .trackSelections .selectContainer .detailTrackSelect {
     padding: 0 10px;
@@ -1360,7 +1369,7 @@ h3.tagline {
     text-overflow: initial;
 }
 
-/* == Title Positioning (Desktop) == */
+/* Title Positioning (Desktop) */
 /* Repositions the main title and related info on the details page. */
 .layout-desktop .infoWrapper { /* Container for title, year, ratings etc. */
     margin-top: 245px !important;
@@ -1385,13 +1394,13 @@ h3.tagline {
     margin-top: 10px !important;
 }
 
-/* == Description Box Positioning (Desktop) == */
+/* Description Box Positioning (Desktop) */
 /* Moves the primary content (description, etc.) to align with the repositioned title. */
 .layout-desktop .detailPagePrimaryContent {
     padding-left: 20.4vw !important; /* Offset from left */
 }
 
-/* == Minimum Height for Primary Content Based on Poster Aspect Ratio (Desktop) == */
+/* Minimum Height for Primary Content Based on Poster Aspect Ratio (Desktop) */
 /* Adjusts the minimum height of the primary content area to prevent overlap or awkward spacing with different poster image aspect ratios. */
 .layout-desktop .detailPageWrapperContainer:has(.detailImageContainer .portraitCard) .detailPagePrimaryContent {
     min-height: 29vw !important; /* For portrait posters (e.g., 2:3) */
@@ -1409,7 +1418,7 @@ h3.tagline {
     }
 }
 
-/* == If Rating is not present, move details up == */
+/* If Rating is not present, move details up */
 .layout-mobile #itemDetailPage:has(div.detailImageContainer .cardImageIcon.person) .detailPageWrapperContainer:has(.itemMiscInfo.itemMiscInfo-primary.hide) p.overview.detail-clamp-text {
     margin-top: 0%;
 }
@@ -1418,7 +1427,7 @@ h3.tagline {
     margin-top: -3%;
 }
 
-/* == Reordering Detail Page Sections == */
+/* Reordering Detail Page Sections */
 /* Uses flexbox to reorder elements within the detail section (e.g., description, track selection, groups). */
 .detailSection {
     display: flex;
@@ -1429,12 +1438,12 @@ h3.tagline {
 .detailSection .trackSelections    { order: 3; } /* Audio/Subtitle selection */
 .detailSection .itemDetailsGroup   { order: 4; } /* Other details like genres, ratings */
 
-/* == Reordering Episode Title Elements (Desktop) == */
+/* Reordering Episode Title Elements (Desktop) */
 /* Adjusts the order of parent name (Show Title) and item name (Episode Title) within the name container. */
 .layout-desktop .nameContainer .parentName { order: 1; } /* Show title */
 .layout-desktop .nameContainer .itemName   { order: 2; } /* Episode title */
 
-/* == Episode Name Position Modification (Desktop) == */
+/* Episode Name Position Modification (Desktop) */
 .layout-desktop .nameContainer .itemName.infoText.subtitle {
     margin: .8em 12px !important; /* Consistent margin for original titles or subtitles */
     padding: 0px !important;     /* Remove default padding if any */
@@ -1477,7 +1486,7 @@ h3.tagline {
     font-size: x-large;
 }
 
-/* == Play Button Modification == */
+/* Play Button Modification */
 /* Customizes the text and appearance of the main Play button on the details page. */
 .layout-desktop .mainDetailButtons .btnPlay::after,
 .layout-tv .mainDetailButtons .btnPlay::after,
@@ -1514,7 +1523,7 @@ h3.tagline {
     flex-direction: row !important;
 }
 
-/* == Live TV Recording Fields Styling == */
+/* Live TV Recording Fields Styling */
 .recordingFields { /* Container for recording schedule options */
     margin: 5px 0 -7px 0 !important; /* Fine-tuned margin */
 }
@@ -1529,7 +1538,7 @@ h3.tagline {
     margin-left: 65px !important;
 }
 
-/* == Animations for Details Page == */
+/* Animations for Details Page */
 /* Logo slide-in animation. */
 .detailLogo {
     animation: slideInLogo 0.8s ease-out;
@@ -1569,7 +1578,7 @@ h3.tagline {
 
 /* ~~~~~~~~~~~~~~~~~~~~ PLAYER & UP NEXT DIALOG ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Player OSD Element Styling == */
+/* Player OSD Element Styling */
 /* Applies blur and rounding to Up Next container, Toasts, and Slider Bubbles. */
 .upNextContainer:not(#skipIntro), /* "Up Next" dialog, excluding the Intro Skipper variant */
 .sliderBubble                     /* Bubble showing time/chapter when scrubbing progress bar */
@@ -1601,13 +1610,13 @@ h3.tagline {
     backdrop-filter: unset !important; /* Remove blur */
 }
 
-/* == Hide Menu Buttons in Player OSD Header == */
+/* Hide Menu Buttons in Player OSD Header */
 /* Hides most buttons in the player's top OSD bar, keeping only essential ones. */
 .osdHeader .headerButton:not(.headerBackButton):not(.headerCastButton):not(.headerSyncButton) {
     display: none !important;
 }
 
-/* == Player Progress Bar Styling (MDL Slider) == */
+/* Player Progress Bar Styling (MDL Slider) */
 /* Customizes the appearance of the Material Design Lite slider used for player progress. */
 .mdl-slider-background-flex { /* The track container for the slider */
     height: 10px !important;
@@ -1627,7 +1636,7 @@ h3.tagline {
     transform: translateX(-3px) !important; /* Slight adjustment for visual alignment */
 }
 
-/* == Player Progress Bar Thumb Styling - Invisible Thumb == */
+/* Player Progress Bar Thumb Styling - Invisible Thumb */
 /* WebKit/Chrome/Safari */
 .mdl-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -1672,7 +1681,7 @@ h3.tagline {
     background: transparent !important;
 }
 
-/* == "Up Next" Dialog Button Hover Effect == */
+/* "Up Next" Dialog Button Hover Effect */
 .upNextDialog-buttons .upNextDialog-button {
     transition: .2s !important;
 }
@@ -1680,7 +1689,7 @@ h3.tagline {
     transform: scale(1.1); /* Scale effect on hover */
 }
 
-/* == Player Button Icon Override == */
+/* Player Button Icon Override */
 /* Changes default player icons for rewind/forward to different Material Icons. */
 .material-icons.fast_rewind::before { content: "\e059"; }  /* Changes to 'skip_previous' icon */
 .material-icons.fast_forward::before { content: "\e057"; } /* Changes to 'skip_next' icon */
@@ -1696,7 +1705,7 @@ h3.tagline {
 /* ~~~~~~~~~~~~~~~~~~~~ PLUGIN SUPPORT ~~~~~~~~~~~~~~~~~~~~ */
 /* Styles for enhancing or fixing compatibility with various Jellyfin plugins. */
 
-/* == Jellyscrub Plugin == */
+/* Jellyscrub Plugin */
 /* Customizes the appearance of chapter thumbnail previews from Jellyscrub. */
 .chapterThumbContainer { /* Container for the thumbnail image and text */
     background: none !important;
@@ -1718,7 +1727,7 @@ h3.tagline {
     display: none !important; /* Hide dimmed text */
 }
 
-/* == IntroSkipper Plugin == */
+/* IntroSkipper Plugin */
 /* General styling for the skip button provided by IntroSkipper. */
 .skip-button {
     background: var(--primary-accent-color) !important;
@@ -1767,7 +1776,7 @@ h3.tagline {
     box-shadow: unset !important;
 }
 
-/* == Intro Skipper Markers on Progress Bar == */
+/* Intro Skipper Markers on Progress Bar */
 /* Controls visibility and appearance of intro/credit markers on the player progress bar. */
 /* Hide markers when progress bar thumb is not hovered. */
 .sliderContainer:has(.mdl-slider-hoverthumb:not(:hover)) .sliderMarker {
@@ -1794,7 +1803,7 @@ h3.tagline {
     color: var(--text-color) !important;
 }
 
-/* == InPlayerEpisodePreview Plugin (Desktop) == */
+/* InPlayerEpisodePreview Plugin (Desktop) */
 /* Adjusts layout and font sizes for the InPlayerEpisodePreview popup on desktop. */
 .layout-desktop #popupFocusContainer {
     padding: 10px !important;
@@ -1808,7 +1817,7 @@ h3.tagline {
 
 /* ~~~~~~~~~~~~~~~~~~~~ SETTINGS & DASHBOARD ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Input Fields, Lists, and Buttons Styling == */
+/* Input Fields, Lists, and Buttons Styling */
 /* Applies consistent rounding to various form elements and lists in settings/dashboard. */
 .emby-input,
 .emby-textarea,
@@ -1872,7 +1881,7 @@ h3.tagline {
     background: var(--alt-accent-color);
 }
 
-/* == Profile Page Styling == */
+/* Profile Page Styling */
 /* Fixes alignment issues and applies accent color to usernames/titles on the user profile page. */
 .layout-desktop #userProfilePage .readOnlyContent div:not([class]), div[class=""] { /* Targets specific divs that might lack classes */
     align-items: initial !important;
@@ -1891,7 +1900,7 @@ h3.tagline {
     display: none;
 }
 
-/* == General Dashboard Styling == */
+/* General Dashboard Styling */
 /* Removes borders under list items for a cleaner look. */
 .listItem-border {
     border: 0 !important;
@@ -1956,7 +1965,7 @@ h3.tagline {
     background-color: #8b0000d9;
 }
 
-/* == Specific Dashboard Page Adjustments == */
+/* Specific Dashboard Page Adjustments */
 /* Adds top margin to specific dashboard pages for better layout. */
 #libraryDisplayPage,
 #metadataImagesConfigurationPage,
@@ -1971,17 +1980,17 @@ h3.tagline {
     margin: 0px !important;
 }
 
-/* == Dashboard Table Styling == */
+/* Dashboard Table Styling */
 .detailTableBodyRow-shaded:nth-child(even) {
     background: var(--primary-background-transparent) !important;
 }
 
-/* == Revoke Button Styling (API page)== */
+/* Revoke Button Styling (API page)*/
 .btnRevoke {
     background: #ff000069;
 }
 
-/* == IntroSkipper Settings Details (Within Dashboard) == */
+/* IntroSkipper Settings Details (Within Dashboard) */
 /* Styles for <summary> elements (used for collapsible sections) in IntroSkipper settings. */
 .layout-desktop summary {
     border-radius: 100px !important; /* Pill shape */
@@ -1991,7 +2000,7 @@ h3.tagline {
     padding-bottom: 10px !important;
 }
 
-/* == Dashboard Fixes for Jellyfin 10.9.x == */
+/* Dashboard Fixes for Jellyfin 10.9.x */
 /* Adjusts layout for specific pages due to changes in Jellyfin 10.9.x. */
 
 .MuiAlert-message { color: #fff !important; } /* Ensure Material UI alert messages are white */
@@ -1999,7 +2008,7 @@ h3.tagline {
 .infoBanner { border-radius: var(--rounded-cards) !important; } /* Rounding for info banners */
 .MuiToggleButton-root.MuiToggleButtonGroup-groupedHorizontal { padding-inline: 15px !important; } /* Padding for MUI toggle buttons */
 
-/* == Jellyfin 10.9+ Dashboard Sidebar (Material UI List) == */
+/* Jellyfin 10.9+ Dashboard Sidebar (Material UI List) */
 /* Styles for the newer MUI-based sidebar in the dashboard. */
 .MuiPaper-root.MuiDrawer-paperAnchorDockedLeft { /* The drawer paper itself */
     border-right: none !important; /* Remove default right border */
@@ -2140,7 +2149,7 @@ h3.tagline {
 /* ~~~~~~~~~~~~~~~~~~~~ BACKDROP SUPPORT ~~~~~~~~~~~~~~~~~~~~ */
 /* Styles that apply when item backdrops (background images) are enabled and visible. */
 
-/* == Translucent Cards on Item Detail Page  == */
+/* Translucent Cards on Item Detail Page  */
 /* Makes various sections on the item detail page translucent */
 .layout-desktop #itemDetailPage .detailSectionContent,
 .layout-desktop #itemDetailPage .trackSelections {
@@ -2148,7 +2157,7 @@ h3.tagline {
     backdrop-filter: blur(var(--blur)) !important; /* Apply theme blur */
 }
 
-/* == Transparent/Gradient Drawer  == */
+/* Transparent/Gradient Drawer  */
 .backgroundContainer.withBackdrop + div .mainDrawer
 {
     background: var(--secondary-background-transparent) !important; /* Darker gradient */
@@ -2175,7 +2184,7 @@ h3.tagline {
     }
 }
 
-/* == Blurred Sidebar Buttons (with Backdrop) == */
+/* Blurred Sidebar Buttons (with Backdrop) */
 /* Applies blur to sidebar navigation buttons when a backdrop is visible. */
 .layout-desktop:has(.backgroundContainer.withBackdrop) .navMenuOption-selected,
 .layout-mobile:has(.backgroundContainer.withBackdrop) .navMenuOption-selected,
@@ -2187,7 +2196,7 @@ h3.tagline {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }
 
-/* == Mobile Backdrop Image Adjustments == */
+/* Mobile Backdrop Image Adjustments */
 /* Fine-tunes the appearance and behavior of backdrop images on mobile devices. */
 .layout-mobile .backdropImage {
     background-position: 50% !important; /* Center the image */
@@ -2212,7 +2221,7 @@ h3.tagline {
     from { opacity: 0; } to { opacity: 1; } /* Simple fade-in from 0 to current opacity (which is .3) */
 }
 
-/* == Hides Backdrop in People Detail page and other adjustments == */
+/* Hides Backdrop in People Detail page and other adjustments */
 
 @media (orientation: portrait) {
 .layout-mobile #itemDetailPage:has(div.detailImageContainer .cardImageIcon.person) > .itemBackdrop {
@@ -2236,7 +2245,7 @@ h3.tagline {
 
 /* ~~~~~~~~~~~~~~~~~~~~ RESPONSIVENESS & FIXES ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Scaling Fixes for Header Elements == */
+/* Scaling Fixes for Header Elements */
 /* Adjusts header tab and right section margins on screens narrower than 1600px. */
 @media (max-width: 1599px) {
     .layout-desktop .headerTabs {
@@ -2252,11 +2261,11 @@ h3.tagline {
     }
 }
 
-/* == Fixes for TV Layout Header == */
+/* Fixes for TV Layout Header */
 .layout-tv .sectionTabs { width: auto !important; } /* Ensure tabs fit content */
 .layout-tv .headerLeft { padding: 5px !important; } /* Adjust padding for left header on TV */
 
-/* == Font and Overlap Fixes for Media Bar Area == */
+/* Font and Overlap Fixes for Media Bar Area */
 /* Addresses issues with the first content section overlapping the media bar (Now Playing bar) and standardizes fonts in that area. */
 
 .homeSectionsContainer {
@@ -2271,7 +2280,7 @@ h3.tagline {
 
 /* ~~~~~~~~~~~~~~~~~~~~ MOBILE SPECIFIC FIXES AND CHANGES ~~~~~~~~~~~~~~~~~~~~ */
 
-/* == Vertical Stacking on Detail Page (Mobile) == */
+/* Vertical Stacking on Detail Page (Mobile) */
 /* Adjusts top padding for the main wrapper on mobile detail pages. */
 .layout-mobile .detailPageWrapperContainer {
     padding-top: 1em !important;
@@ -2283,7 +2292,7 @@ h3.tagline {
 }
 
 
-/* == Mobile Poster/Backdrop Styling == */
+/* Mobile Poster/Backdrop Styling */
 /* Uses the item backdrop as the main image on mobile detail pages, with opacity and a gradient mask. */
 .layout-mobile .itemBackdrop {
     margin: 0 !important;
@@ -2292,7 +2301,7 @@ h3.tagline {
     mask-image: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%); /* Fades out the bottom of the backdrop */
 }
 
-/* == Mobile Logo Positioning (Details Page) == */
+/* Mobile Logo Positioning (Details Page) */
 /* Styles and positions the series/movie logo on mobile detail pages. */
 .layout-mobile .detailLogo {
     display: block !important;      /* Ensure it's visible */
@@ -2305,7 +2314,7 @@ h3.tagline {
     filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.7)); /* Add a shadow for better visibility */
 }
 
-/* == Bigger Logo in Landscape (Mobile) == */
+/* Bigger Logo in Landscape (Mobile) */
 @media (orientation: landscape) {
     .layout-mobile .detailLogo {
         width: 80% !important; /* Larger width in landscape */
@@ -2313,7 +2322,7 @@ h3.tagline {
     }
 }
 
-/* == Content Alignment (Mobile Details Page) == */
+/* Content Alignment (Mobile Details Page) */
 /* Centers main detail buttons and adjusts padding for the content area. */
 .layout-mobile .mainDetailButtons {
     justify-content: center; /* Center buttons within their container */
