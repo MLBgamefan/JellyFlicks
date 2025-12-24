@@ -560,6 +560,17 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     display: none !important;
 }
 
+/* === Bold home & library card titles === */
+.cardText {
+    font-weight: 700 !important;
+}
+
+/* Bold secondary text under portrait cards (year, duration, rating) */
+.cardText.cardTextSecondary,
+.cardText.cardText-secondary {
+    font-weight: 700 !important;
+}
+
 /* ZestyTheme-Inspired Header Tabs & Right Section */
 /* Styles for header tabs and the right-aligned header items, creating a pill-shaped, blurred effect. */
 .headerTabs,       /* Container for navigation tabs within the header */
