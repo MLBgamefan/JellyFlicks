@@ -89,6 +89,29 @@ progress[aria-valuenow]:before,               /* Progress bar fill (pseudo-eleme
     display: none !important;
 }
 
+/* === Glassy Selection Command Bar (X / More bar) === */
+body.withSectionTabs.libraryDocument div.selectionCommandsPanel {
+    background: rgba(10, 75, 120, 0.65) !important; /* semi-transparent Jellyfin blue */
+    backdrop-filter: blur(12px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+    border-radius: 0 0 10px 10px !important; /* optional: round bottom corners */
+    border: 1px solid rgba(255,255,255,0.08) !important; /* subtle border */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+
+    opacity: 15 !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100 !important;
+}
+
+/* Ensure icons remain visible */
+body.withSectionTabs.libraryDocument div.selectionCommandsPanel button,
+body.withSectionTabs.libraryDocument div.selectionCommandsPanel .material-icons {
+    color: #ffffff !important;
+}
+
 /* Secondary Accent Backgrounds */
 /* Applied to elements that need a less prominent accent background. */
 .MuiAlert-root.MuiAlert-standardInfo,          /* Info type Material UI alerts */
