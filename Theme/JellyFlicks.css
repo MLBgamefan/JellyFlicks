@@ -167,6 +167,68 @@ body.withSectionTabs.libraryDocument div.selectionCommandsPanel {
     opacity: 1 !important;
 }
 
+/* Primary Dialog Buttons (match Sign In) */
+.dialogContainer .formDialogFooter
+button.button-submit,
+.dialogContainer .formDialogFooter
+button.btnSave,
+.dialogContainer .formDialogFooter
+button.btnSubmit {
+    background: linear-gradient(to bottom, #00baff, #005f99) !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+    color: #ffffff !important;
+
+    border-radius: 999px !important;
+    padding: 10px 22px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.4px;
+
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(10, 75, 120, 0.45) !important;
+}
+
+/* Cancel Button (match Go Back) */
+.dialogContainer .formDialogFooter
+button.button-cancel,
+.dialogContainer .formDialogFooter
+button.btnCancel {
+    background: linear-gradient(to bottom, #6f8fa8, #3f5f73) !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+    color: #ffffff !important;
+
+    border-radius: 999px !important;
+    padding: 10px 22px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.4px;
+
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(10, 75, 120, 0.45) !important;
+}
+
+/* Reset Button (JellyFlicks Accent) */
+.dialogContainer .formDialogFooter
+button.button-reset,
+.dialogContainer .formDialogFooter
+button.btnReset {
+    background: linear-gradient(#005f99, #0073b3) !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+    color: #ffffff !important;
+
+    border-radius: 999px !important;
+    padding: 10px 22px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.4px;
+
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(10, 75, 120, 0.45) !important;
+}
+
 .dialogContainer 
 .dialog.dialog-fixedSize.dialog-small.formDialog.opened,
 .dialogContainer 
