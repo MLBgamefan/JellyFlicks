@@ -88,6 +88,24 @@ progress[aria-valuenow]:before,               /* Progress bar fill (pseudo-eleme
     display: none !important;
 }
 
+/* === Remove Play & Shuffle buttons from list/library headers (Desktop + Mobile) === */
+
+/* Desktop (text buttons) */
+button.btnPlay.listTextButton-autohide,
+button.btnShuffle.listTextButton-autohide {
+    display: none !important;
+}
+
+/* Mobile (icon buttons) */
+html.layout-mobile 
+.itemsViewSettingsContainer 
+button.btnPlay,
+html.layout-mobile 
+.itemsViewSettingsContainer 
+button.btnShuffle {
+    display: none !important;
+}
+
 /* Glassy background for various fixed-size Form Dialogs */
 .dialogContainer 
 .dialog.dialog-fixedSize.dialog-small.formDialog.opened,
@@ -767,12 +785,6 @@ p#itemBirthday {
 
 /* Remove Series Air Time text on TV show pages */
 #seriesAirTime {
-    display: none !important;
-}
-
-/* Remove Play & Shuffle buttons from list/library headers */
-button.btnPlay.listTextButton-autohide,
-button.btnShuffle.listTextButton-autohide {
     display: none !important;
 }
 
