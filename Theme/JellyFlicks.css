@@ -975,6 +975,27 @@ div.card.overflowPortraitCard .cardScalable {
     padding: 0 15px !important;  /* Horizontal padding within tabs */
 }
 
+/* Center TV show and episode titles on the same line */
+.detailRibbon .infoWrapper .nameContainer {
+    display: flex !important;
+    flex-direction: row !important;   /* align titles horizontally */
+    justify-content: center !important; /* center the row */
+    gap: 8px; /* optional space between TV show and episode name */
+    text-align: center !important;
+    width: 100% !important;
+}
+
+/* Ensure individual titles don't break into multiple lines */
+.detailRibbon .infoWrapper .nameContainer h1.parentName,
+.detailRibbon .infoWrapper .nameContainer h3.itemName {
+    white-space: nowrap !important;
+}
+
+.detailPagePrimaryContent 
+.detailSection {
+    position: relative !important;
+}
+
 /* --- End of Zesty Header Styles Integration --- */
 
 /* Header Left Section Styling (Desktop) */
