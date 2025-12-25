@@ -59,17 +59,45 @@
     box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
 }
 
-/* Form Dialog — match Action Sheet glassy style */
-.dialogContainer .dialog.formDialog.centeredDialog.opened {
-    background: rgba(0, 5, 8, 0.65) !important;
+/* Sidebar Menu: glassy Action Sheet style applied to all pages */
+body.libraryDocument div#reactRoot div div.mainDrawer {
+    background: rgba(0, 5, 8, 0.65) !important; /* glassy layer */
     backdrop-filter: blur(12px) saturate(140%) !important;
     -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
-
-    border-radius: 10px !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;               /* rounded edges */
     border: 1px solid rgba(255,255,255,0.08) !important;
     box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+}
 
-    opacity: 1 !important;
+/* Sidebar navigation buttons: hover and selected states */
+body.libraryDocument div#reactRoot div div.mainDrawer .navMenuOption,
+body.libraryDocument div#reactRoot div div.mainDrawer .navMenuOption-selected {
+    width: 85% !important;
+    margin: auto !important;
+    text-align: center !important;
+    height: 45px !important;
+    margin-top: 3px !important;
+    margin-bottom: 3px !important;
+    border-radius: 10px !important;
+    transition: .2s !important;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    font-weight: 600 !important;
+}
+
+/* Hover effect for non-selected buttons */
+body.libraryDocument div#reactRoot div div.mainDrawer .navMenuOption:hover:not(.navMenuOption-selected) {
+    box-shadow: inset 0 0 1px rgba(255,255,255,0.18) !important;
+    background-color: #002233 !important;  /* darker hover */
+    color: #ffffff !important;
+    transform: scale(1.05) !important;
+}
+
+/* Sidebar headers — Media, Admin, User */
+body.libraryDocument div#reactRoot div div.mainDrawer h3.sidebarHeader {
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
 }
 
 /* Make all text inside bold and visible */
