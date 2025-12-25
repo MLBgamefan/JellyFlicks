@@ -150,6 +150,28 @@
     box-shadow: inset 0 1px 3px rgba(255,255,255,0.2) !important;
 }
 
+/* === Form Dialog — match Action Sheet glassy style === */
+.dialogContainer 
+.dialog.formDialog.centeredDialog.opened {
+    background: rgba(0, 5, 8, 0.65) !important; /* same glass color */
+    backdrop-filter: blur(12px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+
+    border-radius: 10px !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25) !important;
+
+    opacity: 1 !important;
+}
+
+.dialogContainer 
+.dialog.formDialog.centeredDialog.opened,
+.dialogContainer 
+.dialog.formDialog.centeredDialog.opened * {
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
 .cardOverlayContainer .card-hoverable:hover .cardOverlayFab-primary {
     transform: scale(1.05) !important;
     box-shadow: inset 0 1px 3px rgba(255,255,255,0.2) !important;
