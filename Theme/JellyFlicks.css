@@ -606,8 +606,9 @@ p#itemBirthday {
     font-weight: 600 !important;
 }
 
-/* Bold paging text across all pages (TV Recommended included) */
-.listPaging {
+/* Bold all page listing / pagination text */
+.itemsViewSettingsContainer .paging,
+.itemsViewSettingsContainer .paging * {
     font-weight: 600 !important;
 }
 
