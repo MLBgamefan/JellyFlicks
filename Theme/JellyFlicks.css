@@ -596,6 +596,21 @@ p#itemBirthday {
     font-weight: 700 !important;
 }
 
+/* Bold page title in the top skin header */
+.skinHeader .headerTop .headerLeft h3.pageTitle {
+    font-weight: 600 !important;
+}
+
+/* Bold paging text (e.g., page numbers / item counts) */
+.itemsViewSettingsContainer .listPaging {
+    font-weight: 600 !important;
+}
+
+/* Bold paging text across all pages (TV Recommended included) */
+.listPaging {
+    font-weight: 600 !important;
+}
+
 /* ZestyTheme-Inspired Header Tabs & Right Section */
 /* Styles for header tabs and the right-aligned header items, creating a pill-shaped, blurred effect. */
 .headerTabs,       /* Container for navigation tabs within the header */
