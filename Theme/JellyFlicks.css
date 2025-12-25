@@ -32,7 +32,7 @@ body, h1, h2, h3, h4, h5, h6, p {
     font-family: 'Quicksand', sans-serif !important;
 }
 
-/* hide scrollbars */
+/* Hide scrollbars */
 {
   scrollbar-color : transparent transparent !important;
   scrollbar-width: none !important;
@@ -88,7 +88,7 @@ progress[aria-valuenow]:before,               /* Progress bar fill (pseudo-eleme
     display: none !important;
 }
 
-/* === Glassy Selection Command Bar (X / More bar) === */
+/* Glassy Selection Command Bar (X / More bar) */
 body.withSectionTabs.libraryDocument div.selectionCommandsPanel {
     background: rgba(10, 75, 120, 0.65) !important; /* semi-transparent Jellyfin blue */
     backdrop-filter: blur(12px) saturate(140%) !important;
@@ -555,12 +555,37 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     display: none !important;
 }
 
-/* === Hide Actor Birth Location text === */
+/* Hide Actor Birth Location text */
 #itemBirthLocation {
     display: none !important;
 }
 
-/* === Bold home & library card titles === */
+/* Hide Favorites button on all pages */
+.detailPagePrimaryContainer 
+.detailRibbon.padded-left.padded-right 
+.mainDetailButtons.focuscontainer-x 
+button.button-flat.btnUserRating.detailButton.emby-button {
+    display: none !important;
+}
+
+/* Hide Replay button on all pages */
+.detailPagePrimaryContainer 
+.detailRibbon.padded-left.padded-right 
+.mainDetailButtons.focuscontainer-x 
+button.button-flat.btnReplay.detailButton.emby-button {
+    display: none !important;
+}
+
+/* Hide birthday text on actor pages */
+.detailPagePrimaryContainer 
+.detailPagePrimaryContent.padded-right 
+.detailSection 
+.detailSectionContent 
+p#itemBirthday {
+    display: none !important;
+}
+
+/* Bold home & library card titles */
 .cardText {
     font-weight: 700 !important;
 }
