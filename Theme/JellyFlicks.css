@@ -770,6 +770,12 @@ p#itemBirthday {
     display: none !important;
 }
 
+/* Remove Play & Shuffle buttons from list/library headers */
+button.btnPlay.listTextButton-autohide,
+button.btnShuffle.listTextButton-autohide {
+    display: none !important;
+}
+
 /* Bold home & library card titles */
 .cardText {
     font-weight: 700 !important;
