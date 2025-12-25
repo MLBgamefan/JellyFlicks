@@ -585,6 +585,17 @@ p#itemBirthday {
     display: none !important;
 }
 
+/* Remove Play All and Shuffle buttons from library collection pages */
+.collectionEditorPage .btnPlayAll,
+.collectionEditorPage .btnShuffle {
+    display: none !important;
+}
+
+/* Remove Series Air Time text on TV show pages */
+#seriesAirTime {
+    display: none !important;
+}
+
 /* Bold home & library card titles */
 .cardText {
     font-weight: 700 !important;
