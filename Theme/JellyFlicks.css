@@ -214,7 +214,7 @@ button.btnCancel {
 button.button-reset,
 .dialogContainer .formDialogFooter
 button.btnReset {
-    background: linear-gradient(#005f99, #0073b3) !important;
+    background: linear-gradient(to bottom, #005f99, #0073b3) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
     transition: background 0.2s ease, transform 0.2s ease !important;
