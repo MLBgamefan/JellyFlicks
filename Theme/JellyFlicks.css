@@ -163,18 +163,13 @@ body.withSectionTabs.libraryDocument div.selectionCommandsPanel {
     z-index: 1100 !important;
 }
 
-/* Glassy background for various fixed-size Form Dialogs */
+/* Glassy background for centered form dialogs */
 .dialogContainer 
-.dialog.dialog-fixedSize.dialog-small.formDialog.opened,
+.dialog.formDialog.centeredDialog.opened,
+body.withSectionTabs.libraryDocument.mouseIdle 
 .dialogContainer 
-.dialog.dialog-fixedSize.dialog-small.formDialog.subtitleEditorDialog.opened,
-.dialogContainer 
-.dialog.smoothScrollY.dialog-fixedSize.dialog-small.formDialog.opened,
-.dialogContainer 
-.dialog.recordingDialog.identifyDialog.opened,
-.dialogContainer 
-.dialog.smoothScrollY.dialog-fixedSize.dialog-small.opened {
-    background: rgba(0, 5, 8, 0.65) !important;  /* glassy dark overlay */
+.dialog.formDialog.centeredDialog.opened div {
+    background: rgba(0, 5, 8, 0.65) !important;   /* semi-transparent dark overlay */
     backdrop-filter: blur(12px) saturate(140%) !important;
     -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
 
