@@ -167,6 +167,32 @@ body.withSectionTabs.libraryDocument div.selectionCommandsPanel {
     opacity: 1 !important;
 }
 
+.dialogContainer 
+.dialog.dialog-fixedSize.dialog-small.formDialog.opened,
+.dialogContainer 
+.dialog.dialog-fixedSize.dialog-small.formDialog.subtitleEditorDialog.opened,
+.dialogContainer 
+.dialog.smoothScrollY.dialog-fixedSize.dialog-small.formDialog.opened,
+.dialogContainer 
+.dialog.recordingDialog.identifyDialog.opened,
+.dialogContainer 
+.dialog.smoothScrollY.dialog-fixedSize.dialog-small.opened {
+    background: rgba(0, 5, 8, 0.65) !important;
+    backdrop-filter: blur(12px) saturate(140%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+
+    border-radius: 10px !important;
+
+    /* Full JellyFlicks blue border */
+    border: 3px solid rgba(10, 75, 120, 0.85) !important;
+
+    box-shadow:
+        0 6px 18px rgba(0,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.04) !important;
+
+    opacity: 1 !important;
+}
+
 /* Ensure text and buttons inside are visible */
 .dialogContainer 
 .dialog.dialog-fixedSize.dialog-small.formDialog.opened button,
