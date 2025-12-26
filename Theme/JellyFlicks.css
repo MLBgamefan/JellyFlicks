@@ -970,6 +970,25 @@ div.card.overflowPortraitCard .cardScalable {
     padding: 0 15px !important;  /* Horizontal padding within tabs */
 }
 
+/* Desktop & TV ONLY — align year / duration with title */
+html.layout-desktop 
+.detailRibbon .infoWrapper .itemMiscInfo.itemMiscInfo-primary,
+html.layout-tv
+.detailRibbon .infoWrapper .itemMiscInfo.itemMiscInfo-primary {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+
+    justify-content: flex-start !important;
+    text-align: left !important;
+
+    margin-left: -585px !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+
+    max-width: none !important;
+}
+
 /* --- End of Zesty Header Styles Integration --- */
 
 /* Header Left Section Styling (Desktop) */
