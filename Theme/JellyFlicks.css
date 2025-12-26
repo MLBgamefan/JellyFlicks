@@ -991,14 +991,15 @@ html.layout-tv
 
 /* --- End of Zesty Header Styles Integration --- */
 
-/* User Preferences Page Styling */
-/* Static border around each section */
-.userPreferencesPage .verticalSection {
-    border: 1px solid rgba(70, 160, 255, 0.85) !important; /* thin blue border */
-    border-radius: 10px !important;
-    padding: 8px !important; /* padding inside the section */
-    margin-bottom: 12px !important; /* spacing between sections */
-    box-sizing: border-box;
+/* User Preferences page — option text bolding */
+.userPreferencesPage .listItem .listItemBody .listItemBodyText {
+    font-weight: 500 !important; /* normal bold */
+    transition: font-weight 0.2s ease; /* smooth transition on hover */
+}
+
+/* Hover: slightly bolder text */
+.userPreferencesPage .listItem:hover .listItemBody .listItemBodyText {
+    font-weight: 600 !important; /* slightly bolder on hover */
 }
 
 /* Each option: no default border, rounded edges, smooth transition */
