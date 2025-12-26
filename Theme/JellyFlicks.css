@@ -88,7 +88,7 @@ progress[aria-valuenow]:before,               /* Progress bar fill (pseudo-eleme
     display: none !important;
 }
 
-/* === Remove Play & Shuffle buttons from list/library headers (Desktop + Mobile) === */
+/* Remove Play & Shuffle buttons from list/library headers (Desktop + Mobile) */
 
 /* Desktop (text buttons) */
 button.btnPlay.listTextButton-autohide,
@@ -990,6 +990,39 @@ html.layout-tv
 }
 
 /* --- End of Zesty Header Styles Integration --- */
+
+/* User Preferences Page Styling */
+/* Static border around each section */
+.userPreferencesPage .verticalSection {
+    border: 1px solid rgba(70, 160, 255, 0.85) !important; /* thin blue border */
+    border-radius: 10px !important;
+    padding: 8px !important; /* padding inside the section */
+    margin-bottom: 12px !important; /* spacing between sections */
+    box-sizing: border-box;
+}
+
+/* Each option: no default border, rounded edges, smooth transition */
+.userPreferencesPage .listItem {
+    border: none !important; /* remove default/static borders */
+    border-radius: 10px !important;
+    transition: border 0.2s ease, background 0.2s ease; /* smooth effect */
+    padding: 6px 10px !important;
+    box-sizing: border-box;
+}
+
+/* Hover: thin blue border + background for each option */
+.userPreferencesPage .listItem:hover {
+    border: 1px solid rgba(70, 160, 255, 0.85) !important;
+    background: rgba(70, 160, 255, 0.08) !important;
+}
+
+/* Simple blue border around search input */
+#searchPage input#searchTextInput.emby-input.searchfields-txtSearch {
+    border: 1px solid rgba(70, 160, 255, 0.85) !important; /* thin blue border */
+    border-radius: 10px !important; /* rounded corners */
+    padding: 6px 10px !important;
+    box-sizing: border-box;
+}
 
 /* Header Left Section Styling (Desktop) */
 /* Styling for the left part of the header, typically containing back/menu buttons. */
