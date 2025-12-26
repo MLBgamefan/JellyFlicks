@@ -1017,6 +1017,15 @@ html.layout-tv
     background: rgba(70, 160, 255, 0.08) !important;
 }
 
+/* Static border around each section */
+.userPreferencesPage .verticalSection {
+    border: 1px solid rgba(70, 160, 255, 0.85) !important;
+    border-radius: 10px !important;
+    padding: 8px !important;
+    margin-bottom: 12px !important;
+    box-sizing: border-box;
+}
+
 /* Simple blue border around search input */
 #searchPage input#searchTextInput.emby-input.searchfields-txtSearch {
     border: 1px solid rgba(70, 160, 255, 0.85) !important; /* thin blue border */
