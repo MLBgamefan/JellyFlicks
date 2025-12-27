@@ -1,0 +1,30 @@
+/* Hide all Jellyfin-Enhanced quality badges */
+.jellyfin-enhanced-quality-badge {
+    display: none !important;
+}
+
+/* Show only resolution badges */
+.jellyfin-enhanced-quality-badge.resolution {
+    display: inline-block !important;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 100;
+
+    /* Optional styling */
+    background-color: rgba(0,0,0,0.7);
+    color: white;
+    font-size: 12px;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+/* Additional specific removal for the audio codec overlay (default Jellyfin class) */
+.quality-overlay-label.audio-codec {
+    display: none !important;
+}
+
+/* Hide quality overlay on individual media pages */
+body.libraryDocument #itemDetailPage .detailImageContainer .quality-overlay-container {
+    display: none !important;
+}
