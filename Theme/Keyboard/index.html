@@ -1,23 +1,72 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Virtual Keyboard</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-<body>
-    <!-- Text area for input -->
-    <textarea 
-        name="anytext" 
-        class="text-area use-keyboard-input" 
-        placeholder="Click me!"></textarea>
+<!-- Virtual Keyboard Root -->
+<div id="virtual-keyboard" class="keyboard keyboard--hidden" aria-hidden="true">
 
-    <!-- Keyboard container (JS will populate keys dynamically) -->
-    <div id="keyboard-container"></div>
+    <!-- Keys Container -->
+    <div class="keyboard__keys">
 
-    <!-- JS logic -->
-    <script src="script.js"></script>
-</body>
-</html>
+        <!-- Row 1 -->
+        <button class="keyboard__key" data-key="1">1</button>
+        <button class="keyboard__key" data-key="2">2</button>
+        <button class="keyboard__key" data-key="3">3</button>
+        <button class="keyboard__key" data-key="4">4</button>
+        <button class="keyboard__key" data-key="5">5</button>
+        <button class="keyboard__key" data-key="6">6</button>
+        <button class="keyboard__key" data-key="7">7</button>
+        <button class="keyboard__key" data-key="8">8</button>
+        <button class="keyboard__key" data-key="9">9</button>
+        <button class="keyboard__key" data-key="0">0</button>
+        <button class="keyboard__key keyboard__key--wide" data-key="backspace">⌫</button>
+
+        <br>
+
+        <!-- Row 2 -->
+        <button class="keyboard__key" data-key="q">q</button>
+        <button class="keyboard__key" data-key="w">w</button>
+        <button class="keyboard__key" data-key="e">e</button>
+        <button class="keyboard__key" data-key="r">r</button>
+        <button class="keyboard__key" data-key="t">t</button>
+        <button class="keyboard__key" data-key="y">y</button>
+        <button class="keyboard__key" data-key="u">u</button>
+        <button class="keyboard__key" data-key="i">i</button>
+        <button class="keyboard__key" data-key="o">o</button>
+        <button class="keyboard__key" data-key="p">p</button>
+
+        <br>
+
+        <!-- Row 3 -->
+        <button class="keyboard__key keyboard__key--wide" data-key="caps">caps</button>
+        <button class="keyboard__key" data-key="a">a</button>
+        <button class="keyboard__key" data-key="s">s</button>
+        <button class="keyboard__key" data-key="d">d</button>
+        <button class="keyboard__key" data-key="f">f</button>
+        <button class="keyboard__key" data-key="g">g</button>
+        <button class="keyboard__key" data-key="h">h</button>
+        <button class="keyboard__key" data-key="j">j</button>
+        <button class="keyboard__key" data-key="k">k</button>
+        <button class="keyboard__key" data-key="l">l</button>
+        <button class="keyboard__key keyboard__key--wide" data-key="enter">⏎</button>
+
+        <br>
+
+        <!-- Row 4 -->
+        <button class="keyboard__key" data-key="z">z</button>
+        <button class="keyboard__key" data-key="x">x</button>
+        <button class="keyboard__key" data-key="c">c</button>
+        <button class="keyboard__key" data-key="v">v</button>
+        <button class="keyboard__key" data-key="b">b</button>
+        <button class="keyboard__key" data-key="n">n</button>
+        <button class="keyboard__key" data-key="m">m</button>
+        <button class="keyboard__key" data-key=",">,</button>
+        <button class="keyboard__key" data-key=".">.</button>
+        <button class="keyboard__key" data-key="?">?</button>
+
+        <br>
+
+        <!-- Row 5 -->
+        <button class="keyboard__key keyboard__key--extra--wide" data-key="space">space</button>
+        <button class="keyboard__key keyboard__key--dark" data-key="user">User</button>
+        <button class="keyboard__key keyboard__key--dark" data-key="password">Password</button>
+        <button class="keyboard__key keyboard__key--dark keyboard__key--wide" data-key="done">Done</button>
+
+    </div>
+</div>
