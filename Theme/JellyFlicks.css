@@ -2102,7 +2102,7 @@ h3.tagline {
 
 .chapterThumb { /* The thumbnail image itself */
     border-radius: var(--rounded-cards) !important;
-    margin-bottom: 47px !important; /* Adjust spacing */
+    margin-bottom: 4.7vh !important; /* Adjust spacing */
     box-shadow: 0 0 1.9vh #000 !important; /* Custom shadow */
 }
 
@@ -2129,13 +2129,13 @@ h3.tagline {
 
 .skip-button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.8)!important; /* Accent-colored shadow */
+    box-shadow: 0 0 2vh rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.8)!important; /* Accent-colored shadow */
 }
 
 /* Mobile-specific styling for the skip button. */
  .layout-mobile .skip-button {
-    box-shadow: 0 0 30px rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.7)!important;
-    padding: 10px 10px !important;
+    box-shadow: 0 0 2vh rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.7)!important;
+    padding: 1vh 1vh !important;
 }
 
 /* Styling for the newer IntroSkipper button (often within an #skipIntro container). */
@@ -2149,7 +2149,7 @@ h3.tagline {
 #skipIntro .btnSkipIntro:hover {
     transform: scale(1.05);
     background: var(--primary-accent-color) !important; /* Accent color on hover */
-    box-shadow: 0 0 8px rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.6) !important; /* Accent-colored shadow */
+    box-shadow: 0 0 0.8vh rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.6) !important; /* Accent-colored shadow */
 }
 
 /* Ensure text/icon within the skip button is white on hover for contrast. */
@@ -2159,7 +2159,7 @@ h3.tagline {
 
 /* Remove padding from the "Up Next" container when it's specifically for IntroSkipper. */
 #skipIntro .upNextContainer {
-    padding: 0px !important;
+    padding: 0 !important;
 }
 
 /* Remove focus shadow from IntroSkipper button for a cleaner look. */
@@ -2199,15 +2199,15 @@ h3.tagline {
 /* InPlayerEpisodePreview Plugin (Desktop) */
 /* Adjusts layout and font sizes for the InPlayerEpisodePreview popup on desktop. */
 .layout-desktop #popupFocusContainer {
-    padding: 10px !important;
+    padding: 1vh !important;
     background: var(--secondary-background-transparent) !important;
     backdrop-filter: blur(var(--blur)) !important;
 }
 
-.layout-desktop #popupTitleContainer { margin: 0px !important; padding: 10px 0px !important; }
-.layout-desktop #popupContentContainer .previewEpisodeDetails { position: unset !important; margin: 0px 0px 6px 10px !important; font-size: 13.5px !important; }
-.layout-desktop #popupContentContainer .previewEpisodeTitle { font-size: 16.5px !important; }
-.layout-desktop #popupContentContainer .listItem { padding: .25em .5em !important; }
+.layout-desktop #popupTitleContainer { margin: 0 !important; padding: 1vh 0 !important; }
+.layout-desktop #popupContentContainer .previewEpisodeDetails { position: unset !important; margin: 0 0 0.6vh 1vh !important; font-size: 0.95rem !important; }
+.layout-desktop #popupContentContainer .previewEpisodeTitle { font-size: 1.1rem !important; }
+.layout-desktop #popupContentContainer .listItem { padding: 0.25em 0.5em !important; }
 
 /* ~~~~~~~~~~~~~~~~~~~~ SETTINGS & DASHBOARD ~~~~~~~~~~~~~~~~~~~~ */
 /* Input Fields, Lists, and Buttons Styling */
@@ -2230,13 +2230,13 @@ h3.tagline {
 }
 
 .fab, .raised {
-  box-shadow: 0 4px 12px rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.1) !important;
+  box-shadow: 0 0.4vh 1.2vh rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.1) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease !important;
 }
 
 .fab:hover, .raised:hover {
-  transform: translateY(-2px) !important;
-  box-shadow: 0 6px 20px rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.4) !important;
+  transform: translateY(-0.2vh) !important;
+  box-shadow: 0 0.6vh 2vh rgba(var(--primary-r), var(--primary-g), var(--primary-b), 0.4) !important;
 }
 
 /* Change colors for options dropdown */
@@ -2253,8 +2253,8 @@ h3.tagline {
 /* Background for dashboard menu on mobile */
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation16.MuiDrawer-paper.MuiDrawer-paperAnchorLeft {
     background: var(--secondary-background-color) !important;
-    border-top-right-radius: 30px !important;
-    border-bottom-right-radius: 30px !important;
+    border-top-right-radius: 3vh !important;
+    border-bottom-right-radius: 3vh !important;
 }
 
 /* The panel when clicked on the profile in dashboard page */
@@ -2282,13 +2282,13 @@ h3.tagline {
 }
 
 .username { /* Already styled in accent colors, this re-affirms or adjusts margin */
-    margin: 0px 0px 10px 10px !important;
+    margin: 0 0 10vh 1vw !important;
     color: var(--primary-accent-color) !important;
 }
 
 .headerUsername, .sectionTitle { /* Accent color for username in header and section titles */
     color: var(--primary-accent-color) !important;
-    text-shadow: -1px 1px 15px #000000;
+    text-shadow: -0.1vh 0.1vh 1.5vh #000000;
     font-weight: bold;
 }
 
@@ -2312,7 +2312,7 @@ h3.tagline {
 .layout-tv fieldset.verticalSection-extrabottompadding {
     border-radius: var(--rounded-cards) !important;
     border-color: var(--secondary-background-transparent) !important;
-    padding: 10px 35px 20px 35px !important;
+    padding: 10vh 3.5vh 2vh 3.5vw !important;
 }
 
 .layout-mobile fieldset.verticalSection-extrabottompadding {
@@ -2416,7 +2416,7 @@ h3.tagline {
 /* Styles for the newer MUI-based sidebar in the dashboard. */
 .MuiPaper-root.MuiDrawer-paperAnchorDockedLeft { /* The drawer paper itself */
     border-right: none !important; /* Remove default right border */
-    width: 260px !important;
+    width: 16vw !important;
     border-top-right-radius: var(--rounded-cards) !important;
     border-bottom-right-radius: var(--rounded-cards)  !important;
 }
@@ -2424,7 +2424,7 @@ h3.tagline {
 /* Smaller sidebar width for mobile dashboard. */
 .layout-mobile .MuiPaper-root.MuiDrawer-paperAnchorDockedLeft {
     background: var(--secondary-background-transparent) !important; /* Transparent background on mobile */
-    width: 240px !important;
+    width: 15vw !important;
 }
 
 /* Styling for the list container within the MUI sidebar. */
@@ -2499,7 +2499,7 @@ h3.tagline {
 /* Styles related to the music player interface and the "Now Playing" bar at the bottom. */
 
 /* Margin adjustment for the info container in the desktop Now Playing bar. */
-.layout-desktop .appfooter .nowPlayingBarInfoContainer { margin-left: 20px !important; }
+.layout-desktop .appfooter .nowPlayingBarInfoContainer { margin-left: 2vw !important; }
 
 /* Styling for the volume OSD (On-Screen Display) in the desktop layout. */
 .volumeOsd {
@@ -2620,7 +2620,7 @@ h3.tagline {
     position: absolute !important;
     right: 0 !important;
     top: 0 !important;
-    opacity: .3 !important;         /* Reduced opacity for subtlety */
+    opacity: 0.3 !important;         /* Reduced opacity for subtlety */
     margin-top: 0rem !important;    /* Reset any default margin */
     background-attachment: scroll !important; /* Ensure it scrolls with content if needed, or 'fixed' */
 }
@@ -2662,10 +2662,10 @@ h3.tagline {
 /* Adjusts header tab and right section margins on screens narrower than 1600px. */
 @media (max-width: 1599px) {
     .layout-desktop .headerTabs {
-        margin-top: -65px !important; /* Further adjust top margin */
+        margin-top: -6.5vh !important; /* Further adjust top margin */
     }
     .layout-desktop .headerRight {
-        margin-right: 15px !important; /* Adjust right margin */
+        margin-right: 1.5vh !important; /* Adjust right margin */
     }
     /* Ensures section tabs (within header) align to center and fit content on these screen sizes. */
     .layout-desktop .sectionTabs {
@@ -2676,7 +2676,7 @@ h3.tagline {
 
 /* Fixes for TV Layout Header */
 .layout-tv .sectionTabs { width: auto !important; } /* Ensure tabs fit content */
-.layout-tv .headerLeft { padding: 5px !important; } /* Adjust padding for left header on TV */
+.layout-tv .headerLeft { padding: 0.5vh !important; } /* Adjust padding for left header on TV */
 
 /* Font and Overlap Fixes for Media Bar Area */
 /* Addresses issues with the first content section overlapping the media bar (Now Playing bar) and standardizes fonts in that area. */
