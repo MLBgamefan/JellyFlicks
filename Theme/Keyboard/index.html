@@ -1,13 +1,94 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <link rel="stylesheet" href="https://unpkg.com/simple-keyboard@latest/build/css/index.css">
+    <meta charset="UTF-8">
+    <title>Virtual Keyboard Demo</title>
+    <!-- Simple Keyboard CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/simple-keyboard@latest/build/css/index.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .simple-keyboard {
+            max-width: 700px;
+            margin-top: 20px;
+        }
+        input {
+            font-size: 18px;
+            padding: 8px 12px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
- 
 <body>
-  <input class="input" placeholder="Tap on the virtual keyboard to start" />
-  <div class="simple-keyboard"></div>
- 
-  <script src="https://unpkg.com/simple-keyboard@latest/build/index.js"></script>
-  <script src="src/index.js"></script>
+
+    <h2>Virtual Keyboard Test</h2>
+
+    <input type="text" placeholder="Username" />
+    <input type="password" placeholder="Password" />
+
+    <!-- Virtual keyboard container -->
+    <div class="simple-keyboard"></div>
+
+    <!-- Simple Keyboard JS -->
+    <script src="https://unpkg.com/simple-keyboard@latest/build/index.js"></script>
+    <script>
+        const Keyboard = window.SimpleKeyboard.default;
+
+        const myKeyboard = new Keyboard({
+            onChange: input => onChange(input),
+            onKeyPress: button => onKeyPress(button),
+            layout: {
+                default: [
+                    "` 1 2 3 4 5 6 7 8 9 0 - = {bksp}",
+                    "q w e r t y u i o p [ ] \\",
+                    "a s d f g h j k l ; '",
+                    "{shift} z x c v b n m , . / {shift}",
+                    "{space} {tab} {enter}"
+                ]
+            },
+            display: {
+                "{bksp}": "⌫",
+                "{enter}": "⏎",
+                "{shift}": "⇧",
+                "{space}": "␣",
+                "{tab}": "⇥"
+            }
+        });
+
+        // --- onChange: update currently active input ---
+        function onChange(input) {
+            const active = document.activeElement;
+            if (active && (active.tagName === "INPUT" || active.tagName === "TEXTAREA")) {
+                active.value = input;
+            }
+        }
+
+        // --- onKeyPress: handle special keys ---
+        function onKeyPress(button) {
+            const active = document.activeElement;
+            if (!active) return;
+
+            // TAB key: move to next tabbable element
+            if (button === "{tab}") {
+                const tabbables = Array.from(
+                    document.querySelectorAll('input, button, [tabindex]:not([tabindex="-1"])')
+                ).filter(el => el.offsetParent !== null && !el.disabled);
+
+                let idx = tabbables.indexOf(active);
+                idx = (idx + 1) % tabbables.length;
+                tabbables[idx].focus();
+            }
+        }
+
+        // Optional: focus first input on page load
+        window.addEventListener('DOMContentLoaded', () => {
+            const firstInput = document.querySelector('input');
+            if (firstInput) firstInput.focus();
+        });
+    </script>
+
 </body>
 </html>
