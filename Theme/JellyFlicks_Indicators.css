@@ -30,6 +30,21 @@
     font-size: 95%;
 }
 
+/* Unwatched Episode Counter — lighter blue variant of Played indicator */
+.countIndicator:not(.playedIndicator) {
+    background: linear-gradient(to bottom, #3fc4ff, #0a86c9) !important;
+    background-color: unset !important;
+
+    /* keep your existing geometry & depth */
+    border-radius: 0px 10px !important;
+    box-shadow: -2px 1px 4px 0 rgb(0 0 0 / .8),
+                inset 0 1px 3px rgba(255,255,255,0.25) !important;
+    border: 1px solid rgba(0,0,0,0.2) !important;
+
+    color: #ffffff !important;
+    font-weight: 600 !important;
+}
+
 /* Poster Hover Play Button — match Played Indicator styling (force circular) */
 .cardOverlayContainer .cardOverlayFab,
 .cardOverlayContainer .cardOverlayFab-primary {
