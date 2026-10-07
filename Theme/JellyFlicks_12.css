@@ -2749,30 +2749,6 @@ header.MuiAppBar-root .MuiToolbar-root {
     box-shadow: none !important;
 }
 
-/* Replace the server-name button with a larger JellyFlicks logo. */
-header.MuiAppBar-root a.MuiButton-root[href="#/"] {
-    box-sizing: border-box !important;
-    width: 200px !important;
-    min-width: 200px !important;
-    height: 56px !important;
-    margin-top: 8px !important;
-    padding: 8px 12px !important;
-    font-size: 0 !important;
-}
-
-header.MuiAppBar-root a.MuiButton-root[href="#/"] .MuiButton-startIcon {
-    display: block !important;
-    flex: 0 0 180px !important;
-    width: 180px !important;
-    height: 48px !important;
-    margin: 0 !important;
-    background: url("https://mlbgamefan.github.io/JellyFlicks/Theme/Logos/JellyFlicks-logo.png") center / contain no-repeat !important;
-}
-
-header.MuiAppBar-root a.MuiButton-root[href="#/"] .MuiButton-startIcon img {
-    display: none !important;
-}
-
 /* Hide SyncPlay, Cast to Device, Favorites, Movies, and Shows. */
 header.MuiAppBar-root button[aria-label="SyncPlay"],
 header.MuiAppBar-root button[aria-label="Cast to Device"],
