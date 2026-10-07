@@ -1,0 +1,39 @@
+/* Replace the default Jellyfin logo with the JellyFlicks logo. */
+:root {
+    --logo: url("https://mlbgamefan.github.io/JellyFlicks/Theme/Logos/JellyFlicks-logo.png");
+}
+
+/* Default Jellyfin logo styling. */
+.pageTitleWithDefaultLogo {
+    background-image: var(--logo) !important;
+    background-size: contain !important;
+    background-position: left center !important;
+    background-repeat: no-repeat !important;
+    height: 60px !important;
+    width: 150px !important;
+}
+
+/* Desktop and TV logo dimensions and positioning. */
+.layout-tv .pageTitleWithLogo,
+.layout-desktop .pageTitleWithLogo {
+    margin-left: 25px !important;
+    height: 60px !important;
+    width: 150px !important;
+}
+
+/* Mobile logo dimensions and positioning. */
+.layout-mobile .pageTitleWithLogo {
+    height: 60px !important;
+    width: 150px !important;
+    margin: 0 1em 0 0.5em !important;
+    padding: 10px !important;
+}
+
+/* General page title margin when the title is text rather than a logo. */
+[dir="ltr"] .pageTitle:not(.pageTitleWithLogo) {
+    margin: 0 1em 0 0.5em !important;
+}
+
+.layout-mobile .pageTitleWithDefaultLogo {
+    width: 130px !important;
+}
