@@ -1,0 +1,42 @@
+/* Manual Login button — match Sign In */
+#loginPage .btnManual {
+    background: linear-gradient(to bottom, #00baff, #005f99) !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+    transition: background 0.2s ease, transform 0.2s ease !important;
+}
+
+/* Hover / focus behavior identical to Sign In */
+#loginPage .btnManual:hover,
+#loginPage .btnManual:focus {
+    background: linear-gradient(to bottom, #00baff, #005f99) !important;
+    transform: scale(1.05);
+}
+
+/* Replace text and center it */
+#loginPage .btnManual span {
+    position: relative !important;
+    color: transparent !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100%;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+}
+
+/* Inject new text */
+#loginPage .btnManual span::before {
+    content: "Sign In Manually" !important;
+    position: absolute !important;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    font-family: inherit !important;
+    pointer-events: none;
+}
