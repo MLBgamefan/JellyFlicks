@@ -564,69 +564,7 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
     overflow: hidden; /* Ensures inner parts respect the rounding */
 }
 
-/* Lock header layout */ /*Start here*/
-.headerLeft {
-    display: flex !important;
-    align-items: center !important;
-}
-
-/* Fixed logo container space â€“ desktop default */ 
-.headerLeft::before {
-    content: "";
-    background-image: url("https://mlbgamefan.github.io/JellyFlicks/Theme/Logos/JellyFlicks-logo.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left center;
-    width: 150px;
-    height: 60px;
-    margin-left: 16px;
-    margin-right: 16px;
-    flex-shrink: 0;
-}
-
-/* Tablet adjustments */
-@media (max-width: 1024px) {
-    .headerLeft::before {
-        width: 110px;
-        height: 32px;
-        margin-left: 12px;
-        margin-right: 12px;
-    }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .headerLeft::before {
-        width: 90px;
-        height: 26px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-}
-
-/* Small phones */
-@media (max-width: 480px) {
-    .headerLeft::before {
-        width: 72px;
-        height: 22px;
-        margin-right: 8px;
-        margin-right: 8px;
-    }
-}
-
-/* Push page titles and menu items right */
-.pageTitle,
-.pageTitleWithDefaultLogo {
-    margin-left: 0 !important;
-}
-
-/* Hide default Jellyfin logo everywhere */
-.headerLogo,
-.pageTitle img,
-.pageTitleWithDefaultLogo img {
-    display: none !important;
-}  
-
+/* Jellyfin 12 renders its header as Material UI; custom logo rules are below. */
 /* Ensure page content is fully below the header/logo */
 .mainContentContainer {
     padding-top: 60px !important;
@@ -735,10 +673,6 @@ progress::-webkit-progress-value  /* Filled part of the progress bar (WebKit) */
   display: none !important;
 }
 
-/* Hide "Cast to Device" button in the header */
-#reactRoot .headerCastButton {
-    display: none !important;
-}
 
 /* Hide Shuffle button in the detail ribbon */
 .detailPagePrimaryContainer .mainDetailButtons.focuscontainer-x > button.btnShuffle {
@@ -2806,4 +2740,72 @@ h3.tagline {
 .layout-desktop #itemDetailPage:has(button.btnPlaystate[data-type="Book"]) .itemMiscInfo {
     margin-left: 11px !important;
     margin-top: 11px !important;
+}
+/* ~~~~~~~~~~~~~~~~~~~~ JELLYFIN 12 HEADER CUSTOMIZATION ~~~~~~~~~~~~~~~~~~~~ */
+/* Match the top bar to the JellyFlicks page background. */
+header.MuiAppBar-root,
+header.MuiAppBar-root .MuiToolbar-root {
+    background: #000508 !important;
+    box-shadow: none !important;
+}
+
+/* Replace the server-name button with a larger JellyFlicks logo. */
+header.MuiAppBar-root a.MuiButton-root[href="#/"] {
+    box-sizing: border-box !important;
+    width: 200px !important;
+    min-width: 200px !important;
+    height: 56px !important;
+    margin-top: 8px !important;
+    padding: 8px 12px !important;
+    font-size: 0 !important;
+}
+
+header.MuiAppBar-root a.MuiButton-root[href="#/"] .MuiButton-startIcon {
+    display: block !important;
+    flex: 0 0 180px !important;
+    width: 180px !important;
+    height: 48px !important;
+    margin: 0 !important;
+    background: url("https://mlbgamefan.github.io/JellyFlicks/Theme/Logos/JellyFlicks-logo.png") center / contain no-repeat !important;
+}
+
+header.MuiAppBar-root a.MuiButton-root[href="#/"] .MuiButton-startIcon img {
+    display: none !important;
+}
+
+/* Hide SyncPlay, Cast to Device, Favorites, and Shows. */
+header.MuiAppBar-root button[aria-label="SyncPlay"],
+header.MuiAppBar-root button[aria-label="Cast to Device"],
+header.MuiAppBar-root a.MuiButton-root[href="#/home?tab=1"],
+header.MuiAppBar-root a.MuiButton-root[href*="collectionType=tvshows"] {
+    display: none !important;
+}
+
+/* Restore the Jellyfin 10.11-style Material Symbols search icon. */
+header.MuiAppBar-root a[aria-label="Search"] svg {
+    display: none !important;
+}
+
+header.MuiAppBar-root a[aria-label="Search"]::before {
+    content: "search";
+    font-family: "Material Symbols Rounded";
+    font-feature-settings: "liga";
+    font-size: 24px;
+    line-height: 1;
+}
+
+/* Use the Jellyfin 10.11-style person glyph when no avatar image is available. */
+header.MuiAppBar-root .MuiAvatar-root:has(.MuiAvatar-fallback) {
+    background: transparent !important;
+}
+
+header.MuiAppBar-root .MuiAvatar-root:has(.MuiAvatar-fallback) .MuiAvatar-fallback {
+    display: none !important;
+}
+
+header.MuiAppBar-root .MuiAvatar-root:has(.MuiAvatar-fallback)::before {
+    content: "\e853";
+    font-family: "Material Symbols Rounded";
+    font-size: 24px;
+    line-height: 1;
 }
