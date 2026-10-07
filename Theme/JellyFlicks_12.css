@@ -2773,10 +2773,11 @@ header.MuiAppBar-root a.MuiButton-root[href="#/"] .MuiButton-startIcon img {
     display: none !important;
 }
 
-/* Hide SyncPlay, Cast to Device, Favorites, and Shows. */
+/* Hide SyncPlay, Cast to Device, Favorites, Movies, and Shows. */
 header.MuiAppBar-root button[aria-label="SyncPlay"],
 header.MuiAppBar-root button[aria-label="Cast to Device"],
 header.MuiAppBar-root a.MuiButton-root[href="#/home?tab=1"],
+header.MuiAppBar-root a.MuiButton-root:has(svg[data-testid="MovieIcon"]),
 header.MuiAppBar-root a.MuiButton-root[href*="collectionType=tvshows"] {
     display: none !important;
 }
