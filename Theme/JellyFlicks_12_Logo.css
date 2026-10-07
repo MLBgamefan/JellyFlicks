@@ -1,8 +1,9 @@
-/* Replace the default Jellyfin logo with the JellyFlicks logo. */
+/* JellyFlicks logo used by the legacy and Jellyfin 12 headers. */
 :root {
     --logo: url("https://mlbgamefan.github.io/JellyFlicks/Theme/Logos/JellyFlicks-logo.png");
 }
 
+/* Legacy Jellyfin header logo. */
 .pageTitleWithDefaultLogo {
     background-image: var(--logo) !important;
     background-size: contain !important;
@@ -12,17 +13,6 @@
     width: 150px !important;
 }
 
-/* Default Jellyfin logo styling. */
-.pageTitleWithDefaultLogo {
-    background-image: var(--logo) !important;
-    background-size: contain !important;
-    background-position: left center !important;
-    background-repeat: no-repeat !important;
-    height: 60px !important;
-    width: 150px !important;
-}
-
-/* Desktop and TV logo dimensions and positioning. */
 .layout-tv .pageTitleWithLogo,
 .layout-desktop .pageTitleWithLogo {
     margin-left: 25px !important;
@@ -30,19 +20,59 @@
     width: 150px !important;
 }
 
-/* Mobile logo dimensions and positioning. */
 .layout-mobile .pageTitleWithLogo {
-    height: 60px !important;
-    width: 150px !important;
-    margin: 0 1em 0 0.5em !important;
-    padding: 10px !important;
+    height: clamp(40px, 12vw, 60px) !important;
+    width: clamp(112px, 30vw, 150px) !important;
+    margin: 0 0.5em !important;
+    padding: 6px !important;
 }
 
-/* General page title margin when the title is text rather than a logo. */
 [dir="ltr"] .pageTitle:not(.pageTitleWithLogo) {
     margin: 0 1em 0 0.5em !important;
 }
 
 .layout-mobile .pageTitleWithDefaultLogo {
-    width: 130px !important;
+    width: clamp(112px, 30vw, 150px) !important;
+}
+
+/* Jellyfin 12 renders the server name and icon inside a Material UI button. */
+header.MuiAppBar-root a.MuiButton-root[href="#/"] {
+    box-sizing: border-box !important;
+    width: clamp(160px, 16vw, 200px) !important;
+    min-width: clamp(160px, 16vw, 200px) !important;
+    height: clamp(44px, 4.5vw, 56px) !important;
+    margin-top: 8px !important;
+    padding: clamp(4px, 0.7vw, 8px) clamp(6px, 1vw, 12px) !important;
+    font-size: 0 !important;
+}
+
+header.MuiAppBar-root a.MuiButton-root[href="#/"] .MuiButton-startIcon {
+    display: block !important;
+    flex: 0 0 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 !important;
+    background: var(--logo) center / contain no-repeat !important;
+}
+
+header.MuiAppBar-root a.MuiButton-root[href="#/"] .MuiButton-startIcon img {
+    display: none !important;
+}
+
+@media (max-width: 600px) {
+    header.MuiAppBar-root a.MuiButton-root[href="#/"] {
+        width: clamp(112px, 30vw, 160px) !important;
+        min-width: clamp(112px, 30vw, 160px) !important;
+        height: clamp(40px, 10vw, 48px) !important;
+        margin-top: 4px !important;
+        padding: 4px 8px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    header.MuiAppBar-root a.MuiButton-root[href="#/"] {
+        width: clamp(104px, 34vw, 130px) !important;
+        min-width: clamp(104px, 34vw, 130px) !important;
+        height: clamp(36px, 11vw, 42px) !important;
+    }
 }
