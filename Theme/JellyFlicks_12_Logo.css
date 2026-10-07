@@ -3,6 +3,15 @@
     --logo: url("https://mlbgamefan.github.io/JellyFlicks/Theme/Logos/JellyFlicks-logo.png");
 }
 
+.pageTitleWithDefaultLogo {
+    background-image: var(--logo) !important;
+    background-size: contain !important;
+    background-position: left center !important;
+    background-repeat: no-repeat !important;
+    height: 60px !important;
+    width: 150px !important;
+}
+
 /* Default Jellyfin logo styling. */
 .pageTitleWithDefaultLogo {
     background-image: var(--logo) !important;
