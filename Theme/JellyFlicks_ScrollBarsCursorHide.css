@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     scrollbar-width: none !important;
     -ms-overflow-style: none !important;
 }
@@ -6,8 +7,4 @@ html, body {
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
     display: none !important;
-}
-
-html, body {
-    cursor: none !important;
 }
