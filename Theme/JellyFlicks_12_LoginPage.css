@@ -50,27 +50,9 @@ html body #loginPage.page.standalonePage.backdropPage.mainAnimatedPage
 
 /* Center every visual-login profile card and its avatar within the user section. */
 #loginPage .visualLoginForm #divUsers.itemsContainer {
-    display: flex !important;
-    flex-wrap: wrap !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
-    align-content: center !important;
-    width: 100% !important;
-}
-
-#loginPage .visualLoginForm #divUsers > button.card.squareCard {
-    display: flex !important;
     justify-content: center !important;
 }
 
-#loginPage .visualLoginForm #divUsers > button.card.squareCard > .cardBox {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
-}
-
-#loginPage .visualLoginForm #divUsers .cardScalable,
-#loginPage .visualLoginForm #divUsers .cardImageContainer {
-    margin-inline: auto !important;
+#loginPage .visualLoginForm #divUsers .cardText {
+    text-align: center !important;
 }
