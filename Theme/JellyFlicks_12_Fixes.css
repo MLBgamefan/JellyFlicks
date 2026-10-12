@@ -39,7 +39,7 @@ div#listChildrenCollapsible {
     padding-left: 0 !important;
 }
 
-/* Keep library count and filter/sort controls as one centered toolbar cluster. */
+/* Center the legacy library toolbar and keep its paging text before sort/filter. */
 .itemsViewSettingsContainer {
   display: flex !important;
   align-items: center !important;
@@ -65,6 +65,11 @@ div#listChildrenCollapsible {
 .itemsViewSettingsContainer > .btnNewItem,
 .itemsViewSettingsContainer > .btnViewSettings {
   order: 2 !important;
+}
+
+/* Hide the legacy Play All action without affecting Shuffle. */
+.itemsViewSettingsContainer > .btnPlay {
+  display: none !important;
 }
 
 .mainDetailButtons {

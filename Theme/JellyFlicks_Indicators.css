@@ -22,6 +22,11 @@
     color: #ffffff !important;
 }
 
+.playedIndicator.indicator.MuiBox-root svg[data-testid="CheckIcon"] {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
 .mediaSourceIndicator {
   left: 0 !important;
   top: 0 !important;

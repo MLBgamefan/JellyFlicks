@@ -2775,6 +2775,22 @@ header.MuiAppBar-root a.MuiButton-root[href="#/home?tab=1"] {
     display: none !important;
 }
 
+/* Keep the Movies, TV Shows, and Movies-collection (including Stand Up) links visible. */
+header.MuiAppBar-root a.MuiButton-root[href*="collectionType=movies"],
+header.MuiAppBar-root a.MuiButton-root[href*="collectionType=tvshows"] {
+    display: inline-flex !important;
+}
+
+/* Retain the library title as a label, but remove its menu affordance. */
+header.MuiAppBar-root button[aria-controls="library-view-menu"] {
+    cursor: default !important;
+    pointer-events: none !important;
+}
+
+header.MuiAppBar-root button[aria-controls="library-view-menu"] .MuiButton-endIcon {
+    display: none !important;
+}
+
 /* Restore the Jellyfin 10.11-style Material Symbols search icon. */
 header.MuiAppBar-root a[aria-label="Search"] svg {
     display: none !important;
@@ -2802,4 +2818,65 @@ header.MuiAppBar-root .MuiAvatar-root:has(.MuiAvatar-fallback)::before {
     font-family: "Material Symbols Rounded";
     font-size: 24px;
     line-height: 1;
+}
+
+/* Center the count and MUI library controls as a single cluster beneath the title. */
+header.MuiAppBar-root .MuiToolbar-root *:has(> button[aria-controls="library-view-menu"]):has(> .MuiBox-root:has(> .MuiChip-root)):has(> .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"])) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto auto minmax(0, 1fr) !important;
+    align-items: center !important;
+    column-gap: 0.35em !important;
+}
+
+header.MuiAppBar-root .MuiToolbar-root *:has(> button[aria-controls="library-view-menu"]):has(> .MuiBox-root:has(> .MuiChip-root)):has(> .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"])) > button[aria-controls="library-view-menu"] {
+    grid-column: 1 !important;
+    justify-self: start !important;
+    min-width: 0 !important;
+}
+
+header.MuiAppBar-root .MuiToolbar-root *:has(> button[aria-controls="library-view-menu"]):has(> .MuiBox-root:has(> .MuiChip-root)):has(> .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"])) > .MuiBox-root:has(> .MuiChip-root) {
+    grid-column: 2 !important;
+    justify-self: end !important;
+}
+
+header.MuiAppBar-root .MuiToolbar-root *:has(> button[aria-controls="library-view-menu"]):has(> .MuiBox-root:has(> .MuiChip-root)):has(> .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"])) > .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"]) {
+    grid-column: 3 !important;
+    justify-self: start !important;
+    display: flex !important;
+    flex-flow: row wrap !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.25em !important;
+}
+
+/* Hide Play All without removing Shuffle or the filter, sort, view, and paging actions. */
+header.MuiAppBar-root .MuiStack-root:has(> .MuiBox-root > .MuiButtonGroup-root > button[title="Play All"]) button[title="Play All"] {
+    display: none !important;
+}
+
+header.MuiAppBar-root .MuiStack-root:has(> .MuiBox-root > .MuiButtonGroup-root > button[title="Play All"]) button[title="Shuffle"] {
+    border-radius: var(--rounded-cards) !important;
+}
+
+@media (max-width: 600px) {
+    header.MuiAppBar-root .MuiToolbar-root *:has(> button[aria-controls="library-view-menu"]):has(> .MuiBox-root:has(> .MuiChip-root)):has(> .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"])) {
+        grid-template-columns: minmax(0, 1fr) auto auto minmax(0, 1fr) !important;
+        row-gap: 0.25em !important;
+    }
+
+    header.MuiAppBar-root .MuiToolbar-root *:has(> button[aria-controls="library-view-menu"]):has(> .MuiBox-root:has(> .MuiChip-root)):has(> .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"])) > button[aria-controls="library-view-menu"] {
+        grid-column: 1 / -1 !important;
+        grid-row: 1 !important;
+        justify-self: start !important;
+    }
+
+    header.MuiAppBar-root .MuiToolbar-root *:has(> button[aria-controls="library-view-menu"]):has(> .MuiBox-root:has(> .MuiChip-root)):has(> .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"])) > .MuiBox-root:has(> .MuiChip-root) {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+    }
+
+    header.MuiAppBar-root .MuiToolbar-root *:has(> button[aria-controls="library-view-menu"]):has(> .MuiBox-root:has(> .MuiChip-root)):has(> .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"])) > .MuiStack-root:has(> .MuiButtonGroup-root > button[title="Filter"]) {
+        grid-column: 3 !important;
+        grid-row: 2 !important;
+    }
 }
