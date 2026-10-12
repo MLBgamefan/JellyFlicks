@@ -2745,7 +2745,7 @@ h3.tagline {
 /* Keep JellyFlicks' deep-blue header while borrowing ElegantFin's restrained glass treatment. */
 header.MuiAppBar-root {
     background: rgba(0, 5, 8, 0.9) !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 0 !important;
     box-shadow: none !important;
     -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
     backdrop-filter: blur(12px) saturate(140%) !important;
@@ -2754,6 +2754,7 @@ header.MuiAppBar-root {
 
 header.MuiAppBar-root .MuiToolbar-root {
     background: transparent !important;
+    border-bottom: 0 !important;
     box-shadow: none !important;
 }
 
@@ -2767,12 +2768,10 @@ header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root:not(:fi
     background: var(--secondary-background-transparent) !important;
 }
 
-/* Hide SyncPlay, Cast to Device, Favorites, Movies, and Shows. */
+/* Hide SyncPlay, Cast to Device, and Favorites while keeping library links available. */
 header.MuiAppBar-root button[aria-label="SyncPlay"],
 header.MuiAppBar-root button[aria-label="Cast to Device"],
-header.MuiAppBar-root a.MuiButton-root[href="#/home?tab=1"],
-header.MuiAppBar-root a.MuiButton-root:has(svg[data-testid="MovieIcon"]),
-header.MuiAppBar-root a.MuiButton-root[href*="collectionType=tvshows"] {
+header.MuiAppBar-root a.MuiButton-root[href="#/home?tab=1"] {
     display: none !important;
 }
 
