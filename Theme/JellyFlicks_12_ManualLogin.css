@@ -2,6 +2,7 @@
 #loginPage .btnManual,
 #loginPage form.manualLoginForm button.raised.button-submit.block.emby-button {
     box-sizing: border-box !important;
+    height: 2.5em !important;
     min-height: 2.5em !important;
     background: linear-gradient(to bottom, #00baff, #005f99) !important;
     border-radius: 5px !important;
@@ -12,7 +13,11 @@
 
 /* Keep Go Back's slate color while matching the Sign In corner radius. */
 #loginPage form.manualLoginForm button.btnCancel {
+    box-sizing: border-box !important;
+    height: 2.5em !important;
+    min-height: 2.5em !important;
     border-radius: 5px !important;
+    padding: 10px 20px !important;
 }
 
 /* Keep hover and focus styling in sync across both login actions. */
