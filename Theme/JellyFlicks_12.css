@@ -2742,11 +2742,29 @@ h3.tagline {
     margin-top: 11px !important;
 }
 /* ~~~~~~~~~~~~~~~~~~~~ JELLYFIN 12 HEADER CUSTOMIZATION ~~~~~~~~~~~~~~~~~~~~ */
-/* Match the top bar to the JellyFlicks page background. */
-header.MuiAppBar-root,
-header.MuiAppBar-root .MuiToolbar-root {
-    background: #000508 !important;
+/* Keep JellyFlicks' deep-blue header while borrowing ElegantFin's restrained glass treatment. */
+header.MuiAppBar-root {
+    background: rgba(0, 5, 8, 0.9) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     box-shadow: none !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+    backdrop-filter: blur(12px) saturate(140%) !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease !important;
+}
+
+header.MuiAppBar-root .MuiToolbar-root {
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Give desktop navigation the JellyFlicks rounded-surface treatment without changing the brand button. */
+header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root:not(:first-child) {
+    border-radius: var(--rounded-cards) !important;
+    transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root:not(:first-child):hover {
+    background: var(--secondary-background-transparent) !important;
 }
 
 /* Hide SyncPlay, Cast to Device, Favorites, Movies, and Shows. */

@@ -237,9 +237,11 @@ span.MuiCheckbox-root.Mui-checked {
 
 /* Dialog container */
 .MuiDialog-paper {
-  border-radius: 20px !important;
-  background: var(--secondary-accent-color) !important;
-  backdrop-filter: blur(100px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: var(--rounded-cards) !important;
+  background: var(--secondary-background-transparent) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
 }
 
 /* Dialog title */
