@@ -5,18 +5,8 @@
     font-weight: 700 !important;
 }
 
-#loginPage .readOnlyContent button.raised.cancel.block.btnForgotPassword.emby-button,
-#loginPage button.raised.cancel.block.btnForgotPassword.emby-button {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 2.5em !important;
-    padding: 0.5em 1em !important;
-    border: 0 !important;
-    border-radius: 5px !important;
-    background: var(--primary-accent-color) !important;
-    color: var(--text-color) !important;
-    font-weight: 600 !important;
+#loginPage .btnForgotPassword {
+    display: none !important;
 }
 
 #loginPage .loginDisclaimerContainer .loginDisclaimer,
