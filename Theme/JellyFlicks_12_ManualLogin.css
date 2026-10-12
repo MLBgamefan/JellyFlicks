@@ -1,5 +1,8 @@
-/* Manual Login button — match Sign In */
-#loginPage .btnManual {
+/* Match the visual-login action to the manual form's Sign In button. */
+#loginPage .btnManual,
+#loginPage form.manualLoginForm button.raised.button-submit.block.emby-button {
+    box-sizing: border-box !important;
+    min-height: 2.5em !important;
     background: linear-gradient(to bottom, #00baff, #005f99) !important;
     border-radius: 5px !important;
     padding: 10px 20px !important;
@@ -7,10 +10,13 @@
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out !important;
 }
 
-/* Hover / focus behavior identical to Sign In */
+/* Keep hover and focus styling in sync across both login actions. */
 #loginPage .btnManual:hover,
 #loginPage .btnManual:focus,
-#loginPage .btnManual:focus-visible {
+#loginPage .btnManual:focus-visible,
+#loginPage form.manualLoginForm button.raised.button-submit.block.emby-button:hover,
+#loginPage form.manualLoginForm button.raised.button-submit.block.emby-button:focus,
+#loginPage form.manualLoginForm button.raised.button-submit.block.emby-button:focus-visible {
     background: linear-gradient(to bottom, #00aaff, #0077b3) !important;
     color: #ffffff !important;
     transform: scale(1.05) !important;
