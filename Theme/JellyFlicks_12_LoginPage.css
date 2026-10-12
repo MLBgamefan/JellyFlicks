@@ -8,8 +8,13 @@
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    border: 1px solid var(--alt-accent-color) !important;
+    min-height: 2.75em !important;
+    padding: 0.65em 1.25em !important;
+    border: 1px solid var(--primary-accent-color) !important;
     border-radius: var(--rounded-cards) !important;
+    background: linear-gradient(to bottom, #00baff, #005f99) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0.25em 0.75em rgba(0, 0, 0, 0.35) !important;
     font-weight: 700 !important;
 }
 
@@ -18,12 +23,25 @@
     font-weight: 700 !important;
 }
 
-/* Restore the rounded JellyFlicks surface around the standalone MUI login page. */
-#loginPage.mainAnimatedPage {
+/* Frame the login content itself; the outer animated page fills the viewport. */
+#loginPage.mainAnimatedPage > .padded-left.padded-right.padded-bottom-page.margin-auto-y {
+    position: relative !important;
+    width: min(45em, calc(100% - 2em)) !important;
+    margin: 2em auto !important;
+    padding: 1.25em !important;
     box-sizing: border-box !important;
-    border: 1px solid var(--alt-accent-color) !important;
+    border: 1px solid var(--primary-accent-color) !important;
     border-radius: var(--rounded-cards) !important;
-    background: rgba(0, 5, 8, 0.35) !important;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    background: rgba(0, 5, 8, 0.72) !important;
+    box-shadow: 0 0.75em 2em rgba(0, 0, 0, 0.45) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(140%) !important;
+    backdrop-filter: blur(12px) saturate(140%) !important;
+}
+
+@media (max-width: 768px) {
+    #loginPage.mainAnimatedPage > .padded-left.padded-right.padded-bottom-page.margin-auto-y {
+        width: calc(100% - 1.5em) !important;
+        margin: 1em auto !important;
+        padding: 0.75em !important;
+    }
 }
