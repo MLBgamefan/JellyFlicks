@@ -11,14 +11,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'); /* Quicksand Font from Google Fonts */
 @import url("https://cdn.jsdelivr.net/gh/Druidblack/jellyfin-icon-metadata/public-icon.css"); /* Metadata icons by Druidblack */
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Font.css");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_LoginPage.css?v=login-panel-4");
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_LoginPage.css?v=login-panel-5");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Indicators.css?v=played-mobile-update-2");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_bgscroll.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_ScrollBarsCursorHide.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Resolutions.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_Fixes.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_Logo.css");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_ManualLogin.css?v=manual-login-match-3");
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_ManualLogin.css?v=manual-login-match-4");
 
 /* ~~~~~~~~~~~~~~~~~~~~ GLOBAL CSS VARIABLES ~~~~~~~~~~~~~~~~~~~~ */
 /* Defines core variables used throughout the theme for consistency. */
@@ -2834,6 +2834,31 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     max-width: 100% !important;
 }
 
+/* Keep seasons swipeable without turning the episode list into a horizontal row. */
+.layout-mobile #listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Season"]) {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-x: contain !important;
+    touch-action: pan-x pan-y !important;
+    scrollbar-width: none !important;
+}
+
+.layout-mobile #listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Season"]) > .listItem {
+    flex: 0 0 min(85vw, 28rem) !important;
+    width: min(85vw, 28rem) !important;
+    max-width: min(85vw, 28rem) !important;
+}
+
+.layout-mobile #listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Season"])::-webkit-scrollbar {
+    display: none !important;
+}
+
 /* Mobile library toolbar: hide the MUI shuffle action on media pages. */
 .layout-mobile button[title="Shuffle"] {
     display: none !important;
@@ -2875,6 +2900,18 @@ body:has(#tvshowsPage) header.MuiAppBar-root button[aria-controls="library-view-
 
 body:has(#tvshowsPage) header.MuiAppBar-root button[aria-controls="library-view-menu"] .MuiTypography-root::after {
     content: "T.V. Shows";
+    font-size: 1.5rem !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
+/* Desktop anchors are brand, Favorites, Movies, TV Shows, Stand Up, then Live TV. */
+body.layout-desktop:has(header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root:nth-of-type(5).MuiButton-colorPrimary) header.MuiAppBar-root button[aria-controls="library-view-menu"] .MuiTypography-root {
+    font-size: 0 !important;
+}
+
+body.layout-desktop:has(header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root:nth-of-type(5).MuiButton-colorPrimary) header.MuiAppBar-root button[aria-controls="library-view-menu"] .MuiTypography-root::after {
+    content: "Stand Up";
     font-size: 1.5rem !important;
     font-weight: inherit !important;
     line-height: inherit !important;
