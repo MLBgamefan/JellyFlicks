@@ -18,6 +18,10 @@
     background-color: unset !important;
 }
 
+.playedIndicator.indicator .material-icons.indicatorIcon.check {
+    color: #ffffff !important;
+}
+
 .mediaSourceIndicator {
   left: 0 !important;
   top: 0 !important;
