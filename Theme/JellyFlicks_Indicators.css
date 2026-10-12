@@ -27,6 +27,31 @@
     fill: #ffffff !important;
 }
 
+.playedIndicator.indicator,
+.playedIndicator.MuiBox-root {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    min-width: 30px !important;
+    height: 30px !important;
+    min-height: 30px !important;
+    padding: 0 !important;
+    border-radius: 10px !important;
+}
+
+.playedIndicator.indicator .material-icons.indicatorIcon.check,
+.playedIndicator.indicator.MuiBox-root svg[data-testid="CheckIcon"] {
+    font-size: 18px !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.playedIndicator.indicator.MuiBox-root svg[data-testid="CheckIcon"] path {
+    fill: #ffffff !important;
+}
+
 .mediaSourceIndicator {
   left: 0 !important;
   top: 0 !important;

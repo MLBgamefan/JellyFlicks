@@ -12,13 +12,13 @@
 @import url("https://cdn.jsdelivr.net/gh/Druidblack/jellyfin-icon-metadata/public-icon.css"); /* Metadata icons by Druidblack */
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Font.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_LoginPage.css?v=login-panel-4");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Indicators.css");
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Indicators.css?v=indicators-uniform-1");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_bgscroll.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_ScrollBarsCursorHide.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Resolutions.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_Fixes.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_Logo.css");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_ManualLogin.css");
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_ManualLogin.css?v=manual-login-match-1");
 
 /* ~~~~~~~~~~~~~~~~~~~~ GLOBAL CSS VARIABLES ~~~~~~~~~~~~~~~~~~~~ */
 /* Defines core variables used throughout the theme for consistency. */
@@ -1470,11 +1470,6 @@ a.emby-button.homeLibraryButton.raised:hover::before {
 
 /* Desktop-specific indicator styling (squared look). */
 @media (min-width: 1200px) {
-    .playedIndicator, .indicator { /* General class for indicators */
-        border-radius: 10px !important; /* Custom rounding for desktop */
-        width: 30px;
-        height: 30px;
-    }
     .mediaSourceIndicator { /* Indicator for media source (e.g., HD, 4K) */
         background: var(--primary-accent-color) !important;
         border-radius: 10px !important;
@@ -2775,9 +2770,10 @@ header.MuiAppBar-root a.MuiButton-root[href="#/home?tab=1"] {
     display: none !important;
 }
 
-/* Keep the Movies, TV Shows, and Movies-collection (including Stand Up) links visible. */
+/* Keep library navigation links visible, including Movies, Stand Up, TV Shows, and Live TV. */
 header.MuiAppBar-root a.MuiButton-root[href*="collectionType=movies"],
-header.MuiAppBar-root a.MuiButton-root[href*="collectionType=tvshows"] {
+header.MuiAppBar-root a.MuiButton-root[href*="collectionType=tvshows"],
+header.MuiAppBar-root a.MuiButton-root[href*="livetv"] {
     display: inline-flex !important;
 }
 
@@ -2802,6 +2798,131 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     font-feature-settings: "liga";
     font-size: 24px;
     line-height: 1;
+}
+
+/* Mobile primary navigation replaces the drawer menu with library links. */
+.layout-mobile header.MuiAppBar-root button:has(> svg[data-testid="MenuIcon"]) {
+    display: none !important;
+}
+
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiStack-root {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 2px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none !important;
+}
+
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiStack-root::-webkit-scrollbar {
+    display: none !important;
+}
+
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root[href*="collectionType=movies"],
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root[href*="collectionType=tvshows"],
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root[href*="livetv"] {
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    padding: 4px 5px !important;
+    font-size: clamp(0.58rem, 2.2vw, 0.8rem) !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+}
+
+/* Keep the linked JellyFlicks mark interactive in the mobile toolbar. */
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root:first-child {
+    position: relative !important;
+    z-index: 1 !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    text-decoration: none !important;
+}
+
+/* Mobile library toolbar: hide the MUI shuffle action on media pages. */
+.layout-mobile button[title="Shuffle"] {
+    display: none !important;
+}
+
+.layout-mobile header.MuiAppBar-root .MuiButtonGroup-root:has(> button[title="Play All"]):has(> button[title="Shuffle"]) {
+    display: none !important;
+}
+
+/* Preserve native A-Z filtering while restoring JellyFlicks hover/selected styling. */
+.alphaPicker-fixed-right .MuiPaper-root {
+    overflow: visible !important;
+}
+
+.alphaPicker-fixed-right .MuiToggleButton-root {
+    color: #888 !important;
+    background: transparent !important;
+    border-radius: 4px !important;
+    transition: color 0.2s ease, transform 0.2s ease, background-color 0.2s ease !important;
+}
+
+.alphaPicker-fixed-right .MuiToggleButton-root:hover {
+    color: #ffffff !important;
+    background: rgba(0, 95, 153, 0.45) !important;
+    transform: scale(1.1) !important;
+}
+
+.alphaPicker-fixed-right .MuiToggleButton-root.Mui-selected,
+.alphaPicker-fixed-right .MuiToggleButton-root.Mui-selected:hover {
+    color: #ffffff !important;
+    background: linear-gradient(to bottom, #00aaff, #005f99) !important;
+    transform: scale(1.08) !important;
+}
+
+/* Keep the season-card row horizontally swipeable on mobile. */
+.layout-mobile #listChildrenCollapsible .itemsContainer {
+    display: flex !important;
+    flex-flow: row nowrap !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior-x: contain !important;
+    touch-action: pan-x pan-y !important;
+    scrollbar-width: none !important;
+}
+
+.layout-mobile #listChildrenCollapsible .itemsContainer > * {
+    flex: 0 0 auto !important;
+}
+
+.layout-mobile #listChildrenCollapsible .itemsContainer::-webkit-scrollbar {
+    display: none !important;
+}
+
+/* Rename the Shows library tab title without changing other library labels. */
+body:has(#tvshowsPage) header.MuiAppBar-root button[aria-controls="library-view-menu"] .MuiTypography-root {
+    font-size: 0 !important;
+}
+
+body:has(#tvshowsPage) header.MuiAppBar-root button[aria-controls="library-view-menu"] .MuiTypography-root::after {
+    content: "T.V. Shows";
+    font-size: 1.5rem !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
+}
+
+/* Rename only the modern Live TV guide view title. */
+body:has(#liveTvPage .programGrid) header.MuiAppBar-root button[aria-controls="library-view-menu"] .MuiTypography-root {
+    font-size: 0 !important;
+}
+
+body:has(#liveTvPage .programGrid) header.MuiAppBar-root button[aria-controls="library-view-menu"] .MuiTypography-root::after {
+    content: "Live T.V. Channels Guide";
+    font-size: 1.5rem !important;
+    font-weight: inherit !important;
+    line-height: inherit !important;
 }
 
 /* Use the Jellyfin 10.11-style person glyph when no avatar image is available. */
