@@ -18,7 +18,7 @@
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Resolutions.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_Fixes.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_Logo.css");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_ManualLogin.css?v=manual-login-match-2");
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_ManualLogin.css?v=manual-login-match-3");
 
 /* ~~~~~~~~~~~~~~~~~~~~ GLOBAL CSS VARIABLES ~~~~~~~~~~~~~~~~~~~~ */
 /* Defines core variables used throughout the theme for consistency. */
@@ -2800,6 +2800,40 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     line-height: 1;
 }
 
+/* Remove the drawer toggle from the Jellyfin 12 mobile header. */
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root > .MuiIconButton-root:has(> svg[data-testid="MenuIcon"]),
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root > .MuiIconButton-root:has(svg[data-testid="MenuIcon"]),
+.layout-mobile header.MuiAppBar-root .mainDrawerButton,
+.layout-mobile .mainDrawerButton {
+    display: none !important;
+}
+
+.layout-mobile header.MuiAppBar-root .MuiIconButton-root:has(> svg[data-testid="MenuIcon"]),
+.layout-mobile header.MuiAppBar-root .MuiIconButton-root:has(svg[data-testid="MenuIcon"]),
+.layout-mobile header.MuiAppBar-root button[aria-label="MenuOpen"],
+.layout-mobile header.MuiAppBar-root button[aria-label="MenuClose"] {
+    display: none !important;
+}
+
+/* Let Jellyfin's native vertical list show every episode in a season. */
+#listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Episode"]) {
+    display: flex !important;
+    flex-direction: column !important;
+    flex-wrap: nowrap !important;
+    overflow: visible !important;
+    overflow-x: visible !important;
+    overflow-y: visible !important;
+    max-height: none !important;
+    height: auto !important;
+}
+
+#listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Episode"]) > .listItem,
+#listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Episode"]) .listItem[data-type="Episode"] {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
 /* Mobile library toolbar: hide the MUI shuffle action on media pages. */
 .layout-mobile button[title="Shuffle"] {
     display: none !important;
@@ -2832,29 +2866,6 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     color: #ffffff !important;
     background: linear-gradient(to bottom, #00aaff, #005f99) !important;
     transform: scale(1.08) !important;
-}
-
-/* Keep the season-card row horizontally swipeable on mobile. */
-.layout-mobile #listChildrenCollapsible .itemsContainer {
-    display: flex !important;
-    flex-flow: row nowrap !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    overscroll-behavior-x: contain !important;
-    touch-action: pan-x pan-y !important;
-    scrollbar-width: none !important;
-}
-
-.layout-mobile #listChildrenCollapsible .itemsContainer > * {
-    flex: 0 0 auto !important;
-}
-
-.layout-mobile #listChildrenCollapsible .itemsContainer::-webkit-scrollbar {
-    display: none !important;
 }
 
 /* Rename the Shows library tab title without changing other library labels. */

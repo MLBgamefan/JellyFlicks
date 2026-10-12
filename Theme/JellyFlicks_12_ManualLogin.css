@@ -10,6 +10,11 @@
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out !important;
 }
 
+/* Keep Go Back's slate color while matching the Sign In corner radius. */
+#loginPage form.manualLoginForm button.btnCancel {
+    border-radius: 5px !important;
+}
+
 /* Keep hover and focus styling in sync across both login actions. */
 #loginPage .btnManual:hover,
 #loginPage .btnManual:focus,
