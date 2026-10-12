@@ -70,25 +70,15 @@ header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiStack-root > a.MuiBut
     display: none !important;
 }
 
-/* Show JellyFlicks branding beside the drawer toggle when the server button is omitted. */
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiIconButton-root:has(> svg[data-testid="MenuIcon"]) {
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex: 0 0 clamp(136px, 42vw, 184px) !important;
-    gap: 8px !important;
-    height: 44px !important;
-    justify-content: flex-start !important;
-    min-width: clamp(136px, 42vw, 184px) !important;
-    padding: 4px 8px !important;
-    width: clamp(136px, 42vw, 184px) !important;
-}
-
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiIconButton-root:has(> svg[data-testid="MenuIcon"])::before {
-    background: var(--logo) center / contain no-repeat !important;
+/* Render the logo as a toolbar flex item before the drawer toggle. */
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type:has(> .MuiIconButton-root > svg[data-testid="MenuIcon"]):not(:has(> .MuiStack-root > a.MuiButton-root))::before {
+    background: var(--logo) left center / contain no-repeat !important;
     content: "" !important;
-    flex: 1 1 auto !important;
-    height: clamp(28px, 9vw, 40px) !important;
-    min-width: 0 !important;
+    flex: 0 0 clamp(76px, 25vw, 112px) !important;
+    height: clamp(24px, 7vw, 34px) !important;
+    margin-inline-end: 8px !important;
+    pointer-events: none !important;
+    width: clamp(76px, 25vw, 112px) !important;
 }
 
 @media (max-width: 600px) {
