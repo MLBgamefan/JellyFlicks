@@ -83,7 +83,7 @@ header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiStack-root > a.MuiBut
     width: clamp(136px, 42vw, 184px) !important;
 }
 
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiIconButton-root:has(> svg[data-testid="MenuIcon"])::after {
+.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiIconButton-root:has(> svg[data-testid="MenuIcon"])::before {
     background: var(--logo) center / contain no-repeat !important;
     content: "" !important;
     flex: 1 1 auto !important;
