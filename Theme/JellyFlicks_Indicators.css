@@ -276,3 +276,37 @@ body.libraryDocument div#reactRoot div div.mainDrawer h3.sidebarHeader {
     transform: translate(-50%, -50%) scale(1.12) !important;
 }
 
+/* Restrained poster motion inspired by ElegantFin; avoid touch and reduced-motion effects. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .card-hoverable .cardImageContainer {
+        transition: transform 0.25s ease;
+        transform-origin: center;
+    }
+
+    .card-hoverable:hover .cardImageContainer {
+        transform: scale(1.025);
+    }
+}
+
+/* Optional Media Bar polish: plugin-scoped so it has no effect when the plugin is absent. */
+#slides-container .slide {
+    border: 1px solid var(--alt-accent-color);
+    border-radius: var(--rounded-cards);
+    overflow: hidden;
+}
+
+#slides-container .backdrop-overlay {
+    background: linear-gradient(to top, rgba(0, 5, 8, 0.88), transparent 58%);
+}
+
+#slides-container .dot {
+    border-radius: 999px;
+    background: var(--text-color);
+    opacity: 0.55;
+    transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+#slides-container .dot.active {
+    background: var(--primary-accent-color);
+    opacity: 1;
+}
