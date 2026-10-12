@@ -4,6 +4,7 @@
     font-weight: 700 !important;
 }
 
+#loginPage .readOnlyContent button.raised.cancel.block.btnForgotPassword.emby-button,
 #loginPage button.raised.cancel.block.btnForgotPassword.emby-button {
     display: inline-flex !important;
     align-items: center !important;
@@ -13,6 +14,7 @@
     border: 0 !important;
     border-radius: 5px !important;
     background: var(--primary-accent-color) !important;
+    color: var(--text-color) !important;
     font-weight: 600 !important;
 }
 
@@ -22,30 +24,35 @@
 }
 
 /* Preserve the original JellyFlicks login panel rules on Jellyfin 12's content node. */
-#loginPage .padded-left.padded-right.padded-bottom-page {
+html body #loginPage.page.standalonePage.backdropPage.mainAnimatedPage
+    .padded-left.padded-right.padded-bottom-page {
     position: absolute !important;
     top: 50% !important;
     left: 50% !important;
     transform: translate(-50%, -50%) !important;
     width: 45em !important;
+    max-width: none !important;
+    margin: 0 !important;
     background: rgba(0, 0, 0, 0.35) !important;
     border-radius: 15px !important;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(10px) !important;
     padding: 16px !important;
     box-sizing: border-box !important;
 }
 
 @media (max-width: 768px) {
-    #loginPage .padded-left.padded-right.padded-bottom-page {
+    html body #loginPage.page.standalonePage.backdropPage.mainAnimatedPage
+        .padded-left.padded-right.padded-bottom-page {
         width: 35em !important;
-        padding: 12px;
+        padding: 12px !important;
     }
 }
 
 @media (max-width: 480px) {
-    #loginPage .padded-left.padded-right.padded-bottom-page {
+    html body #loginPage.page.standalonePage.backdropPage.mainAnimatedPage
+        .padded-left.padded-right.padded-bottom-page {
         width: 90% !important;
-        padding: 8px;
+        padding: 8px !important;
     }
 }
