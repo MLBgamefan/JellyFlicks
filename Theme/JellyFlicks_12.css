@@ -12,13 +12,13 @@
 @import url("https://cdn.jsdelivr.net/gh/Druidblack/jellyfin-icon-metadata/public-icon.css"); /* Metadata icons by Druidblack */
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Font.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_LoginPage.css?v=login-panel-4");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Indicators.css?v=indicators-uniform-1");
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Indicators.css?v=played-mobile-update-2");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_bgscroll.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_ScrollBarsCursorHide.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_Resolutions.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_Fixes.css");
 @import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_Logo.css");
-@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_ManualLogin.css?v=manual-login-match-1");
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_12_ManualLogin.css?v=manual-login-match-2");
 
 /* ~~~~~~~~~~~~~~~~~~~~ GLOBAL CSS VARIABLES ~~~~~~~~~~~~~~~~~~~~ */
 /* Defines core variables used throughout the theme for consistency. */
@@ -2798,50 +2798,6 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     font-feature-settings: "liga";
     font-size: 24px;
     line-height: 1;
-}
-
-/* Mobile primary navigation replaces the drawer menu with library links. */
-.layout-mobile header.MuiAppBar-root button:has(> svg[data-testid="MenuIcon"]) {
-    display: none !important;
-}
-
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiStack-root {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
-    gap: 2px !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none !important;
-}
-
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root:first-of-type > .MuiStack-root::-webkit-scrollbar {
-    display: none !important;
-}
-
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root[href*="collectionType=movies"],
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root[href*="collectionType=tvshows"],
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root[href*="livetv"] {
-    display: inline-flex !important;
-    flex: 0 0 auto !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-width: 0 !important;
-    padding: 4px 5px !important;
-    font-size: clamp(0.58rem, 2.2vw, 0.8rem) !important;
-    line-height: 1.15 !important;
-    white-space: nowrap !important;
-}
-
-/* Keep the linked JellyFlicks mark interactive in the mobile toolbar. */
-.layout-mobile header.MuiAppBar-root .MuiToolbar-root .MuiStack-root > a.MuiButton-root:first-child {
-    position: relative !important;
-    z-index: 1 !important;
-    cursor: pointer !important;
-    pointer-events: auto !important;
-    text-decoration: none !important;
 }
 
 /* Mobile library toolbar: hide the MUI shuffle action on media pages. */
