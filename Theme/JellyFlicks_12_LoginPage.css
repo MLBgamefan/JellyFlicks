@@ -1,5 +1,6 @@
-/* Jellyfin 12 login page refinements for the MUI-based login layout. */
+@import url("https://mlbgamefan.github.io/JellyFlicks/Theme/JellyFlicks_LoginPage.css");
 
+/* Jellyfin 12 login page refinements layered over the established JellyFlicks design. */
 #loginPage .visualLoginForm h1 {
     font-weight: 700 !important;
 }
@@ -23,7 +24,7 @@
     font-weight: 700 !important;
 }
 
-/* Preserve the original JellyFlicks login panel rules on Jellyfin 12's content node. */
+/* Keep the legacy panel geometry when the MUI page supplies additional wrapper classes. */
 html body #loginPage.page.standalonePage.backdropPage.mainAnimatedPage
     .padded-left.padded-right.padded-bottom-page {
     position: absolute !important;
