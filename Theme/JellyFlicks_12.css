@@ -2834,10 +2834,11 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     max-width: 100% !important;
 }
 
-/* Series detail pages put Season cards in #childrenCollapsible and Episodes in #listChildrenCollapsible. */
-.layout-mobile #childrenCollapsible .itemsContainer:has(.overflowPortraitCard) {
+/* Jellyfin marks the Season row scrollX on mobile; preserve its horizontal touch scrolling. */
+#childrenCollapsible .itemsContainer.scrollX {
     display: flex !important;
     flex-flow: row nowrap !important;
+    box-sizing: border-box !important;
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
@@ -2849,11 +2850,13 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     scrollbar-width: none !important;
 }
 
-.layout-mobile #childrenCollapsible .itemsContainer:has(.overflowPortraitCard) > .overflowPortraitCard {
-    flex: 0 0 auto !important;
+#childrenCollapsible .itemsContainer.scrollX > .card[data-type="Season"] {
+    flex: 0 0 clamp(160px, 40vw, 280px) !important;
+    width: clamp(160px, 40vw, 280px) !important;
+    max-width: none !important;
 }
 
-.layout-mobile #childrenCollapsible .itemsContainer:has(.overflowPortraitCard)::-webkit-scrollbar {
+#childrenCollapsible .itemsContainer.scrollX::-webkit-scrollbar {
     display: none !important;
 }
 
