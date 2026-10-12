@@ -1,0 +1,29 @@
+/* Jellyfin 12 login page refinements for the MUI-based login layout. */
+
+#loginPage .visualLoginForm h1 {
+    font-weight: 700 !important;
+}
+
+#loginPage .readOnlyContent button.raised.cancel.block.btnForgotPassword.emby-button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border: 1px solid var(--alt-accent-color) !important;
+    border-radius: var(--rounded-cards) !important;
+    font-weight: 700 !important;
+}
+
+#loginPage .loginDisclaimerContainer .loginDisclaimer,
+#loginPage .loginDisclaimerContainer .loginDisclaimer * {
+    font-weight: 700 !important;
+}
+
+/* Restore the rounded JellyFlicks surface around the standalone MUI login page. */
+#loginPage.mainAnimatedPage {
+    box-sizing: border-box !important;
+    border: 1px solid var(--alt-accent-color) !important;
+    border-radius: var(--rounded-cards) !important;
+    background: rgba(0, 5, 8, 0.35) !important;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
