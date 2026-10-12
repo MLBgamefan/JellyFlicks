@@ -2834,9 +2834,9 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     max-width: 100% !important;
 }
 
-/* Keep the actual Season cards in one swipeable row, even when Jellyfin omits scrollX. */
+/* Series pages render Season cards in #listChildrenCollapsible. */
 @media (max-width: 1200px), (pointer: coarse) {
-    #childrenCollapsible .itemsContainer:has(> .card[data-type="Season"]) {
+    #listChildrenCollapsible .itemsContainer:has(> .card[data-type="Season"]) {
         display: flex !important;
         flex-direction: row !important;
         flex-wrap: nowrap !important;
@@ -2852,7 +2852,7 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
         scrollbar-width: thin !important;
     }
 
-    #childrenCollapsible .itemsContainer:has(> .card[data-type="Season"]) > .card[data-type="Season"] {
+    #listChildrenCollapsible .itemsContainer:has(> .card[data-type="Season"]) > .card[data-type="Season"] {
         flex: 0 0 clamp(160px, 40vw, 280px) !important;
         width: clamp(160px, 40vw, 280px) !important;
         max-width: none !important;
