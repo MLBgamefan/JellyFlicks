@@ -2834,30 +2834,29 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     max-width: 100% !important;
 }
 
-/* Jellyfin marks the Season row scrollX on mobile; preserve its horizontal touch scrolling. */
-#childrenCollapsible .itemsContainer.scrollX {
-    display: flex !important;
-    flex-flow: row nowrap !important;
-    box-sizing: border-box !important;
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    overscroll-behavior-x: contain !important;
-    touch-action: pan-x pan-y !important;
-    scrollbar-width: none !important;
-}
+/* Keep the actual Season cards in one swipeable row, even when Jellyfin omits scrollX. */
+@media (max-width: 1200px), (pointer: coarse) {
+    #childrenCollapsible .itemsContainer:has(> .card[data-type="Season"]) {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        box-sizing: border-box !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        overscroll-behavior-x: contain !important;
+        touch-action: pan-x pan-y !important;
+        scrollbar-width: thin !important;
+    }
 
-#childrenCollapsible .itemsContainer.scrollX > .card[data-type="Season"] {
-    flex: 0 0 clamp(160px, 40vw, 280px) !important;
-    width: clamp(160px, 40vw, 280px) !important;
-    max-width: none !important;
-}
-
-#childrenCollapsible .itemsContainer.scrollX::-webkit-scrollbar {
-    display: none !important;
+    #childrenCollapsible .itemsContainer:has(> .card[data-type="Season"]) > .card[data-type="Season"] {
+        flex: 0 0 clamp(160px, 40vw, 280px) !important;
+        width: clamp(160px, 40vw, 280px) !important;
+        max-width: none !important;
+    }
 }
 
 /* Mobile library toolbar: hide the MUI shuffle action on media pages. */
