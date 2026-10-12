@@ -2834,8 +2834,8 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     max-width: 100% !important;
 }
 
-/* Keep seasons swipeable without turning the episode list into a horizontal row. */
-.layout-mobile #listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Season"]) {
+/* Series detail pages put Season cards in #childrenCollapsible and Episodes in #listChildrenCollapsible. */
+.layout-mobile #childrenCollapsible .itemsContainer:has(.overflowPortraitCard) {
     display: flex !important;
     flex-flow: row nowrap !important;
     width: 100% !important;
@@ -2849,13 +2849,11 @@ header.MuiAppBar-root a[aria-label="Search"]::before {
     scrollbar-width: none !important;
 }
 
-.layout-mobile #listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Season"]) > .listItem {
-    flex: 0 0 min(85vw, 28rem) !important;
-    width: min(85vw, 28rem) !important;
-    max-width: min(85vw, 28rem) !important;
+.layout-mobile #childrenCollapsible .itemsContainer:has(.overflowPortraitCard) > .overflowPortraitCard {
+    flex: 0 0 auto !important;
 }
 
-.layout-mobile #listChildrenCollapsible .itemsContainer:has(.listItem[data-type="Season"])::-webkit-scrollbar {
+.layout-mobile #childrenCollapsible .itemsContainer:has(.overflowPortraitCard)::-webkit-scrollbar {
     display: none !important;
 }
 
