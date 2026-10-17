@@ -812,6 +812,22 @@ div.card.overflowPortraitCard .cardScalable {
     height: auto !important;
 }
 
+/* Match Jellyseerr detail cards to the Recently Added poster size. */
+html.layout-desktop .detailPageSecondaryContainer
+.jellyseerr-details-section
+div.card.overflowPortraitCard {
+    width: 220px !important;
+    max-width: 220px !important;
+    height: auto !important;
+}
+
+html.layout-desktop .detailPageSecondaryContainer
+.jellyseerr-details-section
+div.card.overflowPortraitCard .cardScalable {
+    width: 100% !important;
+    height: auto !important;
+}
+
 /* Center play button on all posters without changing size/proportions */
 .cardOverlayContainer {
     display: flex !important;
