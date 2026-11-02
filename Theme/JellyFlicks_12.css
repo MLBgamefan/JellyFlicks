@@ -315,6 +315,20 @@ body.withSectionTabs.libraryDocument div.selectionCommandsPanel .material-icons 
     backdrop-filter: blur(var(--blur)) !important;
 }
 
+/* Keep the user, filter, sort, and view popovers visually consistent on every page. */
+#app-user-menu .MuiPaper-root.MuiPopover-paper,
+#filter-popover .MuiPaper-root.MuiPopover-paper,
+#sort-popover .MuiPaper-root.MuiPopover-paper,
+#selectview-popover .MuiPaper-root.MuiPopover-paper {
+    background: var(--secondary-background-transparent) !important;
+    color: var(--text-color) !important;
+    backdrop-filter: blur(var(--blur)) !important;
+    -webkit-backdrop-filter: blur(var(--blur)) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: var(--rounded-cards) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25) !important;
+}
+
 .formDialogHeader,
 .formDialogFooter {
     background: var(--secondary-accent-color) !important;
@@ -1846,6 +1860,12 @@ h3.tagline {
 /* Live TV Recording Fields Styling */
 .recordingFields { /* Container for recording schedule options */
     margin: 5px 0 -7px 0 !important; /* Fine-tuned margin */
+}
+
+/* Remove the recording fields and series controls from the desktop recording dialog. */
+body.layout-desktop .recordingDialog .recordingDetailsContainer .recordingDetails > .recordingFields,
+body.layout-desktop .recordingDialog .recordingDetailsContainer .recordingDetails .recordingFields .recordingFields .recordSeriesContainer.recordingFields {
+    display: none !important;
 }
 
 .recordingButton { /* Button to record */
