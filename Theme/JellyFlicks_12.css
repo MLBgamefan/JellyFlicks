@@ -1510,19 +1510,10 @@ a.emby-button.homeLibraryButton.raised:hover::before {
     color: white
 }
 
-/* Hide the played state wherever an in-progress item appears, not just on Home. */
-.card[data-positionticks] .playedIndicator,
-.card[data-positionticks] .playstatebutton-played {
+/* Hide watched badges and hover play-state checks only in Continue Watching. */
+#indexPage .homeSectionsContainer .itemsContainer[data-monitor="videoplayback,markplayed"] .card[data-context="home"] .playedIndicator,
+#indexPage .homeSectionsContainer .itemsContainer[data-monitor="videoplayback,markplayed"] .card[data-context="home"] .playstatebutton-played {
     display: none !important;
-}
-
-/* Keep Jellyfin's server-provided unwatched episode count visible on Series cards. */
-.card[data-type="Series"] .countIndicator:not(.childCountIndicator) {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #ffffff !important;
-    background: linear-gradient(to bottom, #3fc4ff, #0a86c9) !important;
 }
 
 .countIndicator {
