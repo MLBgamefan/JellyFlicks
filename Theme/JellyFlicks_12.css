@@ -1510,6 +1510,12 @@ a.emby-button.homeLibraryButton.raised:hover::before {
     color: white
 }
 
+/* Hide watched badges and hover play-state checks only in Continue Watching. */
+#indexPage .homeSectionsContainer .itemsContainer[data-monitor="videoplayback,markplayed"] .card[data-context="home"] .playedIndicator,
+#indexPage .homeSectionsContainer .itemsContainer[data-monitor="videoplayback,markplayed"] .card[data-context="home"] .playstatebutton-played {
+    display: none !important;
+}
+
 .countIndicator {
     color: var(--text-color) !important; /* Text color for count indicators */
 }
